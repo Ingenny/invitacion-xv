@@ -562,5 +562,88 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+// ============================================
+    // EFECTO ESPIRAL DE DIAMANTES AL ABRIR
+    // ============================================
 
+    function crearEfectoEspiral(x, y) {
+        // Onda expansiva dorada
+        const onda = document.createElement('div');
+        onda.className = 'onda-expansiva';
+        onda.style.left = x + 'px';
+        onda.style.top = y + 'px';
+        document.body.appendChild(onda);
+        
+        // Crear 24 diamantes en espiral
+        const diamantes = ['💎', '✨', '⭐', '💠', '💫', '♦️'];
+        const numDiamantes = 24;
+        
+        for (let i = 0; i < numDiamantes; i++) {
+            setTimeout(() => {
+                const diamante = document.createElement('div');
+                diamante.className = 'diamante-espiral';
+                
+                // Icono aleatorio
+                const icono = diamantes[Math.floor(Math.random() * diamantes.length)];
+                diamante.innerHTML = icono;
+                
+                // Calcular posición en espiral
+                const angulo = (i / numDiamantes) * Math.PI * 2;
+                const radio = 80;
+                const offsetX = Math.cos(angulo) * radio;
+                const offsetY = Math.sin(angulo) * radio;
+                
+                diamante.style.left = (x + offsetX) + 'px';
+                diamante.style.top = (y + offsetY) + 'px';
+                
+                // Tamaño aleatorio
+                const size = 25 + Math.random() * 20;
+                diamante.style.fontSize = size + 'px';
+                
+                document.body.appendChild(diamante);
+                
+                // Eliminar después de la animación
+                setTimeout(() => {
+                    diamante.remove();
+                }, 1000);
+            }, i * 40);
+        }
+        
+        // Eliminar la onda
+        setTimeout(() => {
+            onda.remove();
+        }, 800);
+    }
+
+    // Reemplazar la función del botón de abrir
+    function abrirConEfectoEspiral(event) {
+        console.log('🎉 Abriendo con efecto espiral de diamantes');
+        
+        const x = event.clientX;
+        const y = event.clientY;
+        
+        // Crear efecto espiral
+        crearEfectoEspiral(x, y);
+        
+        // Pequeño retraso para mostrar el efecto
+        setTimeout(() => {
+            // Ocultar portada
+            if (portada) portada.style.display = 'none';
+            
+            // Mostrar carrusel
+            if (carruselFotos) {
+                carruselFotos.style.display = 'flex';
+                mostrarPaginaCarrusel(1);
+            } else if (invitacionDetallada) {
+                invitacionDetallada.style.display = 'block';
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 400);
+    }
+    
+    // Reemplazar el evento del botón
+    botonAbrir.removeEventListener('click', botonAbrir.clickHandler);
+    botonAbrir.addEventListener('click', abrirConEfectoEspiral);
+        
 }); // <--- CIERRE DEL DOMContentLoaded
