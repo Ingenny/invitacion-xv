@@ -941,6 +941,19 @@ body {
     }
 }
 
+@keyframes onda {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
 .diamante-espiral {
     position: fixed;
     pointer-events: none;
