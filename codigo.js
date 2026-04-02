@@ -170,9 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.transform = 'scale(1)';
         }, 200);
     });
-
-    // ============================================
-    // 5. FORMULARIO RSVP
+     // ============================================
+    // 5. FORMULARIO RSVP - CON WHATSAPP
     // ============================================
 
     // Contador de personas
@@ -192,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Enviar formulario MEJORADO
+    // Enviar formulario a WhatsApp
     formulario.addEventListener('submit', function (evento) {
         evento.preventDefault();
 
@@ -219,20 +218,32 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Verificar que el email tenga @ y .
         if (!email.includes('@') || !email.includes('.')) {
             alert('⚠️ Por favor, ingresa un email válido (ejemplo: nombre@correo.com)');
             return;
         }
 
-        // Mensaje de éxito
+        // ==== NÚMERO DE WHATSAPP PARA RECIBIR CONFIRMACIONES ====
+        // CAMBIA ESTE NÚMERO por el tuyo (código de país + número sin +)
+        // Ejemplo Venezuela: 584121234567
+        // Ejemplo Colombia: 573001234567
+        const numeroWhatsApp = '584121234567'; // <--- ¡CAMBIA ESTO!
+
+        // Crear mensaje para WhatsApp
+        const mensajeWhatsApp = `🎉 *NUEVA CONFIRMACIÓN XV AÑOS* 🎉%0A%0A📝 *Nombre:* ${nombre}%0A📧 *Email:* ${email}%0A👥 *Acompañantes:* ${personas}%0A✨ *¡Confirmado!* ✨`;
+        
+        // Abrir WhatsApp con el mensaje
+        window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}`, '_blank');
+
+        // Mensaje de éxito para el invitado
         alert(`✅ ¡GRACIAS POR CONFIRMAR!
         
-        📝 Nombre: ${nombre}
-        📧 Email: ${email}
-        👥 Acompañantes: ${personas}
-        
-        ✨ ¡Te esperamos en la fiesta!`);
+📝 Nombre: ${nombre}
+📧 Email: ${email}
+👥 Acompañantes: ${personas}
+
+✨ ¡Te esperamos en la fiesta!
+📱 Te enviaremos los detalles por WhatsApp`);
 
         // Limpiar formulario
         formulario.reset();
