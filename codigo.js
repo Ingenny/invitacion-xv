@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // CAMBIA ESTE NÚMERO por el tuyo (código de país + número sin +)
         // Ejemplo Venezuela: 584121234567
         // Ejemplo Colombia: 573001234567
-        const numeroWhatsApp = '584121234567'; // <--- ¡CAMBIA ESTO!
+        const numeroWhatsApp = '+584141346514'; // <--- ¡CAMBIA ESTO!
 
         // Crear mensaje para WhatsApp
         const mensajeWhatsApp = `🎉 *NUEVA CONFIRMACIÓN XV AÑOS* 🎉%0A%0A📝 *Nombre:* ${nombre}%0A📧 *Email:* ${email}%0A👥 *Acompañantes:* ${personas}%0A✨ *¡Confirmado!* ✨`;
