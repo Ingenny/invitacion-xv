@@ -212,11 +212,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
   // ============================================
-    // 7. BOTONES CARRUSEL CON EFECTO ESCARCHA ELEGANTE
+    // 7. BOTONES CARRUSEL CON EFECTO ESCARCHA (SIN ELEMENTOS INFANTILES)
     // ============================================
 
-    // Función para efecto escarcha en botones del carrusel
-    function crearEfectoEscarchaBoton(boton, x, y) {
+    // Función para efecto escarcha elegante en botones del carrusel
+    function crearEfectoEscarchaBoton(x, y) {
+        // Onda expansiva sutil
         const onda = document.createElement('div');
         onda.style.position = 'fixed';
         onda.style.left = x + 'px';
@@ -231,7 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
         onda.style.animation = 'onda 0.5s ease-out forwards';
         document.body.appendChild(onda);
         
-        const formas = ['✦', '✧', '·', '•'];
+        // Partículas de brillo elegante (solo formas abstractas, sin dibujos infantiles)
+        const formas = ['✦', '✧', '✵', '✶', '·', '•'];
         for (let i = 0; i < 16; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
@@ -241,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = '#ffd700';
+                particula.style.textShadow = '0 0 3px gold';
                 
                 const angulo = (i / 16) * Math.PI * 2;
                 const radio = 45;
@@ -252,24 +255,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(function() { particula.remove(); }, 500);
             }, i * 20);
         }
+        
+        // Segunda capa de partículas más pequeñas (escarcha)
+        for (let i = 0; i < 24; i++) {
+            setTimeout(function() {
+                const particula = document.createElement('div');
+                particula.style.position = 'fixed';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9998';
+                particula.style.animation = 'brilloEspiral 0.4s ease-out forwards';
+                particula.innerHTML = '·';
+                particula.style.color = '#fff8dc';
+                particula.style.opacity = '0.6';
+                
+                const angulo = Math.random() * Math.PI * 2;
+                const radio = 35 + Math.random() * 40;
+                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                particula.style.fontSize = (5 + Math.random() * 6) + 'px';
+                
+                document.body.appendChild(particula);
+                setTimeout(function() { particula.remove(); }, 400);
+            }, i * 15);
+        }
+        
         setTimeout(function() { onda.remove(); }, 500);
     }
 
-    // Botón SIGUIENTE con efecto escarcha
+    // Botón SIGUIENTE con efecto escarcha elegante
     if (btnSiguiente) {
         btnSiguiente.addEventListener('click', function(event) {
             const x = event.clientX;
             const y = event.clientY;
             
-            crearEfectoEscarchaBoton(this, x, y);
+            // Efecto escarcha
+            crearEfectoEscarchaBoton(x, y);
             
+            // Efecto de brillo en el botón
             this.style.transform = 'scale(0.95)';
-            this.style.boxShadow = '0 0 20px gold';
+            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
                 this.style.boxShadow = 'none';
             }, 200);
             
+            // Cambiar página
             if (paginaActualCarrusel < totalPaginasCarrusel) {
                 mostrarPaginaCarrusel(paginaActualCarrusel + 1);
             } else {
@@ -280,21 +310,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Botón ANTERIOR con efecto escarcha
+    // Botón ANTERIOR con efecto escarcha elegante
     if (btnAnterior) {
         btnAnterior.addEventListener('click', function(event) {
             const x = event.clientX;
             const y = event.clientY;
             
-            crearEfectoEscarchaBoton(this, x, y);
+            // Efecto escarcha
+            crearEfectoEscarchaBoton(x, y);
             
+            // Efecto de brillo en el botón
             this.style.transform = 'scale(0.95)';
-            this.style.boxShadow = '0 0 20px gold';
+            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
                 this.style.boxShadow = 'none';
             }, 200);
             
+            // Cambiar página
             if (paginaActualCarrusel > 1) {
                 mostrarPaginaCarrusel(paginaActualCarrusel - 1);
             }
