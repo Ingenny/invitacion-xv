@@ -49,28 +49,89 @@ document.addEventListener('DOMContentLoaded', function () {
     botonAbrir.addEventListener('click', function () {
         console.log('🎉 ¡Abriendo la invitación!');
 
-        // ==== EFECTO DE DESTELLO ====
+      // ============================================
+    // 2. FUNCIÓN PRINCIPAL: ABRIR INVITACIÓN CON EFECTO GLITTER
+    // ============================================
+
+    function crearEfectoGlitter(x, y) {
+        // Crear capa de brillo general
+        const efectoBling = document.createElement('div');
+        efectoBling.className = 'efecto-bling';
+        document.body.appendChild(efectoBling);
+        
+        // Crear múltiples destellos (gemas, estrellas, brillos)
+        const iconos = ['💎', '✨', '⭐', '💠', '🔮', '💫', '🌟', '♦️', '♠️', '♥️', '♣️', '🃏'];
+        
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const particula = document.createElement('div');
+                particula.className = 'gem-particula';
+                
+                // Icono aleatorio
+                const iconoAleatorio = iconos[Math.floor(Math.random() * iconos.length)];
+                particula.innerHTML = iconoAleatorio;
+                
+                // Posición aleatoria alrededor del clic
+                const offsetX = (Math.random() - 0.5) * 200;
+                const offsetY = (Math.random() - 0.5) * 150 - 50;
+                
+                particula.style.left = (x + offsetX) + 'px';
+                particula.style.top = (y + offsetY) + 'px';
+                
+                // Variables aleatorias para la animación
+                const moveX = (Math.random() - 0.5) * 200;
+                const moveY = -Math.random() * 150 - 50;
+                particula.style.setProperty('--x', moveX + 'px');
+                particula.style.setProperty('--y', moveY + 'px');
+                
+                // Tamaño aleatorio
+                const size = 20 + Math.random() * 25;
+                particula.style.fontSize = size + 'px';
+                
+                document.body.appendChild(particula);
+                
+                // Eliminar después de la animación
+                setTimeout(() => {
+                    particula.remove();
+                }, 800);
+            }, i * 20); // Espaciar las partículas
+        }
+        
+        // Eliminar el efecto general
+        setTimeout(() => {
+            efectoBling.remove();
+        }, 800);
+    }
+
+    // Función original del botón
+    function abrirInvitacion(event) {
+        console.log('🎉 ¡Abriendo la invitación!');
+        
+        // Obtener la posición del clic (para centrar el efecto)
+        const x = event.clientX;
+        const y = event.clientY;
+        
+        // ==== EFECTO BLING/GLITTER ====
+        crearEfectoGlitter(x, y);
+        
+        // ==== EFECTO DE DESTELLO (el que ya tenías) ====
         const destello = document.createElement('div');
         destello.className = 'destello';
         document.body.appendChild(destello);
-
-        // Eliminar el destello después de la animación
+        setTimeout(() => destello.remove(), 600);
+        
+        // Ocultar portada y mostrar invitación
         setTimeout(() => {
-            destello.remove();
-        }, 600);
-        // ==== FIN DESTELLO ====
-
-        // Ocultar portada
-        portada.style.display = 'none';
-
-        // Mostrar invitación detallada
-        invitacionDetallada.style.display = 'block';
-
-        // Hacer scroll al inicio
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
+            portada.style.display = 'none';
+            invitacionDetallada.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 300);
+        
         hacerSonidoExito();
-    });
+    }
+    
+    // Reemplazar el evento del botón
+    botonAbrir.addEventListener('click', abrirInvitacion);
 
     // ============================================
     // 3. FUNCIÓN: CONTADOR REGRESIVO SIMPLE
