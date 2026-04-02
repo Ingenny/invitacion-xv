@@ -645,9 +645,9 @@ body {
 /* ========== RELOJ DERRETIDO DEL SOMBRERERO LOCO - ARRIBA IZQUIERDA ========== */
 .reloj-derretido {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 25;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -658,12 +658,12 @@ body {
 
 .reloj-cara-derretida {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: linear-gradient(145deg, #f0e6d0, #d4c4a8);
     border-radius: 50%;
-    border: 4px solid #d4af37;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.6);
+    border: 3px solid #d4af37;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.5);
     animation: derretirse 4s ease-in-out infinite;
     overflow: hidden;
 }
@@ -695,29 +695,29 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 30% 35%, rgba(255, 245, 215, 0.8), rgba(200, 180, 130, 0.4));
+    background: radial-gradient(circle at 30% 35%, rgba(255, 245, 215, 0.7), rgba(200, 180, 130, 0.3));
 }
 
 .manecilla-derretida {
     position: absolute;
     background: #2a1e3c;
     transform-origin: bottom center;
-    bottom: 50px;
+    bottom: 40px;
     left: 50%;
-    border-radius: 4px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
 .hora-derretida {
-    width: 5px;
-    height: 30px;
+    width: 4px;
+    height: 24px;
     transform: translateX(-50%) rotate(45deg);
     animation: moverHora 43200s linear infinite;
 }
 
 .minuto-derretida {
-    width: 4px;
-    height: 38px;
+    width: 3px;
+    height: 30px;
     transform: translateX(-50%) rotate(90deg);
     animation: moverMinuto 3600s linear infinite;
 }
@@ -734,15 +734,15 @@ body {
 
 .centro-derretido {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: #d4af37;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 6;
-    box-shadow: 0 0 8px gold;
+    box-shadow: 0 0 5px gold;
 }
 
 .numeros-derretidos {
@@ -753,162 +753,102 @@ body {
 
 .numeros-derretidos span {
     position: absolute;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: bold;
     color: #3a2a4c;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
     font-family: 'Playfair Display', serif;
     animation: bailarNumeros 3s ease-in-out infinite;
 }
 
-.numeros-derretidos span:nth-child(1) { top: 12%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-.numeros-derretidos span:nth-child(2) { top: 50%; right: 12%; transform: translateY(-50%); animation-delay: 0.5s; }
-.numeros-derretidos span:nth-child(3) { bottom: 12%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
-.numeros-derretidos span:nth-child(4) { top: 50%; left: 12%; transform: translateY(-50%); animation-delay: 1.5s; }
+.numeros-derretidos span:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.numeros-derretidos span:nth-child(2) { top: 50%; right: 10%; transform: translateY(-50%); animation-delay: 0.5s; }
+.numeros-derretidos span:nth-child(3) { bottom: 10%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
+.numeros-derretidos span:nth-child(4) { top: 50%; left: 10%; transform: translateY(-50%); animation-delay: 1.5s; }
 
 @keyframes bailarNumeros {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-4px) rotate(4deg); }
+    50% { transform: translateY(-3px) rotate(3deg); }
 }
 
 .gotas-reloj {
     position: absolute;
-    bottom: -20px;
-    left: 20px;
-    width: 10px;
-    height: 20px;
+    bottom: -15px;
+    left: 15px;
+    width: 8px;
+    height: 15px;
     background: linear-gradient(180deg, #d4af37, transparent);
-    border-radius: 0 0 6px 6px;
+    border-radius: 0 0 5px 5px;
     animation: gotear 2s ease-in-out infinite;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 @keyframes gotear {
-    0% { height: 20px; opacity: 0.7; }
-    50% { height: 32px; opacity: 0.3; }
-    100% { height: 20px; opacity: 0.7; }
+    0% { height: 15px; opacity: 0.6; }
+    50% { height: 25px; opacity: 0.3; }
+    100% { height: 15px; opacity: 0.6; }
 }
 
 .gotas-reloj::after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 2px;
-    width: 5px;
-    height: 10px;
+    width: 4px;
+    height: 8px;
     background: #d4af37;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 3px 3px;
     animation: gotear2 2.5s ease-in-out infinite;
 }
 
 @keyframes gotear2 {
-    0% { height: 10px; opacity: 0.6; }
-    50% { height: 18px; opacity: 0.2; }
-    100% { height: 10px; opacity: 0.6; }
-}
-
-.mensaje-reloj {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #ffd700;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    border: 1px solid #d4af37;
-}
-
-.reloj-derretido:hover .mensaje-reloj {
-    opacity: 1;
-}
-
-/* Efecto hover con sonrisa de Cheshire */
-.reloj-derretido::before {
-    content: "😺";
-    position: absolute;
-    top: -50px;
-    left: -20px;
-    font-size: 35px;
-    opacity: 0;
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 5px purple);
-    pointer-events: none;
-}
-
-.reloj-derretido:hover::before {
-    opacity: 1;
-    animation: aparecerSonrisa 0.5s ease-out;
-}
-
-@keyframes aparecerSonrisa {
-    0% { opacity: 0; transform: scale(0.3) rotate(-30deg); }
-    50% { transform: scale(1.1) rotate(5deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    0% { height: 8px; opacity: 0.5; }
+    50% { height: 14px; opacity: 0.2; }
+    100% { height: 8px; opacity: 0.5; }
 }
 
 /* Responsive para móvil */
 @media (max-width: 768px) {
     .reloj-derretido {
-        top: 10px;
-        left: 10px;
+        top: 5px;
+        left: 5px;
     }
     
     .reloj-cara-derretida {
-        width: 70px;
-        height: 70px;
+        width: 55px;
+        height: 55px;
     }
     
     .manecilla-derretida {
-        bottom: 35px;
+        bottom: 28px;
     }
     
     .hora-derretida {
         width: 3px;
-        height: 20px;
+        height: 16px;
     }
     
     .minuto-derretida {
         width: 2px;
-        height: 26px;
+        height: 20px;
     }
     
     .centro-derretido {
-        width: 7px;
-        height: 7px;
+        width: 6px;
+        height: 6px;
     }
     
     .numeros-derretidos span {
-        font-size: 10px;
-    }
-    
-    .numeros-derretidos span:nth-child(1) { top: 10%; }
-    .numeros-derretidos span:nth-child(2) { right: 10%; }
-    .numeros-derretidos span:nth-child(3) { bottom: 10%; }
-    .numeros-derretidos span:nth-child(4) { left: 10%; }
-    
-    .mensaje-reloj {
         font-size: 8px;
-        top: -28px;
-        padding: 2px 6px;
-        white-space: nowrap;
     }
     
-    .reloj-derretido::before {
-        font-size: 25px;
-        top: -35px;
-        left: -10px;
-    }
+    .numeros-derretidos span:nth-child(1) { top: 8%; }
+    .numeros-derretidos span:nth-child(2) { right: 8%; }
+    .numeros-derretidos span:nth-child(3) { bottom: 8%; }
+    .numeros-derretidos span:nth-child(4) { left: 8%; }
     
     .gotas-reloj {
-        left: 12px;
-        width: 7px;
+        left: 10px;
+        width: 6px;
     }
 }
