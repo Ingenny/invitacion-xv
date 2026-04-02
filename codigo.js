@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (indicador) indicador.textContent = paginaActualCarrusel + ' / ' + totalPaginasCarrusel;
     }
 
-    // ============================================
-    // 4. EFECTO ESCARCHA/GLITTER ELEGANTE
+     // ============================================
+    // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA (3 VUELTAS)
     // ============================================
 
     function crearEfectoEspiral(x, y) {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         onda.style.top = y + 'px';
         onda.style.width = '0';
         onda.style.height = '0';
-        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0))';
+        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0))';
         onda.style.borderRadius = '50%';
         onda.style.transform = 'translate(-50%, -50%)';
         onda.style.pointerEvents = 'none';
@@ -97,60 +97,99 @@ document.addEventListener('DOMContentLoaded', function() {
         onda.style.animation = 'onda 0.8s ease-out forwards';
         document.body.appendChild(onda);
 
-        // Partículas de brillo elegante (solo destellos dorados y plateados)
-        for (let i = 0; i < 24; i++) {
+        const formas = ['✦', '✧', '✵', '✶', '·', '•'];
+        const colores = ['#ffd700', '#fff8dc', '#f5e6b8', '#ffe4b5', '#daa520'];
+        
+        // PRIMERA VUELTA (GRANDE - radio 120)
+        for (let i = 0; i < 18; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
                 particula.style.pointerEvents = 'none';
                 particula.style.zIndex = '9999';
-                particula.style.animation = 'brilloEspiral 0.8s ease-out forwards';
-                
-                // Formas elegantes (solo brillos, sin dibujos)
-                const formas = ['✦', '✧', '✵', '✶', '❋', '✻', '✺', '·', '•', '◦'];
-                const forma = formas[Math.floor(Math.random() * formas.length)];
-                particula.innerHTML = forma;
-                
-                // Colores elegantes
-                const colores = ['#ffd700', '#fff8dc', '#f5e6b8', '#ffe4b5', '#daa520'];
+                particula.style.animation = 'brilloEspiral 0.9s ease-out forwards';
+                particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = colores[Math.floor(Math.random() * colores.length)];
                 
-                const angulo = (i / 24) * Math.PI * 2;
-                const radio = 70;
-                const offsetX = Math.cos(angulo) * radio;
-                const offsetY = Math.sin(angulo) * radio;
-                
-                particula.style.left = (x + offsetX) + 'px';
-                particula.style.top = (y + offsetY) + 'px';
-                particula.style.fontSize = (12 + Math.random() * 10) + 'px';
+                const angulo = (i / 18) * Math.PI * 2;
+                const radio = 120;
+                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                particula.style.fontSize = (18 + Math.random() * 12) + 'px';
                 particula.style.textShadow = '0 0 5px gold';
                 
                 document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 800);
+                setTimeout(function() { particula.remove(); }, 900);
             }, i * 25);
         }
         
-        // Segunda capa de partículas más pequeñas (escarcha)
-        for (let i = 0; i < 40; i++) {
+        // SEGUNDA VUELTA (MEDIANA - radio 80)
+        for (let i = 0; i < 16; i++) {
+            setTimeout(function() {
+                const particula = document.createElement('div');
+                particula.style.position = 'fixed';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9999';
+                particula.style.animation = 'brilloEspiral 0.7s ease-out forwards';
+                particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
+                particula.style.color = colores[Math.floor(Math.random() * colores.length)];
+                
+                const angulo = (i / 16) * Math.PI * 2;
+                const radio = 80;
+                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                particula.style.fontSize = (14 + Math.random() * 10) + 'px';
+                particula.style.textShadow = '0 0 4px gold';
+                
+                document.body.appendChild(particula);
+                setTimeout(function() { particula.remove(); }, 700);
+            }, i * 20);
+        }
+        
+        // TERCERA VUELTA (PEQUEÑA - radio 45)
+        for (let i = 0; i < 14; i++) {
+            setTimeout(function() {
+                const particula = document.createElement('div');
+                particula.style.position = 'fixed';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9999';
+                particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
+                particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
+                particula.style.color = colores[Math.floor(Math.random() * colores.length)];
+                
+                const angulo = (i / 14) * Math.PI * 2;
+                const radio = 45;
+                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                particula.style.fontSize = (10 + Math.random() * 8) + 'px';
+                particula.style.textShadow = '0 0 3px gold';
+                
+                document.body.appendChild(particula);
+                setTimeout(function() { particula.remove(); }, 500);
+            }, i * 15);
+        }
+        
+        // Capa de escarcha (partículas aleatorias alrededor)
+        for (let i = 0; i < 50; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
                 particula.style.pointerEvents = 'none';
                 particula.style.zIndex = '9998';
-                particula.style.animation = 'brilloEspiral 0.6s ease-out forwards';
+                particula.style.animation = 'brilloEspiral 0.4s ease-out forwards';
                 particula.innerHTML = '·';
                 particula.style.color = '#ffd700';
-                particula.style.opacity = '0.6';
+                particula.style.opacity = '0.5';
                 
                 const angulo = Math.random() * Math.PI * 2;
-                const radio = 40 + Math.random() * 50;
+                const radio = 30 + Math.random() * 100;
                 particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
                 particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (6 + Math.random() * 6) + 'px';
+                particula.style.fontSize = (5 + Math.random() * 6) + 'px';
                 
                 document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 600);
-            }, i * 15);
+                setTimeout(function() { particula.remove(); }, 400);
+            }, i * 10);
         }
         
         setTimeout(function() { onda.remove(); }, 800);
@@ -214,10 +253,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================
     // 7. BOTONES CARRUSEL CON EFECTO ESCARCHA (SIN ELEMENTOS INFANTILES)
     // ============================================
-
-    // Función para efecto escarcha elegante en botones del carrusel
+     // Función para efecto escarcha en botones del carrusel (con espiral abierta)
     function crearEfectoEscarchaBoton(x, y) {
-        // Onda expansiva sutil
         const onda = document.createElement('div');
         onda.style.position = 'fixed';
         onda.style.left = x + 'px';
@@ -232,9 +269,32 @@ document.addEventListener('DOMContentLoaded', function() {
         onda.style.animation = 'onda 0.5s ease-out forwards';
         document.body.appendChild(onda);
         
-        // Partículas de brillo elegante (solo formas abstractas, sin dibujos infantiles)
         const formas = ['✦', '✧', '✵', '✶', '·', '•'];
-        for (let i = 0; i < 16; i++) {
+        
+        // Vuelta grande (radio 80)
+        for (let i = 0; i < 12; i++) {
+            setTimeout(function() {
+                const particula = document.createElement('div');
+                particula.style.position = 'fixed';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9999';
+                particula.style.animation = 'brilloEspiral 0.6s ease-out forwards';
+                particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
+                particula.style.color = '#ffd700';
+                
+                const angulo = (i / 12) * Math.PI * 2;
+                const radio = 80;
+                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                particula.style.fontSize = (14 + Math.random() * 10) + 'px';
+                
+                document.body.appendChild(particula);
+                setTimeout(function() { particula.remove(); }, 600);
+            }, i * 25);
+        }
+        
+        // Vuelta pequeña (radio 45)
+        for (let i = 0; i < 10; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
@@ -243,95 +303,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = '#ffd700';
-                particula.style.textShadow = '0 0 3px gold';
                 
-                const angulo = (i / 16) * Math.PI * 2;
+                const angulo = (i / 10) * Math.PI * 2;
                 const radio = 45;
                 particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
                 particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (10 + Math.random() * 10) + 'px';
+                particula.style.fontSize = (10 + Math.random() * 8) + 'px';
                 
                 document.body.appendChild(particula);
                 setTimeout(function() { particula.remove(); }, 500);
             }, i * 20);
         }
         
-        // Segunda capa de partículas más pequeñas (escarcha)
-        for (let i = 0; i < 24; i++) {
-            setTimeout(function() {
-                const particula = document.createElement('div');
-                particula.style.position = 'fixed';
-                particula.style.pointerEvents = 'none';
-                particula.style.zIndex = '9998';
-                particula.style.animation = 'brilloEspiral 0.4s ease-out forwards';
-                particula.innerHTML = '·';
-                particula.style.color = '#fff8dc';
-                particula.style.opacity = '0.6';
-                
-                const angulo = Math.random() * Math.PI * 2;
-                const radio = 35 + Math.random() * 40;
-                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (5 + Math.random() * 6) + 'px';
-                
-                document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 400);
-            }, i * 15);
-        }
-        
         setTimeout(function() { onda.remove(); }, 500);
-    }
-
-    // Botón SIGUIENTE con efecto escarcha elegante
-    if (btnSiguiente) {
-        btnSiguiente.addEventListener('click', function(event) {
-            const x = event.clientX;
-            const y = event.clientY;
-            
-            // Efecto escarcha
-            crearEfectoEscarchaBoton(x, y);
-            
-            // Efecto de brillo en el botón
-            this.style.transform = 'scale(0.95)';
-            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
-            }, 200);
-            
-            // Cambiar página
-            if (paginaActualCarrusel < totalPaginasCarrusel) {
-                mostrarPaginaCarrusel(paginaActualCarrusel + 1);
-            } else {
-                if (carruselFotos) carruselFotos.style.display = 'none';
-                if (invitacionDetallada) invitacionDetallada.style.display = 'block';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
-    }
-
-    // Botón ANTERIOR con efecto escarcha elegante
-    if (btnAnterior) {
-        btnAnterior.addEventListener('click', function(event) {
-            const x = event.clientX;
-            const y = event.clientY;
-            
-            // Efecto escarcha
-            crearEfectoEscarchaBoton(x, y);
-            
-            // Efecto de brillo en el botón
-            this.style.transform = 'scale(0.95)';
-            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
-            }, 200);
-            
-            // Cambiar página
-            if (paginaActualCarrusel > 1) {
-                mostrarPaginaCarrusel(paginaActualCarrusel - 1);
-            }
-        });
     }
     // ============================================
     // 8. FORMULARIO WHATSAPP
