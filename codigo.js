@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function () {
         onda.style.left = x + 'px';
         onda.style.top = y + 'px';
         document.body.appendChild(onda);
-        
+    }
         // Crear 24 diamantes en espiral
         const diamantes = ['💎', '✨', '⭐', '💠', '💫', '♦️'];
         const numDiamantes = 24;
