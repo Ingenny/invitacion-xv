@@ -73,19 +73,40 @@ body {
 
 .titulo-elegante::before,
 .titulo-elegante::after {
-  content: "♠️";
-  font-size: 30px;
-  background: none;
-  color: #d4af37;
-  opacity: 0.6;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+    content: "♠️";
+    font-size: 30px;
+    background: none;
+    color: #d4af37;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: flotarObjetos 3s infinite alternate;
+    display: inline-block;
 }
 
-.titulo-elegante::before { left: -50px; }
-.titulo-elegante::after { right: -50px; content: "♥️"; }
+.titulo-elegante::before {
+    left: -50px;
+    animation-delay: 0s;
+}
 
+.titulo-elegante::after {
+    right: -50px;
+    content: "♥️";
+    animation-delay: 0.5s;
+}
+
+@keyframes flotarObjetos {
+    0% {
+        transform: translateY(-50%) translateX(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50%) translateX(5px) rotate(10deg);
+    }
+    100% {
+        transform: translateY(-50%) translateX(-5px) rotate(-10deg);
+    }
+}
 .nombre-quinceanera {
   font-family: 'Great Vibes', cursive;
   font-size: 48px;
