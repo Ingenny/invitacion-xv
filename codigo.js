@@ -333,6 +333,61 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() { onda.remove(); }, 500);
     }
     // ============================================
+    // 7b. EVENTOS DE LOS BOTONES ANTERIOR Y SIGUIENTE
+    // ============================================
+
+    // Botón SIGUIENTE con efecto escarcha
+    if (btnSiguiente) {
+        btnSiguiente.addEventListener('click', function(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Efecto escarcha
+            crearEfectoEscarchaBoton(x, y);
+            
+            // Efecto de brillo en el botón
+            this.style.transform = 'scale(0.95)';
+            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            }, 200);
+            
+            // Cambiar página
+            if (paginaActualCarrusel < totalPaginasCarrusel) {
+                mostrarPaginaCarrusel(paginaActualCarrusel + 1);
+            } else {
+                if (carruselFotos) carruselFotos.style.display = 'none';
+                if (invitacionDetallada) invitacionDetallada.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    }
+
+    // Botón ANTERIOR con efecto escarcha
+    if (btnAnterior) {
+        btnAnterior.addEventListener('click', function(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Efecto escarcha
+            crearEfectoEscarchaBoton(x, y);
+            
+            // Efecto de brillo en el botón
+            this.style.transform = 'scale(0.95)';
+            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            }, 200);
+            
+            // Cambiar página
+            if (paginaActualCarrusel > 1) {
+                mostrarPaginaCarrusel(paginaActualCarrusel - 1);
+            }
+        });
+    }
+    // ============================================
     // 8. FORMULARIO WHATSAPP
     // ============================================
 
