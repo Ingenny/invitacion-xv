@@ -78,17 +78,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 4. EFECTO ESPIRAL DE DIAMANTES
+    // 4. EFECTO ESCARCHA/GLITTER ELEGANTE
     // ============================================
 
     function crearEfectoEspiral(x, y) {
+        // Onda expansiva dorada sutil
         const onda = document.createElement('div');
         onda.style.position = 'fixed';
         onda.style.left = x + 'px';
         onda.style.top = y + 'px';
         onda.style.width = '0';
         onda.style.height = '0';
-        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0))';
+        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0))';
         onda.style.borderRadius = '50%';
         onda.style.transform = 'translate(-50%, -50%)';
         onda.style.pointerEvents = 'none';
@@ -96,27 +97,64 @@ document.addEventListener('DOMContentLoaded', function() {
         onda.style.animation = 'onda 0.8s ease-out forwards';
         document.body.appendChild(onda);
 
-        const diamantes = ['💎', '✨', '⭐', '💠', '💫', '♦️'];
-        for (let i = 0; i < 16; i++) {
+        // Partículas de brillo elegante (solo destellos dorados y plateados)
+        for (let i = 0; i < 24; i++) {
             setTimeout(function() {
-                const diamante = document.createElement('div');
-                diamante.style.position = 'fixed';
-                diamante.style.pointerEvents = 'none';
-                diamante.style.zIndex = '9999';
-                diamante.style.animation = 'brilloEspiral 0.8s ease-out forwards';
-                diamante.style.filter = 'drop-shadow(0 0 5px gold)';
-                diamante.innerHTML = diamantes[Math.floor(Math.random() * diamantes.length)];
-                const angulo = (i / 16) * Math.PI * 2;
-                diamante.style.left = (x + Math.cos(angulo) * 70) + 'px';
-                diamante.style.top = (y + Math.sin(angulo) * 70) + 'px';
-                diamante.style.fontSize = (25 + Math.random() * 15) + 'px';
-                document.body.appendChild(diamante);
-                setTimeout(function() { diamante.remove(); }, 800);
-            }, i * 30);
+                const particula = document.createElement('div');
+                particula.style.position = 'fixed';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9999';
+                particula.style.animation = 'brilloEspiral 0.8s ease-out forwards';
+                
+                // Formas elegantes (solo brillos, sin dibujos)
+                const formas = ['✦', '✧', '✵', '✶', '❋', '✻', '✺', '·', '•', '◦'];
+                const forma = formas[Math.floor(Math.random() * formas.length)];
+                particula.innerHTML = forma;
+                
+                // Colores elegantes
+                const colores = ['#ffd700', '#fff8dc', '#f5e6b8', '#ffe4b5', '#daa520'];
+                particula.style.color = colores[Math.floor(Math.random() * colores.length)];
+                
+                const angulo = (i / 24) * Math.PI * 2;
+                const radio = 70;
+                const offsetX = Math.cos(angulo) * radio;
+                const offsetY = Math.sin(angulo) * radio;
+                
+                particula.style.left = (x + offsetX) + 'px';
+                particula.style.top = (y + offsetY) + 'px';
+                particula.style.fontSize = (12 + Math.random() * 10) + 'px';
+                particula.style.textShadow = '0 0 5px gold';
+                
+                document.body.appendChild(particula);
+                setTimeout(function() { particula.remove(); }, 800);
+            }, i * 25);
         }
+        
+        // Segunda capa de partículas más pequeñas (escarcha)
+        for (let i = 0; i < 40; i++) {
+            setTimeout(function() {
+                const particula = document.createElement('div');
+                particula.style.position = 'fixed';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9998';
+                particula.style.animation = 'brilloEspiral 0.6s ease-out forwards';
+                particula.innerHTML = '·';
+                particula.style.color = '#ffd700';
+                particula.style.opacity = '0.6';
+                
+                const angulo = Math.random() * Math.PI * 2;
+                const radio = 40 + Math.random() * 50;
+                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                particula.style.fontSize = (6 + Math.random() * 6) + 'px';
+                
+                document.body.appendChild(particula);
+                setTimeout(function() { particula.remove(); }, 600);
+            }, i * 15);
+        }
+        
         setTimeout(function() { onda.remove(); }, 800);
     }
-
     // ============================================
     // 5. BOTÓN ABRIR INVITACIÓN (CON EFECTO ESPIRAL + CARRUSEL)
     // ============================================
