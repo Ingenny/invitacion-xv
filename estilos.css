@@ -642,3 +642,206 @@ body {
   .joya7 { top: 85%; left: 90%; }
   .joya8 { bottom: 8%; right: 15%; }
 }
+/* ========== RELOJ DERRETIDO DEL SOMBRERERO LOCO ========== */
+.reloj-derretido {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    z-index: 25;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reloj-derretido:hover {
+    transform: scale(1.05);
+}
+
+.reloj-cara-derretida {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #f0e6d0, #d4c4a8);
+    border-radius: 50%;
+    border: 3px solid #d4af37;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6);
+    animation: derretirse 4s ease-in-out infinite;
+    overflow: hidden;
+}
+
+@keyframes derretirse {
+    0% {
+        border-radius: 50%;
+        transform: skew(0deg, 0deg);
+    }
+    25% {
+        border-radius: 55% 45% 60% 40% / 45% 55% 45% 55%;
+        transform: skew(2deg, 1deg);
+    }
+    50% {
+        border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
+        transform: skew(-2deg, -1deg);
+    }
+    75% {
+        border-radius: 60% 40% 55% 45% / 40% 60% 40% 60%;
+        transform: skew(1deg, 2deg);
+    }
+    100% {
+        border-radius: 50%;
+        transform: skew(0deg, 0deg);
+    }
+}
+
+.reloj-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 35%, rgba(255, 245, 215, 0.6), rgba(200, 180, 130, 0.3));
+}
+
+.manecilla-derretida {
+    position: absolute;
+    background: #2a1e3c;
+    transform-origin: bottom center;
+    bottom: 35px;
+    left: 50%;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.hora-derretida {
+    width: 4px;
+    height: 22px;
+    transform: translateX(-50%) rotate(45deg);
+    animation: moverHora 43200s linear infinite;
+}
+
+.minuto-derretida {
+    width: 3px;
+    height: 28px;
+    transform: translateX(-50%) rotate(90deg);
+    animation: moverMinuto 3600s linear infinite;
+}
+
+@keyframes moverHora {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes moverMinuto {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.centro-derretido {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #d4af37;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    box-shadow: 0 0 5px gold;
+}
+
+.numeros-derretidos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.numeros-derretidos span {
+    position: absolute;
+    font-size: 9px;
+    font-weight: bold;
+    color: #3a2a4c;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    animation: bailarNumeros 3s ease-in-out infinite;
+}
+
+.numeros-derretidos span:nth-child(1) { top: 8%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.numeros-derretidos span:nth-child(2) { top: 50%; right: 8%; transform: translateY(-50%); animation-delay: 0.5s; }
+.numeros-derretidos span:nth-child(3) { bottom: 8%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
+.numeros-derretidos span:nth-child(4) { top: 50%; left: 8%; transform: translateY(-50%); animation-delay: 1.5s; }
+
+@keyframes bailarNumeros {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(5deg); }
+}
+
+.gotas-reloj {
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    width: 8px;
+    height: 15px;
+    background: linear-gradient(180deg, #d4af37, transparent);
+    border-radius: 0 0 5px 5px;
+    animation: gotear 2s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes gotear {
+    0% { height: 15px; opacity: 0.6; }
+    50% { height: 25px; opacity: 0.3; }
+    100% { height: 15px; opacity: 0.6; }
+}
+
+.gotas-reloj::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 2px;
+    width: 4px;
+    height: 8px;
+    background: #d4af37;
+    border-radius: 0 0 3px 3px;
+    animation: gotear2 2.5s ease-in-out infinite;
+}
+
+@keyframes gotear2 {
+    0% { height: 8px; opacity: 0.5; }
+    50% { height: 15px; opacity: 0.2; }
+    100% { height: 8px; opacity: 0.5; }
+}
+
+/* Efecto hover con sonrisa de Cheshire */
+.reloj-derretido::before {
+    content: "😺";
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    font-size: 25px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 3px purple);
+}
+
+.reloj-derretido:hover::before {
+    opacity: 1;
+    animation: aparecerSonrisa 0.5s ease-out;
+}
+
+@keyframes aparecerSonrisa {
+    0% { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reloj-derretido {
+        bottom: 70px;
+        right: 10px;
+    }
+    
+    .reloj-cara-derretida {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .hora-derretida { height: 16px; }
+    .minuto-derretida { height: 22px; }
+    
+    .numeros-derretidos span { font-size: 7px; }
+}
