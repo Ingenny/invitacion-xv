@@ -1112,12 +1112,12 @@ body {
 
 /* Fondo para el carrusel de fotos */
 .carrusel-fotos {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo2.jpg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 /* Fondo para la invitación detallada (segunda página) */
 .invitacion-detallada {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fondos/fondo2.jpg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fondos/fondo3.jpg') no-repeat center center fixed;
     background-size: cover;
 }
