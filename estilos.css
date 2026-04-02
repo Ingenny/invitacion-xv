@@ -1090,3 +1090,13 @@ body {
 .invitacion-detallada {
     animation: abrirCarta 0.8s ease-out;
 }
+/* ========== FONDO TEMÁTICO ALICIA ========== */
+body {
+    background: url('https://i.imgur.com/7XqXqXq.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.portada {
+    background: rgba(0, 0, 0, 0.6); /* Oscurece un poco para que se lean los textos */
+    backdrop-filter: blur(2px);
+}
