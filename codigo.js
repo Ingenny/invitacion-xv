@@ -77,12 +77,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (indicador) indicador.textContent = paginaActualCarrusel + ' / ' + totalPaginasCarrusel;
     }
 
-     // ============================================
-    // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA (3 VUELTAS)
+    // ============================================
+    // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA - OPTIMIZADO MÓVIL
     // ============================================
 
     function crearEfectoEspiral(x, y) {
-        // Onda expansiva dorada sutil
+        // Detectar si es móvil
+        const esMovil = window.innerWidth <= 768;
+        
+        // Radios ajustados según dispositivo
+        const radioGrande = esMovil ? 70 : 110;
+        const radioMediano = esMovil ? 50 : 75;
+        const radioPequeno = esMovil ? 30 : 45;
+        
+        // Onda expansiva
         const onda = document.createElement('div');
         onda.style.position = 'fixed';
         onda.style.left = x + 'px';
@@ -100,31 +108,32 @@ document.addEventListener('DOMContentLoaded', function() {
         const formas = ['✦', '✧', '✵', '✶', '·', '•'];
         const colores = ['#ffd700', '#fff8dc', '#f5e6b8', '#ffe4b5', '#daa520'];
         
-        // PRIMERA VUELTA (GRANDE - radio 120)
-        for (let i = 0; i < 18; i++) {
+        // PRIMERA VUELTA (GRANDE)
+        const numGrande = esMovil ? 12 : 18;
+        for (let i = 0; i < numGrande; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
                 particula.style.pointerEvents = 'none';
                 particula.style.zIndex = '9999';
-                particula.style.animation = 'brilloEspiral 0.9s ease-out forwards';
+                particula.style.animation = 'brilloEspiral 0.8s ease-out forwards';
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = colores[Math.floor(Math.random() * colores.length)];
                 
-                const angulo = (i / 18) * Math.PI * 2;
-                const radio = 120;
-                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (18 + Math.random() * 12) + 'px';
+                const angulo = (i / numGrande) * Math.PI * 2;
+                particula.style.left = (x + Math.cos(angulo) * radioGrande) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radioGrande) + 'px';
+                particula.style.fontSize = (esMovil ? 12 : 16) + Math.random() * 8 + 'px';
                 particula.style.textShadow = '0 0 5px gold';
                 
                 document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 900);
+                setTimeout(function() { particula.remove(); }, 800);
             }, i * 25);
         }
         
-        // SEGUNDA VUELTA (MEDIANA - radio 80)
-        for (let i = 0; i < 16; i++) {
+        // SEGUNDA VUELTA (MEDIANA)
+        const numMediano = esMovil ? 10 : 16;
+        for (let i = 0; i < numMediano; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
@@ -134,11 +143,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = colores[Math.floor(Math.random() * colores.length)];
                 
-                const angulo = (i / 16) * Math.PI * 2;
-                const radio = 80;
-                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (14 + Math.random() * 10) + 'px';
+                const angulo = (i / numMediano) * Math.PI * 2;
+                particula.style.left = (x + Math.cos(angulo) * radioMediano) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radioMediano) + 'px';
+                particula.style.fontSize = (esMovil ? 10 : 14) + Math.random() * 6 + 'px';
                 particula.style.textShadow = '0 0 4px gold';
                 
                 document.body.appendChild(particula);
@@ -146,31 +154,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }, i * 20);
         }
         
-        // TERCERA VUELTA (PEQUEÑA - radio 45)
-        for (let i = 0; i < 14; i++) {
+        // TERCERA VUELTA (PEQUEÑA)
+        const numPequeno = esMovil ? 8 : 14;
+        for (let i = 0; i < numPequeno; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
                 particula.style.pointerEvents = 'none';
                 particula.style.zIndex = '9999';
-                particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
+                particula.style.animation = 'brilloEspiral 0.6s ease-out forwards';
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = colores[Math.floor(Math.random() * colores.length)];
                 
-                const angulo = (i / 14) * Math.PI * 2;
-                const radio = 45;
-                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (10 + Math.random() * 8) + 'px';
+                const angulo = (i / numPequeno) * Math.PI * 2;
+                particula.style.left = (x + Math.cos(angulo) * radioPequeno) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radioPequeno) + 'px';
+                particula.style.fontSize = (esMovil ? 8 : 12) + Math.random() * 6 + 'px';
                 particula.style.textShadow = '0 0 3px gold';
                 
                 document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 500);
+                setTimeout(function() { particula.remove(); }, 600);
             }, i * 15);
         }
         
-        // Capa de escarcha (partículas aleatorias alrededor)
-        for (let i = 0; i < 50; i++) {
+        // Capa de escarcha
+        const numEscarcha = esMovil ? 30 : 50;
+        for (let i = 0; i < numEscarcha; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
@@ -182,10 +191,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.style.opacity = '0.5';
                 
                 const angulo = Math.random() * Math.PI * 2;
-                const radio = 30 + Math.random() * 100;
+                const radio = (esMovil ? 25 : 40) + Math.random() * 60;
                 particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
                 particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (5 + Math.random() * 6) + 'px';
+                particula.style.fontSize = (esMovil ? 4 : 6) + Math.random() * 4 + 'px';
                 
                 document.body.appendChild(particula);
                 setTimeout(function() { particula.remove(); }, 400);
@@ -194,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(function() { onda.remove(); }, 800);
     }
+
     // ============================================
     // 5. BOTÓN ABRIR INVITACIÓN (CON EFECTO ESPIRAL + CARRUSEL)
     // ============================================
@@ -253,8 +263,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================
     // 7. BOTONES CARRUSEL CON EFECTO ESCARCHA (SIN ELEMENTOS INFANTILES)
     // ============================================
-     // Función para efecto escarcha en botones del carrusel (con espiral abierta)
+   // Función para efecto escarcha en botones (optimizado móvil)
     function crearEfectoEscarchaBoton(x, y) {
+        const esMovil = window.innerWidth <= 768;
+        
+        const radioGrande = esMovil ? 55 : 80;
+        const radioPequeno = esMovil ? 30 : 45;
+        
         const onda = document.createElement('div');
         onda.style.position = 'fixed';
         onda.style.left = x + 'px';
@@ -271,8 +286,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const formas = ['✦', '✧', '✵', '✶', '·', '•'];
         
-        // Vuelta grande (radio 80)
-        for (let i = 0; i < 12; i++) {
+        // Vuelta grande
+        const numGrande = esMovil ? 10 : 12;
+        for (let i = 0; i < numGrande; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
@@ -282,19 +298,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = '#ffd700';
                 
-                const angulo = (i / 12) * Math.PI * 2;
-                const radio = 80;
-                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (14 + Math.random() * 10) + 'px';
+                const angulo = (i / numGrande) * Math.PI * 2;
+                particula.style.left = (x + Math.cos(angulo) * radioGrande) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radioGrande) + 'px';
+                particula.style.fontSize = (esMovil ? 10 : 14) + Math.random() * 8 + 'px';
                 
                 document.body.appendChild(particula);
                 setTimeout(function() { particula.remove(); }, 600);
             }, i * 25);
         }
         
-        // Vuelta pequeña (radio 45)
-        for (let i = 0; i < 10; i++) {
+        // Vuelta pequeña
+        const numPequeno = esMovil ? 8 : 10;
+        for (let i = 0; i < numPequeno; i++) {
             setTimeout(function() {
                 const particula = document.createElement('div');
                 particula.style.position = 'fixed';
@@ -304,11 +320,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
                 particula.style.color = '#ffd700';
                 
-                const angulo = (i / 10) * Math.PI * 2;
-                const radio = 45;
-                particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                particula.style.fontSize = (10 + Math.random() * 8) + 'px';
+                const angulo = (i / numPequeno) * Math.PI * 2;
+                particula.style.left = (x + Math.cos(angulo) * radioPequeno) + 'px';
+                particula.style.top = (y + Math.sin(angulo) * radioPequeno) + 'px';
+                particula.style.fontSize = (esMovil ? 8 : 12) + Math.random() * 6 + 'px';
                 
                 document.body.appendChild(particula);
                 setTimeout(function() { particula.remove(); }, 500);
