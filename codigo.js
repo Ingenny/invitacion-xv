@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
 
     // Fecha del evento (cambia esta fecha)
-    const fechaEvento = new Date('November 15, 2025 19:00:00').getTime();
+    const fechaEvento = new Date('Junio 27, 2026 20:00:00').getTime();
 
     function actualizarContador() {
         const ahora = new Date().getTime();
