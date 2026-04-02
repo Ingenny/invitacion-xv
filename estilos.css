@@ -989,122 +989,224 @@ body {
         opacity: 0;
     }
 }
-/* ========== MARCO TRANSPARENTE ELEGANTE PARA FOTOS ========== */
+/* ========== MARCO ASIMÉTRICO VICTORIANO (ORO PULIDO) ========== */
 
-/* Marco exterior transparente con detalles dorados */
+/* Contenedor de la página */
 .pagina {
     position: relative;
     background: transparent !important;
-    border-radius: 20px;
-    padding: 15px;
+    border-radius: 0;
+    padding: 0;
     box-sizing: border-box;
+    overflow: visible;
 }
 
-/* Contenedor de la foto con marco elegante */
+/* Imagen de la quinceañera */
 .pagina img {
     position: relative;
     z-index: 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    border-radius: 0;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
     transition: all 0.4s ease;
 }
 
-/* Marco decorativo exterior */
-.pagina::before {
-    content: "";
+/* ===== BORDE SUPERIOR (CINTA TRENZADA) ===== */
+.pagina .cinta-superior {
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    right: 0;
+    height: 16px;
+    background: repeating-linear-gradient(
+        45deg,
+        #d4af37,
+        #d4af37 8px,
+        #b88d3a 8px,
+        #b88d3a 16px
+    );
+    border-radius: 8px 8px 0 0;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ===== BORDE DERECHO (CINTA TRENZADA) ===== */
+.pagina .cinta-derecha {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid rgba(212, 175, 55, 0.6);
-    border-radius: 20px;
-    pointer-events: none;
-    z-index: 3;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    right: -8px;
+    bottom: 40px;
+    width: 16px;
+    background: repeating-linear-gradient(
+        135deg,
+        #d4af37,
+        #d4af37 8px,
+        #b88d3a 8px,
+        #b88d3a 16px
+    );
+    border-radius: 0 8px 8px 0;
+    z-index: 5;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
 }
 
-/* Esquinas decorativas del marco */
-.pagina::after {
+/* ===== ESQUINA SUPERIOR DERECHA (PUNTA DECORATIVA) ===== */
+.pagina .esquina-dorada {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    border-top: 4px solid #d4af37;
+    border-right: 4px solid #d4af37;
+    border-radius: 0 15px 0 0;
+    z-index: 6;
+    box-shadow: 2px -2px 8px rgba(212, 175, 55, 0.5);
+}
+
+/* ===== FILIGRANAS LADO IZQUIERDO ===== */
+.pagina .filigrana-izquierda {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.pagina .filigrana-izquierda::before {
+    content: "❦";
+    position: absolute;
+    top: 15%;
+    left: 10px;
+    font-size: 24px;
+    color: #d4af37;
+    opacity: 0.7;
+    text-shadow: 0 0 5px gold;
+}
+
+.pagina .filigrana-izquierda::after {
+    content: "❧";
+    position: absolute;
+    top: 35%;
+    left: 15px;
+    font-size: 28px;
+    color: #d4af37;
+    opacity: 0.6;
+    text-shadow: 0 0 5px gold;
+}
+
+/* ===== FLORES DE 5 PÉTALOS (LADO IZQUIERDO) ===== */
+.pagina .flor-izquierda-1,
+.pagina .flor-izquierda-2,
+.pagina .flor-izquierda-3 {
+    position: absolute;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+    z-index: 6;
+    pointer-events: none;
+    background: radial-gradient(circle, #d4af37, #b88d3a);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    animation: brilloFlor 2s ease-in-out infinite;
+}
+
+.pagina .flor-izquierda-1 { top: 15%; }
+.pagina .flor-izquierda-2 { top: 45%; left: 8px; width: 28px; height: 28px; animation-duration: 2.5s; }
+.pagina .flor-izquierda-3 { top: 75%; left: 3px; width: 40px; height: 40px; animation-duration: 1.8s; }
+
+/* Pétalos de las flores */
+.pagina .flor-izquierda-1::before,
+.pagina .flor-izquierda-1::after,
+.pagina .flor-izquierda-2::before,
+.pagina .flor-izquierda-2::after,
+.pagina .flor-izquierda-3::before,
+.pagina .flor-izquierda-3::after {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    width: 12px;
+    height: 12px;
+    background: #ffd700;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pagina .flor-izquierda-1::before { transform: translate(-50%, -50%) translateX(-12px); }
+.pagina .flor-izquierda-1::after { transform: translate(-50%, -50%) translateX(12px); }
+.pagina .flor-izquierda-2::before { transform: translate(-50%, -50%) translateY(-10px); }
+.pagina .flor-izquierda-2::after { transform: translate(-50%, -50%) translateY(10px); }
+.pagina .flor-izquierda-3::before { transform: translate(-50%, -50%) translate(-10px, -10px); }
+.pagina .flor-izquierda-3::after { transform: translate(-50%, -50%) translate(10px, 10px); }
+
+/* ===== FILIGRANAS PARTE INFERIOR ===== */
+.pagina .filigrana-inferior {
+    position: absolute;
+    bottom: 5px;
+    left: 40px;
+    right: 0;
+    height: 40px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.pagina .filigrana-inferior::before {
+    content: "❦ ❧ ❦";
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    font-size: 18px;
+    color: #d4af37;
+    opacity: 0.6;
+    letter-spacing: 10px;
+}
+
+/* ===== FLOR EN LA PARTE INFERIOR ===== */
+.pagina .flor-inferior {
+    position: absolute;
     bottom: 10px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 15px;
-    pointer-events: none;
-    z-index: 3;
-}
-
-/* Detalles de las esquinas - esquina superior izquierda */
-.pagina .marco-esquina {
-    position: absolute;
-    top: -5px;
-    left: -5px;
+    left: 60px;
     width: 30px;
     height: 30px;
-    border-top: 3px solid #d4af37;
-    border-left: 3px solid #d4af37;
-    border-radius: 10px 0 0 0;
-    z-index: 4;
-    pointer-events: none;
+    background: radial-gradient(circle, #d4af37, #b88d3a);
+    border-radius: 50%;
+    z-index: 6;
+    animation: brilloFlor 2.2s ease-in-out infinite;
 }
 
-/* Esquina superior derecha */
-.pagina .marco-esquina-derecha {
+.pagina .flor-inferior::before,
+.pagina .flor-inferior::after {
+    content: "";
     position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 30px;
-    height: 30px;
-    border-top: 3px solid #d4af37;
-    border-right: 3px solid #d4af37;
-    border-radius: 0 10px 0 0;
-    z-index: 4;
-    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Esquina inferior izquierda */
-.pagina .marco-esquina-inferior {
-    position: absolute;
-    bottom: -5px;
-    left: -5px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 3px solid #d4af37;
-    border-left: 3px solid #d4af37;
-    border-radius: 0 0 0 10px;
-    z-index: 4;
-    pointer-events: none;
+.pagina .flor-inferior::before { transform: translate(-50%, -50%) translateX(-10px); }
+.pagina .flor-inferior::after { transform: translate(-50%, -50%) translateX(10px); }
+
+/* ===== BRILLO METÁLICO GENERAL ===== */
+@keyframes brilloFlor {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 15px gold; }
 }
 
-/* Esquina inferior derecha */
-.pagina .marco-esquina-inferior-derecha {
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 3px solid #d4af37;
-    border-right: 3px solid #d4af37;
-    border-radius: 0 0 10px 0;
-    z-index: 4;
-    pointer-events: none;
-}
-
-/* Efecto hover en la foto */
 .pagina img:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
     transition: all 0.4s ease;
 }
 
-/* Corona en la esquina (ya la tienes) */
+/* ===== CORONA EN ESQUINA ===== */
 .corona-esquina {
     position: absolute;
     top: 15px;
@@ -1128,9 +1230,29 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Brillo en el marco al pasar el mouse */
-.pagina:hover::before {
-    border-color: rgba(212, 175, 55, 0.9);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-    transition: all 0.3s ease;
+/* ===== RESPONSIVE MÓVIL ===== */
+@media (max-width: 768px) {
+    .pagina .flor-izquierda-1,
+    .pagina .flor-izquierda-2,
+    .pagina .flor-izquierda-3 {
+        transform: scale(0.7);
+    }
+    .pagina .flor-inferior {
+        transform: scale(0.7);
+        left: 30px;
+    }
+    .pagina .filigrana-inferior::before {
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+    .pagina .cinta-superior {
+        height: 10px;
+        top: -5px;
+        left: 30px;
+    }
+    .pagina .cinta-derecha {
+        width: 10px;
+        right: -5px;
+        bottom: 30px;
+    }
 }
