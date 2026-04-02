@@ -128,9 +128,10 @@ body {
 
 /* 7. BOTÓN PRINCIPAL */
 .boton-real {
-    background: linear-gradient(45deg, #8b0000, #5a0000);
-    color: #ffd700;
-    border: 3px solid #ffd700;
+    background: linear-gradient(45deg, #8b0000, #5a0000)!important;
+    border: 3px solid #ffd700 !important;
+   color: #ffd700 !important;
+}
     padding: 15px 40px;
     font-size: 18px;
     font-weight: bold;
