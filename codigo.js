@@ -174,11 +174,66 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 7. BOTONES CARRUSEL
+    // 7. BOTONES CARRUSEL CON EFECTO ESPIRAL
     // ============================================
 
+    // Función para crear efecto espiral (con posición desde el centro del botón)
+    function crearEfectoEspiralDesdeBoton(boton, x, y) {
+        const onda = document.createElement('div');
+        onda.style.position = 'fixed';
+        onda.style.left = x + 'px';
+        onda.style.top = y + 'px';
+        onda.style.width = '0';
+        onda.style.height = '0';
+        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0))';
+        onda.style.borderRadius = '50%';
+        onda.style.transform = 'translate(-50%, -50%)';
+        onda.style.pointerEvents = 'none';
+        onda.style.zIndex = '9997';
+        onda.style.animation = 'onda 0.6s ease-out forwards';
+        document.body.appendChild(onda);
+        
+        const diamantes = ['💎', '✨', '⭐', '💠', '💫', '♦️'];
+        for (let i = 0; i < 12; i++) {
+            setTimeout(function() {
+                const diamante = document.createElement('div');
+                diamante.style.position = 'fixed';
+                diamante.style.pointerEvents = 'none';
+                diamante.style.zIndex = '9999';
+                diamante.style.animation = 'brilloEspiral 0.6s ease-out forwards';
+                diamante.style.filter = 'drop-shadow(0 0 5px gold)';
+                diamante.innerHTML = diamantes[Math.floor(Math.random() * diamantes.length)];
+                const angulo = (i / 12) * Math.PI * 2;
+                const radio = 50;
+                diamante.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                diamante.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                diamante.style.fontSize = (20 + Math.random() * 15) + 'px';
+                document.body.appendChild(diamante);
+                setTimeout(function() { diamante.remove(); }, 600);
+            }, i * 20);
+        }
+        setTimeout(function() { onda.remove(); }, 600);
+    }
+
+    // Botón SIGUIENTE con efecto
     if (btnSiguiente) {
-        btnSiguiente.addEventListener('click', function() {
+        btnSiguiente.addEventListener('click', function(event) {
+            // Obtener posición del clic
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Crear efecto espiral
+            crearEfectoEspiralDesdeBoton(this, x, y);
+            
+            // Efecto de brillo en el botón
+            this.style.transform = 'scale(0.95)';
+            this.style.boxShadow = '0 0 20px gold';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            }, 200);
+            
+            // Cambiar página
             if (paginaActualCarrusel < totalPaginasCarrusel) {
                 mostrarPaginaCarrusel(paginaActualCarrusel + 1);
             } else {
@@ -189,14 +244,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Botón ANTERIOR con efecto
     if (btnAnterior) {
-        btnAnterior.addEventListener('click', function() {
+        btnAnterior.addEventListener('click', function(event) {
+            // Obtener posición del clic
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Crear efecto espiral
+            crearEfectoEspiralDesdeBoton(this, x, y);
+            
+            // Efecto de brillo en el botón
+            this.style.transform = 'scale(0.95)';
+            this.style.boxShadow = '0 0 20px gold';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            }, 200);
+            
+            // Cambiar página
             if (paginaActualCarrusel > 1) {
                 mostrarPaginaCarrusel(paginaActualCarrusel - 1);
             }
         });
     }
-
     // ============================================
     // 8. FORMULARIO WHATSAPP
     // ============================================
