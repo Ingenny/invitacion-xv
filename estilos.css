@@ -154,7 +154,9 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
 }
-
+.boton-real i {
+    color: #ffd700;
+}
 /* 8. ELEMENTOS FLOTANTES (DECORACIÓN) */
 .elementos-flotantes {
   position: absolute;
