@@ -615,35 +615,100 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 800);
     }
 
-    // Reemplazar la función del botón de abrir
-    function abrirConEfectoEspiral(event) {
-        console.log('🎉 Abriendo con efecto espiral de diamantes');
+     // ============================================
+    // 2. FUNCIÓN PRINCIPAL: ABRIR INVITACIÓN CON EFECTO ESPIRAL
+    // ============================================
+
+    function crearEfectoEspiral(x, y) {
+        // Onda expansiva dorada
+        const onda = document.createElement('div');
+        onda.style.position = 'fixed';
+        onda.style.left = x + 'px';
+        onda.style.top = y + 'px';
+        onda.style.width = '0';
+        onda.style.height = '0';
+        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0))';
+        onda.style.borderRadius = '50%';
+        onda.style.transform = 'translate(-50%, -50%)';
+        onda.style.pointerEvents = 'none';
+        onda.style.zIndex = '9997';
+        onda.style.animation = 'onda 0.8s ease-out forwards';
+        document.body.appendChild(onda);
         
+        // Crear 16 diamantes en espiral
+        const diamantes = ['💎', '✨', '⭐', '💠', '💫', '♦️'];
+        const numDiamantes = 16;
+        
+        for (let i = 0; i < numDiamantes; i++) {
+            setTimeout(() => {
+                const diamante = document.createElement('div');
+                diamante.style.position = 'fixed';
+                diamante.style.pointerEvents = 'none';
+                diamante.style.zIndex = '9999';
+                diamante.style.animation = 'brilloEspiral 0.8s ease-out forwards';
+                diamante.style.filter = 'drop-shadow(0 0 5px gold) drop-shadow(0 0 10px #ffd700)';
+                
+                const icono = diamantes[Math.floor(Math.random() * diamantes.length)];
+                diamante.innerHTML = icono;
+                
+                const angulo = (i / numDiamantes) * Math.PI * 2;
+                const radio = 70;
+                const offsetX = Math.cos(angulo) * radio;
+                const offsetY = Math.sin(angulo) * radio;
+                
+                diamante.style.left = (x + offsetX) + 'px';
+                diamante.style.top = (y + offsetY) + 'px';
+                diamante.style.fontSize = (25 + Math.random() * 15) + 'px';
+                
+                document.body.appendChild(diamante);
+                
+                setTimeout(() => diamante.remove(), 800);
+            }, i * 30);
+        }
+        
+        setTimeout(() => onda.remove(), 800);
+    }
+
+    // Función original del botón con efecto espiral
+    function abrirInvitacionConEspiral(event) {
+        console.log('🎉 ¡Abriendo la invitación con espiral de diamantes!');
+        
+        // Obtener coordenadas del clic
         const x = event.clientX;
         const y = event.clientY;
         
         // Crear efecto espiral
         crearEfectoEspiral(x, y);
         
-        // Pequeño retraso para mostrar el efecto
+        // Destello original
+        const destello = document.createElement('div');
+        destello.className = 'destello';
+        document.body.appendChild(destello);
+        setTimeout(() => destello.remove(), 600);
+        
+        // Esperar medio segundo para que se vea el efecto
         setTimeout(() => {
             // Ocultar portada
-            if (portada) portada.style.display = 'none';
+            portada.style.display = 'none';
             
-            // Mostrar carrusel
+            // Mostrar carrusel de fotos
             if (carruselFotos) {
                 carruselFotos.style.display = 'flex';
-                mostrarPaginaCarrusel(1);
+                if (typeof mostrarPaginaCarrusel === 'function') {
+                    mostrarPaginaCarrusel(1);
+                }
             } else if (invitacionDetallada) {
                 invitacionDetallada.style.display = 'block';
             }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 400);
+        
+        hacerSonidoExito();
     }
     
-    // Reemplazar el evento del botón
-    botonAbrir.removeEventListener('click', botonAbrir.clickHandler);
-    botonAbrir.addEventListener('click', abrirConEfectoEspiral);
+    // Eliminar eventos anteriores y asignar el nuevo
+    botonAbrir.removeEventListener('click', abrirInvitacionConEspiral);
+    botonAbrir.addEventListener('click', abrirInvitacionConEspiral);
         
 }); // <--- CIERRE DEL DOMContentLoaded
