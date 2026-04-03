@@ -1207,3 +1207,65 @@ body {
         font-size: 40px;
     }
 }
+/* ========== CORRECCIÓN: RESTAURAR MARCO DE FOTOS ========== */
+
+/* Asegurar que el marco de fotos tenga borde */
+.pagina img {
+    border: 2px solid rgba(212, 175, 55, 0.6) !important;
+    border-radius: 0 !important;
+}
+
+/* Restaurar cinta superior */
+.pagina .cinta-superior {
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    right: 0;
+    height: 16px;
+    background: repeating-linear-gradient(45deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
+    border-radius: 8px 8px 0 0;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Restaurar cinta derecha */
+.pagina .cinta-derecha {
+    position: absolute;
+    top: 0;
+    right: -8px;
+    bottom: 40px;
+    width: 16px;
+    background: repeating-linear-gradient(135deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
+    border-radius: 0 8px 8px 0;
+    z-index: 5;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+}
+
+/* Restaurar esquina dorada */
+.pagina .esquina-dorada {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    border-top: 4px solid #d4af37;
+    border-right: 4px solid #d4af37;
+    border-radius: 0 15px 0 0;
+    z-index: 6;
+    box-shadow: 2px -2px 8px rgba(212, 175, 55, 0.5);
+}
+
+/* ========== CORRECCIÓN: FONDO DEL MENSAJE ========== */
+
+/* Contenedor del mensaje - fondo transparente con blur */
+.mensaje-container {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Color del texto del mensaje - azul elegante */
+.mensaje-emotivo {
+    color: #0a2f6c !important;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5) !important;
+}
