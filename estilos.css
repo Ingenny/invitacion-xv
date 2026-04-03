@@ -56,7 +56,7 @@ body {
 
 @media (max-width: 768px) {
     .corona-animada img {
-        width: 50px;
+        width: 80px;
     }
 }
 @keyframes flotar {
