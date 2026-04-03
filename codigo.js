@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let paginaActualCarrusel = 1;
     const totalPaginasCarrusel = 3;
 
-   function mostrarPaginaCarrusel(numero) {
+    function mostrarPaginaCarrusel(numero) {
         const paginas = [pagina1, pagina2, pagina3];
         paginas.forEach(pagina => {
             if (pagina) pagina.style.display = 'none';
@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (paginaSeleccionada) {
             paginaSeleccionada.style.display = 'block';
             
-            // ==== EFECTO DE BRILLO EN LA FOTO AL MOSTRAR ====
             const foto = paginaSeleccionada.querySelector('img');
             if (foto) {
                 foto.style.transition = 'all 0.3s ease';
@@ -87,12 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 400);
             }
             
-            // ==== EFECTO ESCARCHA EN LA FOTO ====
             const rect = paginaSeleccionada.getBoundingClientRect();
             const x = rect.left + rect.width / 2;
             const y = rect.top + rect.height / 2;
             
-            // Crear pequeñas partículas de escarcha alrededor de la foto
             const formas = ['✦', '✧', '·', '•'];
             for (let i = 0; i < 12; i++) {
                 setTimeout(() => {
@@ -120,19 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA - OPTIMIZADO MÓVIL
+    // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA
     // ============================================
 
     function crearEfectoEspiral(x, y) {
-        // Detectar si es móvil
         const esMovil = window.innerWidth <= 768;
-        
-        // Radios ajustados según dispositivo
         const radioGrande = esMovil ? 70 : 110;
         const radioMediano = esMovil ? 50 : 75;
         const radioPequeno = esMovil ? 30 : 45;
         
-        // Onda expansiva
         const onda = document.createElement('div');
         onda.style.position = 'fixed';
         onda.style.left = x + 'px';
@@ -150,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const formas = ['✦', '✧', '✵', '✶', '·', '•'];
         const colores = ['#ffd700', '#fff8dc', '#f5e6b8', '#ffe4b5', '#daa520'];
         
-        // PRIMERA VUELTA (GRANDE)
         const numGrande = esMovil ? 12 : 18;
         for (let i = 0; i < numGrande; i++) {
             setTimeout(function() {
@@ -173,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, i * 25);
         }
         
-        // SEGUNDA VUELTA (MEDIANA)
         const numMediano = esMovil ? 10 : 16;
         for (let i = 0; i < numMediano; i++) {
             setTimeout(function() {
@@ -196,7 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, i * 20);
         }
         
-        // TERCERA VUELTA (PEQUEÑA)
         const numPequeno = esMovil ? 8 : 14;
         for (let i = 0; i < numPequeno; i++) {
             setTimeout(function() {
@@ -219,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, i * 15);
         }
         
-        // Capa de escarcha
         const numEscarcha = esMovil ? 30 : 50;
         for (let i = 0; i < numEscarcha; i++) {
             setTimeout(function() {
@@ -247,35 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 5. BOTÓN ABRIR INVITACIÓN (CON EFECTO ESPIRAL + CARRUSEL)
-    // ============================================
-
-    if (botonAbrir) {
-        botonAbrir.addEventListener('click', function(event) {
-            console.log('🎉 Abriendo con espiral de diamantes y carrusel');
-            
-            crearEfectoEspiral(event.clientX, event.clientY);
-            
-            const destello = document.createElement('div');
-            destello.className = 'destello';
-            document.body.appendChild(destello);
-            setTimeout(function() { destello.remove(); }, 600);
-            
-            setTimeout(function() {
-                if (portada) portada.style.display = 'none';
-                if (carruselFotos) {
-                    carruselFotos.style.display = 'flex';
-                    mostrarPaginaCarrusel(1);
-                } else if (invitacionDetallada) {
-                    invitacionDetallada.style.display = 'block';
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 400);
-        });
-    }
-
-    // ============================================
-    // 6. BOTONES RSVP, MAPA, MÚSICA
+    // 5. BOTONES RSVP, MAPA, MÚSICA
     // ============================================
 
     if (botonRSVP) {
@@ -302,13 +263,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-  // ============================================
-    // 7. BOTONES CARRUSEL CON EFECTO ESCARCHA (SIN ELEMENTOS INFANTILES)
     // ============================================
-   // Función para efecto escarcha en botones (optimizado móvil)
+    // 6. BOTONES CARRUSEL CON EFECTO ESCARCHA
+    // ============================================
+
     function crearEfectoEscarchaBoton(x, y) {
         const esMovil = window.innerWidth <= 768;
-        
         const radioGrande = esMovil ? 55 : 80;
         const radioPequeno = esMovil ? 30 : 45;
         
@@ -328,7 +288,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const formas = ['✦', '✧', '✵', '✶', '·', '•'];
         
-        // Vuelta grande
         const numGrande = esMovil ? 10 : 12;
         for (let i = 0; i < numGrande; i++) {
             setTimeout(function() {
@@ -350,7 +309,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, i * 25);
         }
         
-        // Vuelta pequeña
         const numPequeno = esMovil ? 8 : 10;
         for (let i = 0; i < numPequeno; i++) {
             setTimeout(function() {
@@ -374,28 +332,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(function() { onda.remove(); }, 500);
     }
-    // ============================================
-    // 7b. EVENTOS DE LOS BOTONES ANTERIOR Y SIGUIENTE
-    // ============================================
 
-    // Botón SIGUIENTE con efecto escarcha
+    // Botón SIGUIENTE
     if (btnSiguiente) {
         btnSiguiente.addEventListener('click', function(event) {
             const x = event.clientX;
             const y = event.clientY;
-            
-            // Efecto escarcha
             crearEfectoEscarchaBoton(x, y);
-            
-            // Efecto de brillo en el botón
             this.style.transform = 'scale(0.95)';
             this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
                 this.style.boxShadow = 'none';
             }, 200);
-            
-            // Cambiar página
             if (paginaActualCarrusel < totalPaginasCarrusel) {
                 mostrarPaginaCarrusel(paginaActualCarrusel + 1);
             } else {
@@ -406,31 +355,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Botón ANTERIOR con efecto escarcha
+    // Botón ANTERIOR
     if (btnAnterior) {
         btnAnterior.addEventListener('click', function(event) {
             const x = event.clientX;
             const y = event.clientY;
-            
-            // Efecto escarcha
             crearEfectoEscarchaBoton(x, y);
-            
-            // Efecto de brillo en el botón
             this.style.transform = 'scale(0.95)';
             this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
                 this.style.boxShadow = 'none';
             }, 200);
-            
-            // Cambiar página
             if (paginaActualCarrusel > 1) {
                 mostrarPaginaCarrusel(paginaActualCarrusel - 1);
             }
         });
     }
+
     // ============================================
-    // 8. FORMULARIO WHATSAPP
+    // 7. FORMULARIO WHATSAPP
     // ============================================
 
     if (menosPersonas) {
@@ -472,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 9. COMPARTIR REDES
+    // 8. COMPARTIR REDES
     // ============================================
 
     if (whatsappBtn) {
@@ -496,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 10. MÚSICA
+    // 9. MÚSICA
     // ============================================
 
     let musicaActiva = false;
@@ -508,8 +452,8 @@ document.addEventListener('DOMContentLoaded', function() {
     botonMusicaFlotante.innerHTML = '🎵';
     botonMusicaFlotante.style.cssText = 'position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; border-radius: 50%; background: #D4AF37; color: #0A2463; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s;';
     document.body.appendChild(botonMusicaFlotante);
-//ELIMINE AQUI OJOO//
-  musicaActual = new Audio('musica/no-crezcas-mas.mp3');
+
+    musicaActual = new Audio('musica/no-crezcas-mas.mp3');
     musicaActual.loop = true;
     musicaActual.volume = 0.6;
 
@@ -544,43 +488,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('🚀 Todo listo');
-
-  // ============================================
-    // EFECTO VARITA MÁGICA GIRATORIA
     // ============================================
-
-    // ============================================
-    // VARITA MÁGICA CON EFECTO GLITTER DORADO (CRISTALES)
+    // 10. VARITA MÁGICA CON EFECTO GLITTER
     // ============================================
 
     function crearEfectoVaritaMagica() {
-        // Fondo oscuro temporal
         const fondo = document.createElement('div');
         fondo.className = 'fondo-magico';
         document.body.appendChild(fondo);
         
-        // Onda expansiva dorada
         const onda = document.createElement('div');
         onda.className = 'onda-varita';
         document.body.appendChild(onda);
         
-        // Varita que se mueve: arriba → abajo → centro
         const varita = document.createElement('div');
         varita.className = 'varita-movimiento';
         varita.innerHTML = '🪄';
         document.body.appendChild(varita);
         
-        // EFECTO GLITTER DORADO (como el de los botones)
-        // Partículas de brillo tipo cristal dorado
         const glitterItems = ['✦', '✧', '·', '•', '✵', '✶'];
         for (let i = 0; i < 60; i++) {
             setTimeout(() => {
                 const particula = document.createElement('div');
                 particula.className = 'destello-varita';
                 particula.innerHTML = glitterItems[Math.floor(Math.random() * glitterItems.length)];
-                
-                // Posición aleatoria alrededor de la pantalla
                 const x = Math.random() * window.innerWidth;
                 const y = Math.random() * window.innerHeight;
                 particula.style.left = x + 'px';
@@ -589,13 +520,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.style.color = '#ffd700';
                 particula.style.textShadow = '0 0 5px gold, 0 0 10px #ffaa00';
                 particula.style.filter = 'drop-shadow(0 0 3px gold)';
-                
                 document.body.appendChild(particula);
                 setTimeout(() => particula.remove(), 800);
             }, i * 40);
         }
         
-        // Segunda capa de brillo (más pequeña y abundante)
         for (let i = 0; i < 80; i++) {
             setTimeout(() => {
                 const particula = document.createElement('div');
@@ -606,67 +535,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 particula.style.fontSize = (6 + Math.random() * 8) + 'px';
                 particula.style.color = '#ffd700';
                 particula.style.opacity = '0.7';
-                
                 document.body.appendChild(particula);
                 setTimeout(() => particula.remove(), 600);
             }, i * 25);
         }
         
-        // Limpiar elementos
         setTimeout(() => {
             fondo.remove();
             onda.remove();
             varita.remove();
         }, 2800);
     }
-        // Destello final adicional
-        setTimeout(() => {
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    const destello = document.createElement('div');
-                    destello.className = 'destello-varita';
-                    destello.innerHTML = '✨';
-                    const angulo = Math.random() * Math.PI * 2;
-                    const distancia = 50 + Math.random() * 100;
-                    destello.style.left = 'calc(50% + ' + Math.cos(angulo) * distancia + 'px)';
-                    destello.style.top = 'calc(50% + ' + Math.sin(angulo) * distancia + 'px)';
-                    destello.style.fontSize = (10 + Math.random() * 20) + 'px';
-                    document.body.appendChild(destello);
-                    setTimeout(() => destello.remove(), 600);
-                }, i * 20);
-            }
-        }, 400);
-        
-        setTimeout(() => onda.remove(), 1000);
-        setTimeout(() => varita.remove(), 1200);
-    }
 
-    // Modificar el botón de abrir
+    // ============================================
+    // 11. BOTÓN ABRIR INVITACIÓN
+    // ============================================
+
     if (botonAbrir) {
-        const nuevoBoton = botonAbrir.cloneNode(true);
-        botonAbrir.parentNode.replaceChild(nuevoBoton, botonAbrir);
-        
-        nuevoBoton.addEventListener('click', function(event) {
-            console.log('🎉 Abriendo con varita mágica giratoria');
+        botonAbrir.addEventListener('click', function(event) {
+            console.log('🎉 Abriendo invitación');
             
-            // Efecto varita mágica en el centro
-            crearEfectoVaritaMagica();
-            
-            // Destello original
             const destello = document.createElement('div');
             destello.className = 'destello';
             document.body.appendChild(destello);
             setTimeout(() => destello.remove(), 600);
             
+            if (portada) portada.style.display = 'none';
+            if (carruselFotos) {
+                carruselFotos.style.display = 'flex';
+                mostrarPaginaCarrusel(1);
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
             setTimeout(() => {
-                if (portada) portada.style.display = 'none';
-                if (carruselFotos) {
-                    carruselFotos.style.display = 'flex';
-                    mostrarPaginaCarrusel(1);
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 1200);
+                crearEfectoVaritaMagica();
+            }, 300);
         });
     }
-    
-});
+
+    console.log('🚀 Todo listo');
+
+}); // <--- CIERRE DEL DOMContentLoaded
