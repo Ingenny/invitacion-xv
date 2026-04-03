@@ -42,21 +42,21 @@ body {
 
 /* 4. CORONA ANIMADA */
 .corona-animada {
-  font-size: 70px;
+  font-size: 100px;
   color: var(--dorado);
   margin-bottom: 30px;
   animation: flotar 3s infinite alternate;
 }
 /* Estilo para la imagen PNG */
 .corona-animada img {
-    width: 70px;
+    width: 100px;
     height: auto;
     animation: flotar 3s infinite alternate;
 }
 
 @media (max-width: 768px) {
     .corona-animada img {
-        width: 80px;
+        width: 100px;
     }
 }
 @keyframes flotar {
