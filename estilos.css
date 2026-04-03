@@ -1263,11 +1263,12 @@ body {
     border: 1px solid rgba(212, 175, 55, 0.3) !important;
 }
 
-/* Color del texto del mensaje - azul elegante */
+/* Color del texto del mensaje - ROJO ELEGANTE */
 .mensaje-emotivo {
-    color: F53005 !important;
+    color: #8b0000 !important;
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.5) !important;
 }
+
 /* ========== RESTAURACIÓN COMPLETA DEL MARCO ASIMÉTRICO VICTORIANO ========== */
 
 /* Contenedor de la página */
