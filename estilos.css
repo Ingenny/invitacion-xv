@@ -962,13 +962,13 @@ body {
   z-index: 10;
 }
 
-.mensaje-emotivo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.8;
-  color: #8b0000;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+..mensaje-emotivo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.8;
+    color: #000000;
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
 .mensaje-emotivo .linea {
