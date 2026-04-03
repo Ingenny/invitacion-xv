@@ -47,7 +47,18 @@ body {
   margin-bottom: 30px;
   animation: flotar 3s infinite alternate;
 }
+/* Estilo para la imagen PNG */
+.corona-animada img {
+    width: 70px;
+    height: auto;
+    animation: flotar 3s infinite alternate;
+}
 
+@media (max-width: 768px) {
+    .corona-animada img {
+        width: 50px;
+    }
+}
 @keyframes flotar {
   0% { transform: translateY(0px) rotate(0deg) scale(1); }
   25% { transform: translateY(-8px) rotate(3deg) scale(1.05); }
