@@ -546,4 +546,94 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('🚀 Todo listo');
 
+  // ============================================
+    // EFECTO VARITA MÁGICA GIRATORIA
+    // ============================================
+
+    function crearEfectoVaritaMagica() {
+        // Onda expansiva desde el centro
+        const onda = document.createElement('div');
+        onda.className = 'onda-varita';
+        document.body.appendChild(onda);
+        
+        // Varita giratoria en el centro
+        const varita = document.createElement('div');
+        varita.className = 'varita-giratoria';
+        varita.innerHTML = '🪄✨';
+        document.body.appendChild(varita);
+        
+        // Crear destellos que salen de la varita
+        const destellos = ['✨', '⭐', '💫', '🌟', '✧', '✦', '💎', '♦️'];
+        for (let i = 0; i < 40; i++) {
+            setTimeout(() => {
+                const destello = document.createElement('div');
+                destello.className = 'destello-varita';
+                destello.innerHTML = destellos[Math.floor(Math.random() * destellos.length)];
+                
+                // Ángulo aleatorio para salir en todas direcciones
+                const angulo = Math.random() * Math.PI * 2;
+                const distancia = 100 + Math.random() * 150;
+                const offsetX = Math.cos(angulo) * distancia;
+                const offsetY = Math.sin(angulo) * distancia;
+                
+                destello.style.left = 'calc(50% + ' + offsetX + 'px)';
+                destello.style.top = 'calc(50% + ' + offsetY + 'px)';
+                destello.style.fontSize = (15 + Math.random() * 25) + 'px';
+                destello.style.color = '#ffd700';
+                
+                document.body.appendChild(destello);
+                setTimeout(() => destello.remove(), 800);
+            }, i * 30);
+        }
+        
+        // Destello final adicional
+        setTimeout(() => {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const destello = document.createElement('div');
+                    destello.className = 'destello-varita';
+                    destello.innerHTML = '✨';
+                    const angulo = Math.random() * Math.PI * 2;
+                    const distancia = 50 + Math.random() * 100;
+                    destello.style.left = 'calc(50% + ' + Math.cos(angulo) * distancia + 'px)';
+                    destello.style.top = 'calc(50% + ' + Math.sin(angulo) * distancia + 'px)';
+                    destello.style.fontSize = (10 + Math.random() * 20) + 'px';
+                    document.body.appendChild(destello);
+                    setTimeout(() => destello.remove(), 600);
+                }, i * 20);
+            }
+        }, 400);
+        
+        setTimeout(() => onda.remove(), 1000);
+        setTimeout(() => varita.remove(), 1200);
+    }
+
+    // Modificar el botón de abrir
+    if (botonAbrir) {
+        const nuevoBoton = botonAbrir.cloneNode(true);
+        botonAbrir.parentNode.replaceChild(nuevoBoton, botonAbrir);
+        
+        nuevoBoton.addEventListener('click', function(event) {
+            console.log('🎉 Abriendo con varita mágica giratoria');
+            
+            // Efecto varita mágica en el centro
+            crearEfectoVaritaMagica();
+            
+            // Destello original
+            const destello = document.createElement('div');
+            destello.className = 'destello';
+            document.body.appendChild(destello);
+            setTimeout(() => destello.remove(), 600);
+            
+            setTimeout(() => {
+                if (portada) portada.style.display = 'none';
+                if (carruselFotos) {
+                    carruselFotos.style.display = 'flex';
+                    mostrarPaginaCarrusel(1);
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1200);
+        });
+    }
+    
 });
