@@ -97,16 +97,11 @@ body {
 }
 
 @keyframes flotarObjetos {
-    0% {
-        transform: translateY(-50%) translateX(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-50%) translateX(5px) rotate(10deg);
-    }
-    100% {
-        transform: translateY(-50%) translateX(-5px) rotate(-10deg);
-    }
+    0% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
+    50% { transform: translateY(-50%) translateX(5px) rotate(10deg); }
+    100% { transform: translateY(-50%) translateX(-5px) rotate(-10deg); }
 }
+
 .nombre-quinceanera {
   font-family: 'Great Vibes', cursive;
   font-size: 48px;
@@ -235,7 +230,7 @@ body {
   100% { transform: translateY(-20px) rotate(15deg); opacity: 0.3; }
 }
 
-/* 9. CARRUSEL DE FOTOS */
+/* 9. CARRUSEL DE FOTOS Y MARCO ASIMÉTRICO */
 .carrusel-fotos {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -259,60 +254,245 @@ body {
   border: 1px solid #d4af37;
 }
 
+/* Contenedor de la página */
 .pagina {
+  position: relative;
+  background: transparent !important;
+  border-radius: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
   width: 100%;
   height: 100%;
-  background: #fff9ef;
-  border-radius: 15px;
-  padding: 20px;
-  position: relative;
 }
 
+/* Imagen de la quinceañera */
 .pagina img {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 0;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s ease;
+  border: 2px solid rgba(212, 175, 55, 0.6);
 }
 
-/* ===== CORONA EN ESQUINA INFERIOR DERECHA ===== */
+/* BORDE SUPERIOR (CINTA TRENZADA) */
+.pagina .cinta-superior {
+  position: absolute;
+  top: -8px;
+  left: 40px;
+  right: 0;
+  height: 16px;
+  background: repeating-linear-gradient(45deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
+  border-radius: 8px 8px 0 0;
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* BORDE DERECHO (CINTA TRENZADA) */
+.pagina .cinta-derecha {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  bottom: 40px;
+  width: 16px;
+  background: repeating-linear-gradient(135deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
+  border-radius: 0 8px 8px 0;
+  z-index: 5;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+}
+
+/* ESQUINA SUPERIOR DERECHA (PUNTA DECORATIVA) */
+.pagina .esquina-dorada {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  border-top: 4px solid #d4af37;
+  border-right: 4px solid #d4af37;
+  border-radius: 0 15px 0 0;
+  z-index: 6;
+  box-shadow: 2px -2px 8px rgba(212, 175, 55, 0.5);
+}
+
+/* FILIGRANAS LADO IZQUIERDO */
+.pagina .filigrana-izquierda {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pagina .filigrana-izquierda::before {
+  content: "❦";
+  position: absolute;
+  top: 15%;
+  left: 10px;
+  font-size: 24px;
+  color: #d4af37;
+  opacity: 0.7;
+  text-shadow: 0 0 5px gold;
+}
+
+.pagina .filigrana-izquierda::after {
+  content: "❧";
+  position: absolute;
+  top: 35%;
+  left: 15px;
+  font-size: 28px;
+  color: #d4af37;
+  opacity: 0.6;
+  text-shadow: 0 0 5px gold;
+}
+
+/* FLORES DE 5 PÉTALOS (LADO IZQUIERDO) */
+.pagina .flor-izquierda-1,
+.pagina .flor-izquierda-2,
+.pagina .flor-izquierda-3 {
+  position: absolute;
+  left: 5px;
+  z-index: 6;
+  pointer-events: none;
+  background: radial-gradient(circle, #d4af37, #b88d3a);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  animation: brilloFlor 2s ease-in-out infinite;
+}
+
+.pagina .flor-izquierda-1 { top: 15%; width: 35px; height: 35px; }
+.pagina .flor-izquierda-2 { top: 45%; left: 8px; width: 28px; height: 28px; animation-duration: 2.5s; }
+.pagina .flor-izquierda-3 { top: 75%; left: 3px; width: 40px; height: 40px; animation-duration: 1.8s; }
+
+/* Pétalos de las flores */
+.pagina .flor-izquierda-1::before,
+.pagina .flor-izquierda-1::after,
+.pagina .flor-izquierda-2::before,
+.pagina .flor-izquierda-2::after,
+.pagina .flor-izquierda-3::before,
+.pagina .flor-izquierda-3::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #ffd700;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pagina .flor-izquierda-1::before { transform: translate(-50%, -50%) translateX(-12px); }
+.pagina .flor-izquierda-1::after { transform: translate(-50%, -50%) translateX(12px); }
+.pagina .flor-izquierda-2::before { transform: translate(-50%, -50%) translateY(-10px); }
+.pagina .flor-izquierda-2::after { transform: translate(-50%, -50%) translateY(10px); }
+.pagina .flor-izquierda-3::before { transform: translate(-50%, -50%) translate(-10px, -10px); }
+.pagina .flor-izquierda-3::after { transform: translate(-50%, -50%) translate(10px, 10px); }
+
+/* FILIGRANAS PARTE INFERIOR */
+.pagina .filigrana-inferior {
+  position: absolute;
+  bottom: 5px;
+  left: 40px;
+  right: 0;
+  height: 40px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pagina .filigrana-inferior::before {
+  content: "❦ ❧ ❦";
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  font-size: 18px;
+  color: #d4af37;
+  opacity: 0.6;
+  letter-spacing: 10px;
+}
+
+/* FLOR EN LA PARTE INFERIOR */
+.pagina .flor-inferior {
+  position: absolute;
+  bottom: 10px;
+  left: 60px;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #d4af37, #b88d3a);
+  border-radius: 50%;
+  z-index: 6;
+  animation: brilloFlor 2.2s ease-in-out infinite;
+}
+
+.pagina .flor-inferior::before,
+.pagina .flor-inferior::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffd700;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pagina .flor-inferior::before { transform: translate(-50%, -50%) translateX(-10px); }
+.pagina .flor-inferior::after { transform: translate(-50%, -50%) translateX(10px); }
+
+@keyframes brilloFlor {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 15px gold; }
+}
+
+.pagina img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+  transition: all 0.4s ease;
+}
+
+/* CORONA EN ESQUINA INFERIOR DERECHA */
 .corona-esquina {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    z-index: 15;
-    background: rgba(212, 175, 55, 0.85);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ffd966;
-    backdrop-filter: blur(4px);
-    animation: flotarCorona 2s ease-in-out infinite;
-    cursor: pointer;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 15;
+  background: rgba(212, 175, 55, 0.85);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffd966;
+  backdrop-filter: blur(4px);
+  animation: flotarCorona 2s ease-in-out infinite;
+  cursor: pointer;
 }
 
 .corona-esquina i {
-    font-size: 22px;
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    animation: brilloCorona 1.5s ease-in-out infinite;
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  animation: brilloCorona 1.5s ease-in-out infinite;
 }
 
-/* Animación de flotar */
 @keyframes flotarCorona {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-5px) rotate(5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
-/* Brillo de la corona */
 @keyframes brilloCorona {
-    0%, 100% { text-shadow: 0 0 2px gold; }
-    50% { text-shadow: 0 0 10px gold, 0 0 5px #ffd700; }
+  0%, 100% { text-shadow: 0 0 2px gold; }
+  50% { text-shadow: 0 0 10px gold, 0 0 5px #ffd700; }
 }
 
 .controles-carrusel {
@@ -332,15 +512,6 @@ body {
   border-radius: 50px;
   cursor: pointer;
   color: var(--azul-oscuro);
-}
-
-.indicador {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--azul-rey);
-  background: rgba(255, 255, 255, 0.8);
-  padding: 5px 15px;
-  border-radius: 50px;
 }
 
 /* 10. INVITACIÓN DETALLADA */
@@ -651,7 +822,253 @@ body {
   100% { opacity: 0; transform: scale(2); }
 }
 
-/* 17. RESPONSIVE MÓVIL */
+/* 17. RELOJ DERRETIDO */
+.reloj-derretido {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reloj-derretido:hover { transform: scale(1.05); }
+
+.reloj-cara-derretida {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #f0e6d0, #d4c4a8);
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  animation: derretirse 4s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes derretirse {
+  0% { border-radius: 50%; transform: skew(0deg, 0deg); }
+  25% { border-radius: 55% 45% 60% 40% / 45% 55% 45% 55%; transform: skew(2deg, 1deg); }
+  50% { border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%; transform: skew(-2deg, -1deg); }
+  75% { border-radius: 60% 40% 55% 45% / 40% 60% 40% 60%; transform: skew(1deg, 2deg); }
+  100% { border-radius: 50%; transform: skew(0deg, 0deg); }
+}
+
+.reloj-fondo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 35%, rgba(255, 245, 215, 0.7), rgba(200, 180, 130, 0.3));
+}
+
+.manecilla-derretida {
+  position: absolute;
+  background: #2a1e3c;
+  transform-origin: bottom center;
+  bottom: 40px;
+  left: 50%;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.hora-derretida { width: 4px; height: 24px; transform: translateX(-50%) rotate(45deg); animation: moverHora 43200s linear infinite; }
+.minuto-derretida { width: 3px; height: 30px; transform: translateX(-50%) rotate(90deg); animation: moverMinuto 3600s linear infinite; }
+
+@keyframes moverHora { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg); } }
+@keyframes moverMinuto { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg); } }
+
+.centro-derretido {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  box-shadow: 0 0 5px gold;
+}
+
+.numeros-derretidos span {
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  color: #3a2a4c;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  font-family: 'Playfair Display', serif;
+  animation: bailarNumeros 3s ease-in-out infinite;
+}
+
+.numeros-derretidos span:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.numeros-derretidos span:nth-child(2) { top: 50%; right: 10%; transform: translateY(-50%); animation-delay: 0.5s; }
+.numeros-derretidos span:nth-child(3) { bottom: 10%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
+.numeros-derretidos span:nth-child(4) { top: 50%; left: 10%; transform: translateY(-50%); animation-delay: 1.5s; }
+
+@keyframes bailarNumeros {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(3deg); }
+}
+
+.gotas-reloj {
+  position: absolute;
+  bottom: -15px;
+  left: 15px;
+  width: 8px;
+  height: 15px;
+  background: linear-gradient(180deg, #d4af37, transparent);
+  border-radius: 0 0 5px 5px;
+  animation: gotear 2s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes gotear {
+  0% { height: 15px; opacity: 0.6; }
+  50% { height: 25px; opacity: 0.3; }
+  100% { height: 15px; opacity: 0.6; }
+}
+
+.gotas-reloj::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 2px;
+  width: 4px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 0 0 3px 3px;
+  animation: gotear2 2.5s ease-in-out infinite;
+}
+
+@keyframes gotear2 {
+  0% { height: 8px; opacity: 0.5; }
+  50% { height: 14px; opacity: 0.2; }
+  100% { height: 8px; opacity: 0.5; }
+}
+
+/* 18. MENSAJE EMOTIVO Y VARITA MÁGICA */
+.mensaje-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 25px 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.mensaje-emotivo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: #8b0000;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.mensaje-emotivo .linea {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecerLineaMagica 0.6s ease-out forwards;
+}
+
+.mensaje-emotivo .line1 { animation-delay: 1.2s; }
+.mensaje-emotivo .line2 { animation-delay: 1.7s; }
+.mensaje-emotivo .line3 { animation-delay: 2.2s; }
+.mensaje-emotivo .line4 { animation-delay: 2.7s; }
+.mensaje-emotivo .line5 { animation-delay: 3.2s; }
+.mensaje-emotivo .line6 { animation-delay: 3.7s; }
+.mensaje-emotivo .line7 { animation-delay: 4.2s; }
+
+@keyframes aparecerLineaMagica {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.mensaje-emotivo .linea::first-letter {
+  font-size: 26px;
+  font-weight: 700;
+  color: #d4af37;
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+/* VARITA MÁGICA */
+.varita-movimiento {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10001;
+  font-size: 50px;
+  filter: drop-shadow(0 0 10px gold);
+  animation: moverVarita 2s ease-in-out forwards;
+}
+
+@keyframes moverVarita {
+  0% { top: 10%; left: 50%; transform: translate(-50%, -50%) scale(0.8) rotate(0deg); opacity: 0; }
+  20% { top: 10%; left: 50%; transform: translate(-50%, -50%) scale(1.2) rotate(90deg); opacity: 1; }
+  40% { top: 85%; left: 50%; transform: translate(-50%, -50%) scale(1.3) rotate(180deg); opacity: 1; }
+  60% { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.5) rotate(270deg); opacity: 1; }
+  80% { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.8) rotate(360deg); opacity: 1; }
+  100% { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0) rotate(540deg); opacity: 0; }
+}
+
+.destello-varita {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  animation: destelloCristal 0.8s ease-out forwards;
+  filter: drop-shadow(0 0 3px gold);
+}
+
+@keyframes destelloCristal {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.9; }
+  100% { transform: scale(0.5) rotate(360deg); opacity: 0; }
+}
+
+.onda-varita {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.7), rgba(212, 175, 55, 0));
+  animation: ondaVarita 1s ease-out forwards;
+}
+
+@keyframes ondaVarita {
+  0% { width: 0; height: 0; opacity: 0.8; }
+  100% { width: 300px; height: 300px; opacity: 0; }
+}
+
+.fondo-magico {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 9997;
+  animation: fondoAparecer 2s ease-out forwards;
+}
+
+@keyframes fondoAparecer {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 19. RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
   .titulo-elegante { font-size: 28px !important; }
   .titulo-elegante::before, .titulo-elegante::after { font-size: 18px; top: 40%; }
@@ -669,11 +1086,9 @@ body {
   .corona-esquina i { font-size: 16px; }
   .btn-anterior, .btn-siguiente { padding: 8px 18px; font-size: 12px; }
   
-  /* Joyas en móvil */
   .joya1, .joya2, .joya3 { font-size: 20px; }
   .joya4, .joya5, .joya11, .joya12, .joya13 { font-size: 25px; }
   .joya6, .joya7, .joya8, .joya9, .joya10 { font-size: 16px; }
-  
   .joya1 { top: 10%; left: 5%; }
   .joya2 { top: 75%; right: 8%; }
   .joya3 { bottom: 15%; left: 8%; }
@@ -682,871 +1097,30 @@ body {
   .joya6 { top: 45%; right: 3%; }
   .joya7 { top: 85%; left: 90%; }
   .joya8 { bottom: 8%; right: 15%; }
-}
-/* ========== RELOJ DERRETIDO DEL SOMBRERERO LOCO - ARRIBA IZQUIERDA ========== */
-.reloj-derretido {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 20;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.reloj-derretido:hover {
-    transform: scale(1.05);
-}
-
-.reloj-cara-derretida {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(145deg, #f0e6d0, #d4c4a8);
-    border-radius: 50%;
-    border: 3px solid #d4af37;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.5);
-    animation: derretirse 4s ease-in-out infinite;
-    overflow: hidden;
-}
-
-@keyframes derretirse {
-    0% {
-        border-radius: 50%;
-        transform: skew(0deg, 0deg);
-    }
-    25% {
-        border-radius: 55% 45% 60% 40% / 45% 55% 45% 55%;
-        transform: skew(2deg, 1deg);
-    }
-    50% {
-        border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
-        transform: skew(-2deg, -1deg);
-    }
-    75% {
-        border-radius: 60% 40% 55% 45% / 40% 60% 40% 60%;
-        transform: skew(1deg, 2deg);
-    }
-    100% {
-        border-radius: 50%;
-        transform: skew(0deg, 0deg);
-    }
-}
-
-.reloj-fondo {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 35%, rgba(255, 245, 215, 0.7), rgba(200, 180, 130, 0.3));
-}
-
-.manecilla-derretida {
-    position: absolute;
-    background: #2a1e3c;
-    transform-origin: bottom center;
-    bottom: 40px;
-    left: 50%;
-    border-radius: 3px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-.hora-derretida {
-    width: 4px;
-    height: 24px;
-    transform: translateX(-50%) rotate(45deg);
-    animation: moverHora 43200s linear infinite;
-}
-
-.minuto-derretida {
-    width: 3px;
-    height: 30px;
-    transform: translateX(-50%) rotate(90deg);
-    animation: moverMinuto 3600s linear infinite;
-}
-
-@keyframes moverHora {
-    from { transform: translateX(-50%) rotate(0deg); }
-    to { transform: translateX(-50%) rotate(360deg); }
-}
-
-@keyframes moverMinuto {
-    from { transform: translateX(-50%) rotate(0deg); }
-    to { transform: translateX(-50%) rotate(360deg); }
-}
-
-.centro-derretido {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #d4af37;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 6;
-    box-shadow: 0 0 5px gold;
-}
-
-.numeros-derretidos {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.numeros-derretidos span {
-    position: absolute;
-    font-size: 11px;
-    font-weight: bold;
-    color: #3a2a4c;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
-    font-family: 'Playfair Display', serif;
-    animation: bailarNumeros 3s ease-in-out infinite;
-}
-
-.numeros-derretidos span:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-.numeros-derretidos span:nth-child(2) { top: 50%; right: 10%; transform: translateY(-50%); animation-delay: 0.5s; }
-.numeros-derretidos span:nth-child(3) { bottom: 10%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
-.numeros-derretidos span:nth-child(4) { top: 50%; left: 10%; transform: translateY(-50%); animation-delay: 1.5s; }
-
-@keyframes bailarNumeros {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-3px) rotate(3deg); }
-}
-
-.gotas-reloj {
-    position: absolute;
-    bottom: -15px;
-    left: 15px;
-    width: 8px;
-    height: 15px;
-    background: linear-gradient(180deg, #d4af37, transparent);
-    border-radius: 0 0 5px 5px;
-    animation: gotear 2s ease-in-out infinite;
-    opacity: 0.6;
-}
-
-@keyframes gotear {
-    0% { height: 15px; opacity: 0.6; }
-    50% { height: 25px; opacity: 0.3; }
-    100% { height: 15px; opacity: 0.6; }
-}
-
-.gotas-reloj::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 2px;
-    width: 4px;
-    height: 8px;
-    background: #d4af37;
-    border-radius: 0 0 3px 3px;
-    animation: gotear2 2.5s ease-in-out infinite;
-}
-
-@keyframes gotear2 {
-    0% { height: 8px; opacity: 0.5; }
-    50% { height: 14px; opacity: 0.2; }
-    100% { height: 8px; opacity: 0.5; }
-}
-
-/* Responsive para móvil */
-@media (max-width: 768px) {
-    .reloj-derretido {
-        top: 5px;
-        left: 5px;
-    }
-    
-    .reloj-cara-derretida {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .manecilla-derretida {
-        bottom: 28px;
-    }
-    
-    .hora-derretida {
-        width: 3px;
-        height: 16px;
-    }
-    
-    .minuto-derretida {
-        width: 2px;
-        height: 20px;
-    }
-    
-    .centro-derretido {
-        width: 6px;
-        height: 6px;
-    }
-    
-    .numeros-derretidos span {
-        font-size: 8px;
-    }
-    
-    .numeros-derretidos span:nth-child(1) { top: 8%; }
-    .numeros-derretidos span:nth-child(2) { right: 8%; }
-    .numeros-derretidos span:nth-child(3) { bottom: 8%; }
-    .numeros-derretidos span:nth-child(4) { left: 8%; }
-    
-    .gotas-reloj {
-        left: 10px;
-        width: 6px;
-    }
-}
-/* ========== EFECTO BLING/GLITTER AL HACER CLIC ========== */
-@keyframes glitterBling {
-    0% {
-        background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0.4) 50%, transparent 80%);
-        transform: scale(0.8);
-        opacity: 1;
-    }
-    50% {
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 215, 0, 0.6) 40%, rgba(255, 100, 0, 0.3) 70%, transparent 100%);
-        transform: scale(1.5);
-        opacity: 0.8;
-    }
-    100% {
-        background: radial-gradient(circle, transparent 0%, transparent 100%);
-        transform: scale(2.5);
-        opacity: 0;
-    }
-}
-
-@keyframes destellosMovimiento {
-    0% {
-        transform: translate(0px, 0px) rotate(0deg);
-        opacity: 1;
-        font-size: 20px;
-    }
-    100% {
-        transform: translate(var(--x, 50px), var(--y, -80px)) rotate(360deg);
-        opacity: 0;
-        font-size: 30px;
-    }
-}
-
-.gem-particula {
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    animation: destellosMovimiento 0.8s ease-out forwards;
-    font-size: 20px;
-    filter: drop-shadow(0 0 5px gold);
-}
-
-.efecto-bling {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9998;
-    animation: glitterBling 0.8s ease-out forwards;
-}
-
-/* ========== EFECTO ESPIRAL DE DIAMANTES ========== */
-@keyframes brilloEspiral {
-    0% {
-        transform: scale(0) rotate(0deg);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1) rotate(180deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1.5) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-@keyframes onda {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 0.8;
-    }
-    100% {
-        width: 200px;
-        height: 200px;
-        opacity: 0;
-    }
-}
-
-.diamante-espiral {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    animation: brilloEspiral 1s ease-out forwards;
-    filter: drop-shadow(0 0 5px gold) drop-shadow(0 0 10px #ffd700);
-    font-size: 30px;
-}
-
-.onda-expansiva {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0));
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9997;
-    animation: onda 0.8s ease-out forwards;
-}
-
-@keyframes onda {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 0.8;
-    }
-    100% {
-        width: 300px;
-        height: 300px;
-        opacity: 0;
-    }
-}
-/* ========== MENSAJE EMOTIVO Y VARITA MÁGICA (VERSIÓN DEFINITIVA) ========== */
-/* Contenedor del mensaje - FONDO TRANSPARENTE CON BLUR */
-.mensaje-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-    text-align: center;
-    background: rgba(10, 36, 99, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 25px 20px;
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 10;
-}
-
-/* Estilo del mensaje - NEGRO OSCURO CON SOMBRA */
-.mensaje-emotivo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.8;
-    color: #1a1a2e;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-/* Líneas del mensaje (inicialmente ocultas) */
-.mensaje-emotivo .linea {
-    margin: 0;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: aparecerLineaMagica 0.6s ease-out forwards;
-}
-
-/* Retrasos para cada línea */
-.mensaje-emotivo .line1 { animation-delay: 1.2s; }
-.mensaje-emotivo .line2 { animation-delay: 1.7s; }
-.mensaje-emotivo .line3 { animation-delay: 2.2s; }
-.mensaje-emotivo .line4 { animation-delay: 2.7s; }
-.mensaje-emotivo .line5 { animation-delay: 3.2s; }
-.mensaje-emotivo .line6 { animation-delay: 3.7s; }
-.mensaje-emotivo .line7 { animation-delay: 4.2s; }
-
-@keyframes aparecerLineaMagica {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Primera letra mayúscula más grande y dorada */
-.mensaje-emotivo .linea::first-letter {
-    font-size: 26px;
-    font-weight: 700;
-    color: #d4af37;
-    font-family: 'Great Vibes', cursive;
-    text-shadow: 0 0 2px rgba(0,0,0,0.2);
-}
-
-/* ===== VARITA MÁGICA EN MOVIMIENTO ===== */
-.varita-movimiento {
-    position: fixed;
-    pointer-events: none;
-    z-index: 10001;
-    font-size: 50px;
-    filter: drop-shadow(0 0 10px gold);
-    animation: moverVarita 2s ease-in-out forwards;
-}
-
-@keyframes moverVarita {
-    0% {
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
-        opacity: 0;
-    }
-    20% {
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.2) rotate(90deg);
-        opacity: 1;
-    }
-    40% {
-        top: 85%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.3) rotate(180deg);
-        opacity: 1;
-    }
-    60% {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.5) rotate(270deg);
-        opacity: 1;
-    }
-    80% {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.8) rotate(360deg);
-        opacity: 1;
-    }
-    100% {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0) rotate(540deg);
-        opacity: 0;
-    }
-}
-
-/* Destellos que salen de la varita */
-/* Destellos de cristal dorado (glitter elegante) */
-.destello-varita {
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    animation: destelloCristal 0.8s ease-out forwards;
-    filter: drop-shadow(0 0 3px gold);
-}
-
-@keyframes destelloCristal {
-    0% {
-        transform: scale(0) rotate(0deg);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.2) rotate(180deg);
-        opacity: 0.9;
-    }
-    100% {
-        transform: scale(0.5) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* Onda expansiva */
-.onda-varita {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.7), rgba(212, 175, 55, 0));
-    animation: ondaVarita 1s ease-out forwards;
-}
-
-@keyframes ondaVarita {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 0.8;
-    }
-    100% {
-        width: 300px;
-        height: 300px;
-        opacity: 0;
-    }
-}
-
-/* Fondo semitransparente mientras dura el efecto */
-.fondo-magico {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    z-index: 9997;
-    animation: fondoAparecer 2s ease-out forwards;
-}
-
-@keyframes fondoAparecer {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* Responsive móvil */
-@media (max-width: 768px) {
-    .mensaje-container {
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-    .mensaje-emotivo {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #0a0a1a;
-    }
-    .mensaje-emotivo .linea::first-letter {
-        font-size: 20px;
-    }
-    .varita-movimiento {
-        font-size: 40px;
-    }
-}
-/* ========== CORRECCIÓN: RESTAURAR MARCO DE FOTOS ========== */
-
-/* Asegurar que el marco de fotos tenga borde */
-.pagina img {
-    border: 2px solid rgba(212, 175, 55, 0.6) !important;
-    border-radius: 0 !important;
-}
-
-/* Restaurar cinta superior */
-.pagina .cinta-superior {
-    position: absolute;
-    top: -8px;
-    left: 40px;
-    right: 0;
-    height: 16px;
-    background: repeating-linear-gradient(45deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
-    border-radius: 8px 8px 0 0;
-    z-index: 5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-/* Restaurar cinta derecha */
-.pagina .cinta-derecha {
-    position: absolute;
-    top: 0;
-    right: -8px;
-    bottom: 40px;
-    width: 16px;
-    background: repeating-linear-gradient(135deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
-    border-radius: 0 8px 8px 0;
-    z-index: 5;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-}
-
-/* Restaurar esquina dorada */
-.pagina .esquina-dorada {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 30px;
-    height: 30px;
-    border-top: 4px solid #d4af37;
-    border-right: 4px solid #d4af37;
-    border-radius: 0 15px 0 0;
-    z-index: 6;
-    box-shadow: 2px -2px 8px rgba(212, 175, 55, 0.5);
-}
-
-/* ========== CORRECCIÓN: FONDO DEL MENSAJE ========== */
-
-/* Contenedor del mensaje - fondo transparente con blur */
-.mensaje-container {
-    background: rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(8px) !important;
-    border: 1px solid rgba(212, 175, 55, 0.3) !important;
-}
-
-/* Color del texto del mensaje - ROJO ELEGANTE */
-.mensaje-emotivo {
-    color: #8b0000 !important;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5) !important;
-}
-
-/* ========== RESTAURACIÓN COMPLETA DEL MARCO ASIMÉTRICO VICTORIANO ========== */
-
-/* Contenedor de la página */
-.pagina {
-    position: relative;
-    background: transparent !important;
-    border-radius: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: visible;
-}
-
-/* Imagen de la quinceañera */
-.pagina img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-    transition: all 0.4s ease;
-}
-
-/* ===== BORDE SUPERIOR (CINTA TRENZADA) ===== */
-.pagina .cinta-superior {
-    position: absolute;
-    top: -8px;
-    left: 40px;
-    right: 0;
-    height: 16px;
-    background: repeating-linear-gradient(45deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
-    border-radius: 8px 8px 0 0;
-    z-index: 5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-/* ===== BORDE DERECHO (CINTA TRENZADA) ===== */
-.pagina .cinta-derecha {
-    position: absolute;
-    top: 0;
-    right: -8px;
-    bottom: 40px;
-    width: 16px;
-    background: repeating-linear-gradient(135deg, #d4af37, #d4af37 8px, #b88d3a 8px, #b88d3a 16px);
-    border-radius: 0 8px 8px 0;
-    z-index: 5;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-}
-
-/* ===== ESQUINA SUPERIOR DERECHA (PUNTA DECORATIVA) ===== */
-.pagina .esquina-dorada {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 30px;
-    height: 30px;
-    border-top: 4px solid #d4af37;
-    border-right: 4px solid #d4af37;
-    border-radius: 0 15px 0 0;
-    z-index: 6;
-    box-shadow: 2px -2px 8px rgba(212, 175, 55, 0.5);
-}
-
-/* ===== FILIGRANAS LADO IZQUIERDO ===== */
-.pagina .filigrana-izquierda {
-    position: absolute;
-    left: 5px;
-    top: 0;
-    width: 30px;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.pagina .filigrana-izquierda::before {
-    content: "❦";
-    position: absolute;
-    top: 15%;
-    left: 10px;
-    font-size: 24px;
-    color: #d4af37;
-    opacity: 0.7;
-    text-shadow: 0 0 5px gold;
-}
-
-.pagina .filigrana-izquierda::after {
-    content: "❧";
-    position: absolute;
-    top: 35%;
-    left: 15px;
-    font-size: 28px;
-    color: #d4af37;
-    opacity: 0.6;
-    text-shadow: 0 0 5px gold;
-}
-
-/* ===== FLORES DE 5 PÉTALOS (LADO IZQUIERDO) ===== */
-.pagina .flor-izquierda-1,
-.pagina .flor-izquierda-2,
-.pagina .flor-izquierda-3 {
-    position: absolute;
-    left: 5px;
-    z-index: 6;
-    pointer-events: none;
-    background: radial-gradient(circle, #d4af37, #b88d3a);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-    animation: brilloFlor 2s ease-in-out infinite;
-}
-
-.pagina .flor-izquierda-1 { top: 15%; width: 35px; height: 35px; }
-.pagina .flor-izquierda-2 { top: 45%; left: 8px; width: 28px; height: 28px; animation-duration: 2.5s; }
-.pagina .flor-izquierda-3 { top: 75%; left: 3px; width: 40px; height: 40px; animation-duration: 1.8s; }
-
-/* Pétalos de las flores */
-.pagina .flor-izquierda-1::before,
-.pagina .flor-izquierda-1::after,
-.pagina .flor-izquierda-2::before,
-.pagina .flor-izquierda-2::after,
-.pagina .flor-izquierda-3::before,
-.pagina .flor-izquierda-3::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #ffd700;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.pagina .flor-izquierda-1::before { transform: translate(-50%, -50%) translateX(-12px); }
-.pagina .flor-izquierda-1::after { transform: translate(-50%, -50%) translateX(12px); }
-.pagina .flor-izquierda-2::before { transform: translate(-50%, -50%) translateY(-10px); }
-.pagina .flor-izquierda-2::after { transform: translate(-50%, -50%) translateY(10px); }
-.pagina .flor-izquierda-3::before { transform: translate(-50%, -50%) translate(-10px, -10px); }
-.pagina .flor-izquierda-3::after { transform: translate(-50%, -50%) translate(10px, 10px); }
-
-/* ===== FILIGRANAS PARTE INFERIOR ===== */
-.pagina .filigrana-inferior {
-    position: absolute;
-    bottom: 5px;
-    left: 40px;
-    right: 0;
-    height: 40px;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.pagina .filigrana-inferior::before {
-    content: "❦ ❧ ❦";
-    position: absolute;
-    bottom: 5px;
-    left: 20px;
-    font-size: 18px;
-    color: #d4af37;
-    opacity: 0.6;
-    letter-spacing: 10px;
-}
-
-/* ===== FLOR EN LA PARTE INFERIOR ===== */
-.pagina .flor-inferior {
-    position: absolute;
-    bottom: 10px;
-    left: 60px;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle, #d4af37, #b88d3a);
-    border-radius: 50%;
-    z-index: 6;
-    animation: brilloFlor 2.2s ease-in-out infinite;
-}
-
-.pagina .flor-inferior::before,
-.pagina .flor-inferior::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #ffd700;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.pagina .flor-inferior::before { transform: translate(-50%, -50%) translateX(-10px); }
-.pagina .flor-inferior::after { transform: translate(-50%, -50%) translateX(10px); }
-
-/* ===== BRILLO METÁLICO ===== */
-@keyframes brilloFlor {
-    0%, 100% { opacity: 0.8; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 15px gold; }
-}
-
-.pagina img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
-    transition: all 0.4s ease;
-}
-
-/* ===== CORONA EN ESQUINA INFERIOR DERECHA ===== */
-.corona-esquina {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    z-index: 15;
-    background: rgba(212, 175, 55, 0.85);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ffd966;
-    backdrop-filter: blur(4px);
-    animation: flotarCorona 2s ease-in-out infinite;
-    cursor: pointer;
-}
-
-.corona-esquina i {
-    font-size: 22px;
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    animation: brilloCorona 1.5s ease-in-out infinite;
-}
-
-@keyframes flotarCorona {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-5px) rotate(5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-@keyframes brilloCorona {
-    0%, 100% { text-shadow: 0 0 2px gold; }
-    50% { text-shadow: 0 0 10px gold, 0 0 5px #ffd700; }
-}
-
-/* ===== RESPONSIVE MÓVIL PARA EL MARCO ===== */
-@media (max-width: 768px) {
-    .pagina .flor-izquierda-1,
-    .pagina .flor-izquierda-2,
-    .pagina .flor-izquierda-3 {
-        transform: scale(0.7);
-    }
-    .pagina .flor-inferior {
-        transform: scale(0.7);
-        left: 30px;
-    }
-    .pagina .filigrana-inferior::before {
-        font-size: 12px;
-        letter-spacing: 5px;
-    }
-    .pagina .cinta-superior {
-        height: 10px;
-        top: -5px;
-        left: 30px;
-    }
-    .pagina .cinta-derecha {
-        width: 10px;
-        right: -5px;
-        bottom: 30px;
-    }
-    .corona-esquina {
-        width: 35px;
-        height: 35px;
-        bottom: 10px;
-        right: 10px;
-    }
-    .corona-esquina i {
-        font-size: 16px;
-    }
+  
+  .reloj-derretido { top: 5px; left: 5px; }
+  .reloj-cara-derretida { width: 55px; height: 55px; }
+  .manecilla-derretida { bottom: 28px; }
+  .hora-derretida { width: 3px; height: 16px; }
+  .minuto-derretida { width: 2px; height: 20px; }
+  .centro-derretido { width: 6px; height: 6px; }
+  .numeros-derretidos span { font-size: 8px; }
+  .numeros-derretidos span:nth-child(1) { top: 8%; }
+  .numeros-derretidos span:nth-child(2) { right: 8%; }
+  .numeros-derretidos span:nth-child(3) { bottom: 8%; }
+  .numeros-derretidos span:nth-child(4) { left: 8%; }
+  .gotas-reloj { left: 10px; width: 6px; }
+  
+  .mensaje-container { padding: 15px; margin-bottom: 20px; }
+  .mensaje-emotivo { font-size: 14px; line-height: 1.6; }
+  .mensaje-emotivo .linea::first-letter { font-size: 20px; }
+  .varita-movimiento { font-size: 40px; }
+  
+  .pagina .flor-izquierda-1,
+  .pagina .flor-izquierda-2,
+  .pagina .flor-izquierda-3 { transform: scale(0.7); }
+  .pagina .flor-inferior { transform: scale(0.7); left: 30px; }
+  .pagina .filigrana-inferior::before { font-size: 12px; letter-spacing: 5px; }
+  .pagina .cinta-superior { height: 10px; top: -5px; left: 30px; }
+  .pagina .cinta-derecha { width: 10px; right: -5px; bottom: 30px; }
 }
