@@ -49,14 +49,14 @@ body {
 }
 /* Estilo para la imagen PNG */
 .corona-animada img {
-    width: 100px;
+    width: 200px;  /* ← Cambia a 200 */
     height: auto;
     animation: flotar 3s infinite alternate;
 }
 
 @media (max-width: 768px) {
     .corona-animada img {
-        width: 80px !important;
+        width: 150px !important;  /* ← También en móvil */
         height: auto;
     }
 }
