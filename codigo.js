@@ -550,42 +550,75 @@ document.addEventListener('DOMContentLoaded', function() {
     // EFECTO VARITA MÁGICA GIRATORIA
     // ============================================
 
+    // ============================================
+    // VARITA MÁGICA CON EFECTO GLITTER DORADO (CRISTALES)
+    // ============================================
+
     function crearEfectoVaritaMagica() {
-        // Onda expansiva desde el centro
+        // Fondo oscuro temporal
+        const fondo = document.createElement('div');
+        fondo.className = 'fondo-magico';
+        document.body.appendChild(fondo);
+        
+        // Onda expansiva dorada
         const onda = document.createElement('div');
         onda.className = 'onda-varita';
         document.body.appendChild(onda);
         
-        // Varita giratoria en el centro
+        // Varita que se mueve: arriba → abajo → centro
         const varita = document.createElement('div');
-        varita.className = 'varita-giratoria';
-        varita.innerHTML = '🪄✨';
+        varita.className = 'varita-movimiento';
+        varita.innerHTML = '🪄';
         document.body.appendChild(varita);
         
-        // Crear destellos que salen de la varita
-        const destellos = ['✨', '⭐', '💫', '🌟', '✧', '✦', '💎', '♦️'];
-        for (let i = 0; i < 40; i++) {
+        // EFECTO GLITTER DORADO (como el de los botones)
+        // Partículas de brillo tipo cristal dorado
+        const glitterItems = ['✦', '✧', '·', '•', '✵', '✶'];
+        for (let i = 0; i < 60; i++) {
             setTimeout(() => {
-                const destello = document.createElement('div');
-                destello.className = 'destello-varita';
-                destello.innerHTML = destellos[Math.floor(Math.random() * destellos.length)];
+                const particula = document.createElement('div');
+                particula.className = 'destello-varita';
+                particula.innerHTML = glitterItems[Math.floor(Math.random() * glitterItems.length)];
                 
-                // Ángulo aleatorio para salir en todas direcciones
-                const angulo = Math.random() * Math.PI * 2;
-                const distancia = 100 + Math.random() * 150;
-                const offsetX = Math.cos(angulo) * distancia;
-                const offsetY = Math.sin(angulo) * distancia;
+                // Posición aleatoria alrededor de la pantalla
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                particula.style.left = x + 'px';
+                particula.style.top = y + 'px';
+                particula.style.fontSize = (12 + Math.random() * 18) + 'px';
+                particula.style.color = '#ffd700';
+                particula.style.textShadow = '0 0 5px gold, 0 0 10px #ffaa00';
+                particula.style.filter = 'drop-shadow(0 0 3px gold)';
                 
-                destello.style.left = 'calc(50% + ' + offsetX + 'px)';
-                destello.style.top = 'calc(50% + ' + offsetY + 'px)';
-                destello.style.fontSize = (15 + Math.random() * 25) + 'px';
-                destello.style.color = '#ffd700';
-                
-                document.body.appendChild(destello);
-                setTimeout(() => destello.remove(), 800);
-            }, i * 30);
+                document.body.appendChild(particula);
+                setTimeout(() => particula.remove(), 800);
+            }, i * 40);
         }
         
+        // Segunda capa de brillo (más pequeña y abundante)
+        for (let i = 0; i < 80; i++) {
+            setTimeout(() => {
+                const particula = document.createElement('div');
+                particula.className = 'destello-varita';
+                particula.innerHTML = '·';
+                particula.style.left = Math.random() * window.innerWidth + 'px';
+                particula.style.top = Math.random() * window.innerHeight + 'px';
+                particula.style.fontSize = (6 + Math.random() * 8) + 'px';
+                particula.style.color = '#ffd700';
+                particula.style.opacity = '0.7';
+                
+                document.body.appendChild(particula);
+                setTimeout(() => particula.remove(), 600);
+            }, i * 25);
+        }
+        
+        // Limpiar elementos
+        setTimeout(() => {
+            fondo.remove();
+            onda.remove();
+            varita.remove();
+        }, 2800);
+    }
         // Destello final adicional
         setTimeout(() => {
             for (let i = 0; i < 20; i++) {
