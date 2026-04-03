@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function() {
     botonMusicaFlotante.style.cssText = 'position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; border-radius: 50%; background: #D4AF37; color: #0A2463; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s;';
     document.body.appendChild(botonMusicaFlotante);
 
-    musicaActual = new Audio('musica/no-crezcas-mas.mp3');
+    musicaActual = new Audio('no-crezcas-mas.mp3');
     musicaActual.loop = true;
     musicaActual.volume = 0.6;
 
