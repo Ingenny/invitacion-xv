@@ -66,13 +66,55 @@ document.addEventListener('DOMContentLoaded', function() {
     let paginaActualCarrusel = 1;
     const totalPaginasCarrusel = 3;
 
-    function mostrarPaginaCarrusel(numero) {
+   function mostrarPaginaCarrusel(numero) {
         const paginas = [pagina1, pagina2, pagina3];
         paginas.forEach(pagina => {
             if (pagina) pagina.style.display = 'none';
         });
         const paginaSeleccionada = document.getElementById('pagina' + numero);
-        if (paginaSeleccionada) paginaSeleccionada.style.display = 'block';
+        if (paginaSeleccionada) {
+            paginaSeleccionada.style.display = 'block';
+            
+            // ==== EFECTO DE BRILLO EN LA FOTO AL MOSTRAR ====
+            const foto = paginaSeleccionada.querySelector('img');
+            if (foto) {
+                foto.style.transition = 'all 0.3s ease';
+                foto.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.8)';
+                foto.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    foto.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.3)';
+                    foto.style.transform = 'scale(1)';
+                }, 400);
+            }
+            
+            // ==== EFECTO ESCARCHA EN LA FOTO ====
+            const rect = paginaSeleccionada.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            // Crear pequeñas partículas de escarcha alrededor de la foto
+            const formas = ['✦', '✧', '·', '•'];
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const particula = document.createElement('div');
+                    particula.style.position = 'fixed';
+                    particula.style.pointerEvents = 'none';
+                    particula.style.zIndex = '9999';
+                    particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
+                    particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
+                    particula.style.color = '#ffd700';
+                    particula.style.fontSize = (12 + Math.random() * 10) + 'px';
+                    
+                    const angulo = Math.random() * Math.PI * 2;
+                    const radio = 40 + Math.random() * 50;
+                    particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
+                    particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
+                    
+                    document.body.appendChild(particula);
+                    setTimeout(() => particula.remove(), 500);
+                }, i * 30);
+            }
+        }
         paginaActualCarrusel = numero;
         if (indicador) indicador.textContent = paginaActualCarrusel + ' / ' + totalPaginasCarrusel;
     }
