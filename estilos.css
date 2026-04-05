@@ -246,14 +246,13 @@ body {
 .carrusel-fotos {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
   background-size: cover;
-  padding: 20px 20px;
+ padding: 20px 20px 10px 20px;  /* ← Reduce el padding inferior */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 /* Contenedor de la página */
 .pagina {
   position: relative;
@@ -265,7 +264,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 /* Imagen de la quinceañera */
 .pagina img {
   position: relative;
@@ -297,33 +295,37 @@ body {
   animation: flotarCorona 2s ease-in-out infinite;
   cursor: pointer;
 }
-
 .corona-esquina i {
   font-size: 22px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   animation: brilloCorona 1.5s ease-in-out infinite;
 }
-
 @keyframes flotarCorona {
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-5px) rotate(5deg); }
   100% { transform: translateY(0px) rotate(0deg); }
 }
-
 @keyframes brilloCorona {
   0%, 100% { text-shadow: 0 0 2px gold; }
   50% { text-shadow: 0 0 10px gold, 0 0 5px #ffd700; }
 }
-
 .controles-carrusel {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
-
+@media (max-width: 768px) {
+  .controles-carrusel {
+    margin-top: 5px;
+    gap: 15px;
+  }
+    .carrusel-fotos {
+    padding: 15px 10px 5px 10px;
+  }
+}
 .btn-anterior, .btn-siguiente {
     position: relative;
     background: transparent;
