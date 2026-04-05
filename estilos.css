@@ -325,14 +325,76 @@ body {
 }
 
 .btn-anterior, .btn-siguiente {
-  background: linear-gradient(45deg, var(--dorado), #b8860b);
-  border: none;
-  padding: 10px 25px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 50px;
-  cursor: pointer;
-  color: var(--azul-oscuro);
+    position: relative;
+    background: transparent;
+    border: 2px solid #d4af37;
+    padding: 14px 35px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+}
+
+/* Efecto hover */
+.btn-anterior:hover, .btn-siguiente:hover {
+    background: rgba(212, 175, 55, 0.15);
+    color: #ffd700;
+    border-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* CORONA EN LA ESQUINA SUPERIOR DERECHA (usando tu imagen PNG) */
+.btn-anterior::before, .btn-siguiente::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 30px;
+    height: 30px;
+    background: url('imagenes/corona.png') no-repeat center center;
+    background-size: contain;
+    filter: drop-shadow(0 0 3px gold);
+    z-index: 2;
+}
+
+/* Brillo al pasar el mouse */
+.btn-anterior::after, .btn-siguiente::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-anterior:hover::after, .btn-siguiente:hover::after {
+    left: 100%;
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+    .btn-anterior, .btn-siguiente {
+        padding: 10px 25px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    
+    .btn-anterior::before, .btn-siguiente::before {
+        width: 22px;
+        height: 22px;
+        top: -8px;
+        right: -8px;
+    }
 }
 
 /* 10. INVITACIÓN DETALLADA */
