@@ -1159,7 +1159,7 @@ body {
 /* Tamaño más pequeño en móvil */
 @media (max-width: 768px) {
     .mariposa-esquina {
-        width: 80px;
+        width: 120px;
         bottom: 10px;
         right: 10px;
     }
