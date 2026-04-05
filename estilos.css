@@ -33,7 +33,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 15px;  /* ← Reduce el padding */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fondos/fondo1.jpg') no-repeat center center fixed;
   background-size: cover;
   position: relative;
@@ -49,14 +49,14 @@ body {
 }
 /* Estilo para la imagen PNG */
 .corona-animada img {
-    width: 200px;  /* ← Cambia a 200 */
+    width: 150px;  /* ← Cambia a 200 */
     height: auto;
     animation: flotar 3s infinite alternate;
 }
 
 @media (max-width: 768px) {
     .corona-animada img {
-        width: 150px !important;  /* ← También en móvil */
+        width: 80px !important;  /* ← También en móvil */
         height: auto;
     }
 }
@@ -69,7 +69,7 @@ body {
 
 /* 5. TÍTULOS ELEGANTES */
 .contenedor-titulos {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .titulo-elegante {
@@ -86,7 +86,7 @@ body {
 .titulo-elegante::before,
 .titulo-elegante::after {
     content: "♠️";
-    font-size: 30px;
+    font-size: 22px;
     background: none;
     color: #d4af37;
     opacity: 0.7;
@@ -116,7 +116,7 @@ body {
 
 .nombre-quinceanera {
   font-family: 'Great Vibes', cursive;
-  font-size: 48px;
+  font-size: 18px;
   font-weight: normal;
   color: #f0e6c5;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -126,7 +126,7 @@ body {
 
 .subtitulo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-size: 14px;
   font-style: italic;
   color: #e8d9b0;
   letter-spacing: 2px;
@@ -148,16 +148,16 @@ body {
 .tiempo {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
-  padding: 15px;
+  padding: 5px;
   border-radius: 10px;
-  min-width: 100px;
+  min-width: 55px;
   border: 1px solid rgba(212, 175, 55, 0.4);
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
   position: relative;
 }
 
 .tiempo .numero {
-  font-size: 32px;
+  font-size: 14px;
   font-weight: bold;
   color: #ffd966;
   display: block;
@@ -166,7 +166,7 @@ body {
 }
 
 .tiempo .texto {
-  font-size: 11px;
+  font-size: 7px;
   color: var(--dorado-claro);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -179,8 +179,8 @@ body {
   background: linear-gradient(45deg, #8b0000, #5a0000);
   color: #ffd700;
   border: 3px solid #ffd700;
-  padding: 15px 40px;
-  font-size: 18px;
+  padding: 8px 20px;
+  font-size: 12px;
   font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
@@ -189,7 +189,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 10px;
   text-shadow: 0 0 3px rgba(0,0,0,0.5);
   font-family: 'Playfair Display', serif;
 }
@@ -246,7 +246,7 @@ body {
 .carrusel-fotos {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
   background-size: cover;
-  padding: 40px 20px;
+  padding: 20px 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
