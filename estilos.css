@@ -1141,7 +1141,7 @@ body {
     position: fixed;
     bottom: 15px;
     right: 15px;
-    width: 50px;
+    width: 100px;
     height: auto;
     z-index: 25;
     animation: volarMariposa 4s ease-in-out infinite;
@@ -1159,7 +1159,7 @@ body {
 /* Tamaño más pequeño en móvil */
 @media (max-width: 768px) {
     .mariposa-esquina {
-        width: 40px;
+        width: 80px;
         bottom: 10px;
         right: 10px;
     }
