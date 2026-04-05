@@ -14,7 +14,7 @@
     <!-- ========== PORTADA PRINCIPAL ========== -->
     <section class="portada" id="portada">
         <div class="corona-animada">
-           <img src="imagenes/corona.png" alt="Corona">
+            <img src="imagenes/corona.png" alt="Corona">
         </div>
 
         <div class="contenedor-titulos">
@@ -95,15 +95,17 @@
     </section>
 
     <!-- ========== CARRUSEL DE FOTOS ========== -->
-    <section class="carrusel-fotos" id="carruselFotos" style="display: none;">       
+    <section class="carrusel-fotos" id="carruselFotos" style="display: none;">
+        
+        <!-- MARIPOSAS (fuera del mensaje) -->
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-1">
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-2">
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-3">
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-4">
+        
         <!-- MENSAJE EMOTIVO -->
         <div class="mensaje-container">
-             <!-- Mariposa decorativa esquina inferior derecha -->
-             <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-1">
-             <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-2">
-             <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-3">
-             <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-4">
-                    <div class="mensaje-emotivo" id="mensajeEmotivo">
+            <div class="mensaje-emotivo" id="mensajeEmotivo">
                 <p class="linea line1">Hace quince años nació nuestra hermosa hija,</p>
                 <p class="linea line2">enviada por Dios para ser criada y formada</p>
                 <p class="linea line3">con el más grande tesoro.</p>
@@ -113,44 +115,29 @@
                 <p class="linea line7">y queremos compartirlo contigo.</p>
             </div>
         </div>
-                 <div class="pagina" id="pagina1">
-                   <div class="corona-esquina">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <img src="imagenes/foto4.jpg" alt="Foto 4">
-            </div>
-       
-            <div class="pagina" id="pagina2">
-                <div class="filigrana-izquierda"></div>
-                <div class="flor-izquierda-1"></div>
-                <div class="flor-izquierda-2"></div>
-                <div class="flor-izquierda-3"></div>
-                <div class="filigrana-inferior"></div>
-                <div class="flor-inferior"></div>
-                <div class="cinta-superior"></div>
-                <div class="cinta-derecha"></div>
-                <div class="esquina-dorada"></div>
-                <div class="corona-esquina">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <img src="imagenes/foto2.jpg" alt="Foto 2">
-            </div>
 
-            <div class="pagina" id="pagina3">
-                <div class="filigrana-izquierda"></div>
-                <div class="flor-izquierda-1"></div>
-                <div class="flor-izquierda-2"></div>
-                <div class="flor-izquierda-3"></div>
-                <div class="filigrana-inferior"></div>
-                <div class="flor-inferior"></div>
-                <div class="cinta-superior"></div>
-                <div class="cinta-derecha"></div>
-                <div class="esquina-dorada"></div>
-                <div class="corona-esquina">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <img src="imagenes/foto3.jpg" alt="Foto 3">
+        <!-- PÁGINA 1 (sin marco) -->
+        <div class="pagina" id="pagina1">
+            <div class="corona-esquina">
+                <i class="fas fa-crown"></i>
             </div>
+            <img src="imagenes/foto4.jpg" alt="Foto 1">
+        </div>
+
+        <!-- PÁGINA 2 (sin marco) -->
+        <div class="pagina" id="pagina2">
+            <div class="corona-esquina">
+                <i class="fas fa-crown"></i>
+            </div>
+            <img src="imagenes/foto2.jpg" alt="Foto 2">
+        </div>
+
+        <!-- PÁGINA 3 (sin marco) -->
+        <div class="pagina" id="pagina3">
+            <div class="corona-esquina">
+                <i class="fas fa-crown"></i>
+            </div>
+            <img src="imagenes/foto3.jpg" alt="Foto 3">
         </div>
 
         <div class="controles-carrusel">
@@ -186,8 +173,8 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h4>LUGAR</h4>
-                        <p class="info-evento">Mi casa </p>
-                        <p class="detalle-lugar"> Sector La Carbonera, Municipio Carrizal</p>
+                        <p class="info-evento">Mi casa</p>
+                        <p class="detalle-lugar">Sector La Carbonera, Municipio Carrizal</p>
                     </div>
                 </div>
                 <div class="detalle-item">
@@ -213,7 +200,7 @@
             </div>
 
             <div class="formulario-rsvp" id="formularioRSVP" style="display: none;">
-                <h3><img src="imagenes/corona.gif" alt="Corona" style="width: 70px; height: auto;"> CONFIRMAR ASISTENCIA</h3>
+                <h3><i class="fas fa-crown"></i> CONFIRMAR ASISTENCIA</h3>
                 <form id="formConfirmacion">
                     <div class="grupo-formulario">
                         <label><i class="fas fa-user"></i> Tu Nombre:</label>
