@@ -254,18 +254,6 @@ body {
   align-items: center;
 }
 
-.cuaderno {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  height: 480px;
-  background: #fff9ef;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  border: 1px solid #d4af37;
-}
-
 /* Contenedor de la página */
 .pagina {
   position: relative;
