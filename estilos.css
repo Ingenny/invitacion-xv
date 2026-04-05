@@ -1136,19 +1136,56 @@ body {
   .pagina .cinta-superior { height: 10px; top: -5px; left: 30px; }
   .pagina .cinta-derecha { width: 10px; right: -5px; bottom: 30px; }
 }
-/* Mariposa en esquina inferior derecha */
-.mariposa-esquina {
+/* Mariposa 1 - esquina inferior derecha */
+.mariposa-1 {
     position: fixed;
     bottom: 15px;
     right: 15px;
-    width: 100px;
+    width: 80px;
     height: auto;
     z-index: 25;
-    animation: volarMariposa 4s ease-in-out infinite;
+    animation: volarMariposa1 4s ease-in-out infinite;
     pointer-events: none;
 }
 
-@keyframes volarMariposa {
+/* Mariposa 2 - esquina superior izquierda */
+.mariposa-2 {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 955px;
+    height: auto;
+    z-index: 25;
+    animation: volarMariposa2 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Mariposa 3 - cerca del centro derecho */
+.mariposa-3 {
+    position: fixed;
+    top: 40%;
+    right: 20px;
+    width: 750px;
+    height: auto;
+    z-index: 25;
+    animation: volarMariposa3 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Mariposa 4 - abajo izquierda */
+.mariposa-4 {
+    position: fixed;
+    bottom: 80px;
+    left: 15px;
+    width: 100px;
+    height: auto;
+    z-index: 25;
+    animation: volarMariposa4 3.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Animaciones diferentes para cada mariposa */
+@keyframes volarMariposa1 {
     0% { transform: translate(0, 0) rotate(0deg); }
     25% { transform: translate(-5px, -8px) rotate(5deg); }
     50% { transform: translate(3px, -12px) rotate(-3deg); }
@@ -1156,11 +1193,30 @@ body {
     100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* Tamaño más pequeño en móvil */
+@keyframes volarMariposa2 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(8px, -5px) rotate(-5deg); }
+    50% { transform: translate(-3px, -10px) rotate(3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes volarMariposa3 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10px, -15px) rotate(8deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes volarMariposa4 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    30% { transform: translate(5px, -6px) rotate(-4deg); }
+    70% { transform: translate(-3px, -10px) rotate(5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Responsive móvil */
 @media (max-width: 768px) {
-    .mariposa-esquina {
-        width: 120px;
-        bottom: 10px;
-        right: 10px;
-    }
+    .mariposa-1 { width: 40px; bottom: 10px; right: 10px; }
+    .mariposa-2 { width: 30px; top: 10px; left: 10px; }
+    .mariposa-3 { width: 35px; top: 45%; right: 10px; }
+    .mariposa-4 { width: 28px; bottom: 60px; left: 10px; }
 }
