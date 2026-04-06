@@ -37,12 +37,12 @@ body {
 .corona-animada {
   font-size: 100px;
   color: var(--dorado);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   animation: flotar 3s infinite alternate;
 }
 /* Estilo para la imagen PNG */
 .corona-animada img {
-    width: 150px;  /* ← Cambia a 200 */
+    width: 100px;  /* ← Cambia a 200 */
     height: auto;
     animation: flotar 3s infinite alternate;
 }
@@ -53,7 +53,7 @@ body {
         margin-bottom: 2px;
     }
     .corona-animada img {
-        width: 70px !important;
+        width: 50px !important;
         height: auto;
     }
     
