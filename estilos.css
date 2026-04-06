@@ -120,6 +120,13 @@ body {
         gap: 3px;
     }
 }
+/* FORZAR AJUSTE EN MÓVIL */
+@media (max-width: 768px) {
+    .portada {
+        height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+}
 @keyframes flotar {
   0% { transform: translateY(0px) rotate(0deg) scale(1); }
   25% { transform: translateY(-8px) rotate(3deg) scale(1.05); }
