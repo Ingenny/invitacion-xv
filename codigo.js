@@ -235,8 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() { onda.remove(); }, 800);
     }
 
-    // ============================================
-    // 5. BOTONES RSVP, MAPA, MÚSICA
+       // ============================================
+    // 5. BOTONES RSVP, MAPA, APORTE
     // ============================================
 
     if (botonRSVP) {
@@ -255,15 +255,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-// Botón MÚSICA/APORTE
-if (botonMusica) {
-    botonMusica.addEventListener('click', function() {
-        if (formularioRSVP) formularioRSVP.style.display = 'none';
-        if (contenedorMapa) contenedorMapa.style.display = 'none';
-        if (contenedorMusica) contenedorMusica.style.display = 'block';
-    });
-}
-
+    // Botón APORTE (antes MÚSICA)
+    if (botonMusica) {
+        botonMusica.addEventListener('click', function() {
+            if (formularioRSVP) formularioRSVP.style.display = 'none';
+            if (contenedorMapa) contenedorMapa.style.display = 'none';
+            if (contenedorMusica) contenedorMusica.style.display = 'block';
+            console.log('Mostrando información de aportes');
+        });
+    }
         // ============================================
     // 6. BOTONES CARRUSEL CON EFECTO ESCARCHA
     // ============================================
