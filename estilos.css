@@ -50,7 +50,7 @@ body {
 @media (max-width: 768px) {
     /* Corona */
     .corona-animada {
-        margin-bottom: 5px;
+        margin-bottom: 2px;
     }
     .corona-animada img {
         width: 70px !important;
