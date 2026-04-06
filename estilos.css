@@ -50,26 +50,27 @@ body {
 @media (max-width: 768px) {
     /* Corona */
     .corona-animada {
-        margin-bottom: 2px;
+        margin-bottom: -15px;
     }
     .corona-animada img {
-        width: 50px !important;
+        width: 60px !important;
         height: auto;
     }
     
     /* Portada */
     .portada {
         justify-content: center;
-        padding: 5px;
+        padding: 0px;
+        min-height: 100vh;
     }
     
     /* Títulos */
     .contenedor-titulos {
-        margin-bottom: 5px;
+        margin-bottom: -10px;
     }
     .titulo-elegante {
-        font-size: 22px !important;
-        margin-bottom: 2px;
+        font-size: 20px !important;
+        margin-bottom: -5px;
     }
     .titulo-elegante::before,
     .titulo-elegante::after {
@@ -81,46 +82,42 @@ body {
     .titulo-elegante::after {
         right: -25px;
     }
-    .nombre-quinceanera {
-        font-size: 16px !important;
-        margin-top: 0px;
-        margin-bottom: 0px;
+   .nombre-quinceanera {
+        font-size: 15px !important;
+        margin-top: -5px;
+        margin-bottom: -3px;
     }
     .subtitulo {
         font-size: 9px;
-        margin-bottom: 5px;
-        padding: 2px 10px;
-    }
-    
+        margin-bottom: 0px;
+    }  
     /* Texto de música */
     .contenedor-titulos p {
-        font-size: 8px !important;
+        font-size: 7px !important;
         margin-top: 0px !important;
     }
-    
     /* Contador */
     .contador-simple {
-        gap: 4px;
-        margin: 0px 0;
+        gap: 3px;
+        margin: -8px 0;
     }
     .tiempo {
-        min-width: 40px;
+        min-width: 35px;
         padding: 2px;
     }
     .tiempo .numero {
-        font-size: 10px;
+        font-size: 9px;
     }
     .tiempo .texto {
         font-size: 5px;
-        margin-top: 1px;
     }
     
     /* Botón */
     .boton-real {
-        padding: 5px 12px;
-        font-size: 10px;
-        margin-top: 5px;
-        gap: 4px;
+        padding: 4px 10px;
+        font-size: 9px;
+        margin-top: -5px;
+        gap: 3px;
     }
 }
 @keyframes flotar {
