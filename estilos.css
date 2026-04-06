@@ -1116,13 +1116,10 @@ body {
 .deco-3 { bottom: 15%; left: 3%; width: 45px; animation-delay: 2s; }
 .deco-4 { bottom: 20%; right: 3%; width: 55px; animation-delay: 3s; }
 .deco-5 { top: 35%; left: 1%; width: 40px; animation-delay: 4s; }
-.deco-6 { bottom: 40%; right: 1%; width: 50px; animation-delay: 5s; }
-.deco-7 { top: 80%; left: 4%; width: 35px; animation-delay: 1.5s; }
-.deco-8 { top: 25%; right: 4%; width: 45px; animation-delay: 3.5s; }
 
 /* Tamaño de las mariposas adicionales */
 .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
-    width: 50px;
+    width: 60px;
 }
 
 /* Animación de flotar */
@@ -1137,15 +1134,13 @@ body {
 /* Responsive móvil */
 @media (max-width: 768px) {
     .deco-1 { width: 40px; top: 3%; left: 1%; }
-    .deco-2 { width: 38px; top: 5%; right: 1%; }
-    .deco-3 { width: 35px; bottom: 10%; left: 2%; }
-    .deco-4 { width: 40px; bottom: 15%; right: 2%; }
-    .deco-5 { width: 30px; top: 40%; left: 0%; }
-    .deco-6 { width: 38px; bottom: 45%; right: 0%; }
-    .deco-7 { width: 28px; top: 85%; left: 3%; }
-    .deco-8 { width: 35px; top: 30%; right: 3%; }
+    .deco-2 { width: 45px; top: 5%; right: 1%; }
+    .deco-3 { width: 40px; bottom: 10%; left: 2%; }
+    .deco-4 { width: 45px; bottom: 15%; right: 2%; }
+    .deco-5 { width: 40px; top: 40%; left: 0%; }
+    
     
     .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
-        width: 38px;
+        width: 70px;
     }
 }
