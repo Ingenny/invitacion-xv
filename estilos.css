@@ -24,16 +24,15 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  /* ← Centra verticalmente */
   align-items: center;
   text-align: center;
-  padding: 15px;  /* ← Reduce el padding */
+  padding: 20px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fondos/fondo1.jpg') no-repeat center center fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
 }
-
 /* 4. CORONA ANIMADA */
 .corona-animada {
   font-size: 100px;
@@ -49,17 +48,22 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Corona */
     .corona-animada img {
-        width: 80px !important;  /* ← También en móvil */
+        width: 80px !important;
         height: auto;
     }
-       /* Ajustes de portada */
+    .corona-animada {
+        margin-bottom: 5px;
+    }
+    
+    /* Portada */
     .portada {
         justify-content: center;
         padding: 10px;
     }
     
-    /* Títulos más compactos */
+    /* Títulos */
     .contenedor-titulos {
         margin-bottom: 5px;
     }
@@ -85,7 +89,7 @@ body {
         margin-bottom: 5px;
     }
     
-    /* Contador más compacto */
+    /* Contador */
     .contador-simple {
         gap: 5px;
         margin: 5px 0;
@@ -101,19 +105,9 @@ body {
         font-size: 6px;
     }
     
-    /* Botón más pequeño */
+    /* Botón */
     .boton-real {
-        padding: 6px 15px;
-        font-size: 11px;
         margin-top: 5px;
-    }
-    
-    /* Texto de música más pequeño */
-    .contenedor-titulos p {
-        font-size: 9px !important;
-        margin-top: 3px !important;
-    }
-}
     }
 }
 @keyframes flotar {
