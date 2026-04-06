@@ -257,12 +257,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (botonMusica) {
         botonMusica.addEventListener('click', function() {
-            document.getElementById('formularioRSVP').style.display = 'none';
-            document.getElementById('contenedorMapa').style.display = 'none';
-            document.getElementById('contenedorMusica').style.display = 'block';
-            alert('Información de aportes disponible'); // Prueba para ver si funciona
+            formularioRSVP.style.display = 'none';
+            contenedorMapa.style.display = 'none';
+            contenedorMusica.style.display = 'block';
         });
     }
+
+    
         // ============================================
     // 6. BOTONES CARRUSEL CON EFECTO ESCARCHA
     // ============================================
