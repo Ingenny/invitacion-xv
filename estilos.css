@@ -20,7 +20,6 @@ body {
 }
 body {
   font-family: "Arial", sans-serif;
-  background-color: var(--azul-rey);
   color: var(--blanco);
   line-height: 1.6;
 }
