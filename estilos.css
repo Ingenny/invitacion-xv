@@ -18,11 +18,6 @@ body {
   color: var(--blanco);
   line-height: 1.6;
 }
-body {
-  font-family: "Arial", sans-serif;
-  color: var(--blanco);
-  line-height: 1.6;
-}
 
 /* 3. PORTADA PRINCIPAL */
 .portada {
