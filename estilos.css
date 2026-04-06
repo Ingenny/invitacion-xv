@@ -1135,12 +1135,12 @@ body {
 @media (max-width: 768px) {
     .deco-1 { width: 40px; top: 3%; left: 1%; }
     .deco-2 { width: 45px; top: 5%; right: 1%; }
-    .deco-3 { width: 40px; bottom: 10%; left: 2%; }
+    .deco-3 { width: 50px; bottom: 10%; left: 2%; }
     .deco-4 { width: 45px; bottom: 15%; right: 2%; }
-    .deco-5 { width: 40px; top: 40%; left: 0%; }
+    .deco-5 { width: 50px; top: 40%; left: 0%; }
     
     
     .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
-        width: 70px;
+        width: 90px;
     }
 }
