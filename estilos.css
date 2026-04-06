@@ -704,20 +704,6 @@ body {
   margin-top: 20px;
 }
 
-/* 14. LISTA DE MÚSICA */
-.lista-musica {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 5px solid var(--dorado);
-}
-
-.lista-musica p {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  color: #333;
-}
-
 /* 15. PIE DE PÁGINA */
 .pie-invitacion {
   background: linear-gradient(135deg, #1a0f2a, #0f0a1a);
