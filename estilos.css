@@ -53,6 +53,68 @@ body {
         width: 80px !important;  /* ← También en móvil */
         height: auto;
     }
+       /* Ajustes de portada */
+    .portada {
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    /* Títulos más compactos */
+    .contenedor-titulos {
+        margin-bottom: 5px;
+    }
+    .titulo-elegante {
+        font-size: 24px !important;
+    }
+    .titulo-elegante::before,
+    .titulo-elegante::after {
+        font-size: 14px;
+    }
+    .titulo-elegante::before {
+        left: -30px;
+    }
+    .titulo-elegante::after {
+        right: -30px;
+    }
+    .nombre-quinceanera {
+        font-size: 18px !important;
+        margin-top: 5px;
+    }
+    .subtitulo {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+    
+    /* Contador más compacto */
+    .contador-simple {
+        gap: 5px;
+        margin: 5px 0;
+    }
+    .tiempo {
+        min-width: 45px;
+        padding: 3px;
+    }
+    .tiempo .numero {
+        font-size: 12px;
+    }
+    .tiempo .texto {
+        font-size: 6px;
+    }
+    
+    /* Botón más pequeño */
+    .boton-real {
+        padding: 6px 15px;
+        font-size: 11px;
+        margin-top: 5px;
+    }
+    
+    /* Texto de música más pequeño */
+    .contenedor-titulos p {
+        font-size: 9px !important;
+        margin-top: 3px !important;
+    }
+}
+    }
 }
 @keyframes flotar {
   0% { transform: translateY(0px) rotate(0deg) scale(1); }
