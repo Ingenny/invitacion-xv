@@ -14,11 +14,10 @@
 /* 2. ESTILOS GENERALES */
 body {
   font-family: "Arial", sans-serif;
-  background-color: transparent;  /* ← Cambiado de azul a transparente */
+  background-color: transparent;
   color: var(--blanco);
   line-height: 1.6;
 }
-
 body {
   font-family: "Arial", sans-serif;
   background-color: var(--azul-rey);
