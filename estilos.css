@@ -50,7 +50,7 @@ body {
 @media (max-width: 768px) {
     /* Corona */
     .corona-animada {
-        margin-bottom: 0px;
+        margin-bottom: 5px;
     }
     .corona-animada img {
         width: 70px !important;
@@ -65,11 +65,11 @@ body {
     
     /* Títulos */
     .contenedor-titulos {
-        margin-bottom: 0px;
+        margin-bottom: 5px;
     }
     .titulo-elegante {
         font-size: 22px !important;
-        margin-bottom: 0px;
+        margin-bottom: 2px;
     }
     .titulo-elegante::before,
     .titulo-elegante::after {
