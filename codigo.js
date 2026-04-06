@@ -574,6 +574,15 @@ if (botonMusica) {
         });
     }
 
+    // FORZAR MOSTRAR APORTE (prueba)
+if (botonMusica) {
+    botonMusica.addEventListener('click', function() {
+        console.log('Clic en APORTE');
+        formularioRSVP.style.display = 'none';
+        contenedorMapa.style.display = 'none';
+        contenedorMusica.style.display = 'block';
+    });
+}
     console.log('🚀 Todo listo');
 
 }); // <--- CIERRE DEL DOMContentLoaded
