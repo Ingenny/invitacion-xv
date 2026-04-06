@@ -236,9 +236,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // BOTONES RSVP, MAPA Y APORTE
+    // BOTONES: CONFIRMAR, UBICACIÓN, APORTE
     // ============================================
 
+    // Botón CONFIRMAR
     if (botonRSVP) {
         botonRSVP.addEventListener('click', function() {
             document.getElementById('contenedorMapa').style.display = 'none';
@@ -247,6 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Botón UBICACIÓN
     if (botonMapa) {
         botonMapa.addEventListener('click', function() {
             document.getElementById('formularioRSVP').style.display = 'none';
@@ -255,13 +257,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-      if (botonMusica) {
+    // Botón APORTE
+    if (botonMusica) {
         botonMusica.addEventListener('click', function() {
-            console.log('🔘 Clic en APORTE');
-            if (formularioRSVP) formularioRSVP.style.display = 'none';
-            if (contenedorMapa) contenedorMapa.style.display = 'none';
-            if (contenedorMusica) contenedorMusica.style.display = 'block';
-            alert('Información de aportes visible'); // Para probar
+            document.getElementById('formularioRSVP').style.display = 'none';
+            document.getElementById('contenedorMapa').style.display = 'none';
+            document.getElementById('contenedorMusica').style.display = 'block';
         });
     }
     
@@ -417,29 +418,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ============================================
-    // 8. COMPARTIR REDES
-    // ============================================
-
-    if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', function() {
-            window.open('https://wa.me/?text=' + encodeURIComponent('¡Invitación a mis XV años! 🎉 ') + window.location.href, '_blank');
-        });
-    }
-
-    if (facebookBtn) {
-        facebookBtn.addEventListener('click', function() {
-            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
-        });
-    }
-
-    if (copiarBtn) {
-        copiarBtn.addEventListener('click', function() {
-            navigator.clipboard.writeText(window.location.href).then(function() {
-                alert('🔗 Enlace copiado');
-            });
-        });
-    }
 
     // ============================================
     // 9. MÚSICA
