@@ -235,33 +235,32 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() { onda.remove(); }, 800);
     }
 
-       // ============================================
-    // 5. BOTONES RSVP, MAPA, APORTE
+    // ============================================
+    // BOTONES RSVP, MAPA Y APORTE
     // ============================================
 
     if (botonRSVP) {
         botonRSVP.addEventListener('click', function() {
-            if (contenedorMapa) contenedorMapa.style.display = 'none';
-            if (contenedorMusica) contenedorMusica.style.display = 'none';
-            if (formularioRSVP) formularioRSVP.style.display = 'block';
+            document.getElementById('contenedorMapa').style.display = 'none';
+            document.getElementById('contenedorMusica').style.display = 'none';
+            document.getElementById('formularioRSVP').style.display = 'block';
         });
     }
 
     if (botonMapa) {
         botonMapa.addEventListener('click', function() {
-            if (formularioRSVP) formularioRSVP.style.display = 'none';
-            if (contenedorMusica) contenedorMusica.style.display = 'none';
-            if (contenedorMapa) contenedorMapa.style.display = 'block';
+            document.getElementById('formularioRSVP').style.display = 'none';
+            document.getElementById('contenedorMusica').style.display = 'none';
+            document.getElementById('contenedorMapa').style.display = 'block';
         });
     }
 
-    // Botón APORTE (antes MÚSICA)
     if (botonMusica) {
         botonMusica.addEventListener('click', function() {
-            if (formularioRSVP) formularioRSVP.style.display = 'none';
-            if (contenedorMapa) contenedorMapa.style.display = 'none';
-            if (contenedorMusica) contenedorMusica.style.display = 'block';
-            console.log('Mostrando información de aportes');
+            document.getElementById('formularioRSVP').style.display = 'none';
+            document.getElementById('contenedorMapa').style.display = 'none';
+            document.getElementById('contenedorMusica').style.display = 'block';
+            alert('Información de aportes disponible'); // Prueba para ver si funciona
         });
     }
         // ============================================
@@ -575,5 +574,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
      console.log('🚀 Todo listo');
-
+    // PRUEBA FORZADA - Botón APORTE
+    if (botonMusica) {
+        botonMusica.onclick = function() {
+            document.getElementById('contenedorMusica').style.display = 'block';
+            document.getElementById('formularioRSVP').style.display = 'none';
+            document.getElementById('contenedorMapa').style.display = 'none';
+            alert('APORTE: ' + document.getElementById('contenedorMusica').style.display);
+        };
+    }
 }); // <--- CIERRE DEL DOMContentLoaded
