@@ -255,15 +255,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (botonMusica) {
-        botonMusica.addEventListener('click', function() {
-            if (formularioRSVP) formularioRSVP.style.display = 'none';
-            if (contenedorMapa) contenedorMapa.style.display = 'none';
-            if (contenedorMusica) contenedorMusica.style.display = 'block';
-        });
-    }
+// Botón MÚSICA/APORTE
+if (botonMusica) {
+    botonMusica.addEventListener('click', function() {
+        if (formularioRSVP) formularioRSVP.style.display = 'none';
+        if (contenedorMapa) contenedorMapa.style.display = 'none';
+        if (contenedorMusica) contenedorMusica.style.display = 'block';
+    });
+}
 
-    // ============================================
+        // ============================================
     // 6. BOTONES CARRUSEL CON EFECTO ESCARCHA
     // ============================================
 
