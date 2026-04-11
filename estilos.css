@@ -24,7 +24,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* ← Centra verticalmente */
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
@@ -33,6 +33,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 /* 4. CORONA ANIMADA */
 .corona-animada {
   font-size: 100px;
@@ -40,249 +41,18 @@ body {
   margin-bottom: 20px;
   animation: flotar 3s infinite alternate;
 }
-/* Estilo para la imagen PNG */
+
 .corona-animada img {
-    width: 100px;  /* ← Cambia a 200 */
-    height: auto;
-    animation: flotar 3s infinite alternate;
+  width: 100px;
+  height: auto;
+  animation: flotar 3s infinite alternate;
 }
 
-@media (max-width: 768px) {
-    /* Corona */
-    .corona-animada {
-        margin-bottom: -15px;
-    }
-    .corona-animada img {
-        width: 60px !important;
-        height: auto;
-    }
-    
-    /* Portada */
-    .portada {
-        justify-content: center;
-        padding: 0px;
-        min-height: 100vh;
-    }
-    
-    /* Títulos */
-    .contenedor-titulos {
-        margin-bottom: -10px;
-    }
-    .titulo-elegante {
-        font-size: 20px !important;
-        margin-bottom: -5px;
-    }
-    .titulo-elegante::before,
-    .titulo-elegante::after {
-        font-size: 12px;
-    }
-    .titulo-elegante::before {
-        left: -25px;
-    }
-    .titulo-elegante::after {
-        right: -25px;
-    }
-   .nombre-quinceanera {
-        font-size: 15px !important;
-        margin-top: -5px;
-        margin-bottom: -3px;
-    }
-    .subtitulo {
-        font-size: 9px;
-        margin-bottom: 0px;
-    }  
-    /* Texto de música */
-    .contenedor-titulos p {
-        font-size: 7px !important;
-        margin-top: 0px !important;
-    }
-    /* Contador */
-    .contador-simple {
-        gap: 3px;
-        margin: -8px 0;
-    }
-    .tiempo {
-        min-width: 35px;
-        padding: 2px;
-    }
-    .tiempo .numero {
-        font-size: 9px;
-    }
-    .tiempo .texto {
-        font-size: 5px;
-    }
-    
-    /* Botón */
-    .boton-real {
-        padding: 4px 10px;
-        font-size: 9px;
-        margin-top: -5px;
-        gap: 3px;
-    }
-}
-/* FORZAR AJUSTE EN MÓVIL */
-@media (max-width: 768px) {
-    /* ===== PORTADA ===== */
-    .portada {
-        justify-content: center;
-        padding: 5px;
-        min-height: 100vh;
-        height: 100vh;
-    }
-    
-    /* Corona */
-    .corona-animada {
-        margin-bottom: 0px;
-    }
-    .corona-animada img {
-        width: 55px !important;
-    }
-    
-    /* Títulos */
-    .contenedor-titulos {
-        margin-bottom: 0px;
-    }
-    .titulo-elegante {
-        font-size: 18px !important;
-        margin-bottom: 0px;
-    }
-    .titulo-elegante::before,
-    .titulo-elegante::after {
-        font-size: 10px;
-    }
-    .titulo-elegante::before { left: -20px; }
-    .titulo-elegante::after { right: -20px; }
-    .nombre-quinceanera {
-        font-size: 14px !important;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .subtitulo {
-        font-size: 8px;
-        margin-bottom: 0px;
-        padding: 2px 8px;
-    }
-    
-    /* Texto música */
-    .contenedor-titulos p {
-        font-size: 7px !important;
-        margin-top: 0px !important;
-    }
-    
-    /* Contador */
-    .contador-simple {
-        gap: 4px;
-        margin: 0px 0;
-    }
-    .tiempo {
-        min-width: 32px;
-        padding: 2px;
-    }
-    .tiempo .numero {
-        font-size: 9px;
-    }
-    .tiempo .texto {
-        font-size: 5px;
-        margin-top: 0px;
-    }
-    
-    /* Botón ABRIR */
-    .boton-real {
-        padding: 4px 12px;
-        font-size: 9px;
-        margin-top: 5px;
-        gap: 3px;
-    }
-    
-    /* ===== CARRUSEL DE FOTOS ===== */
-    .carrusel-fotos {
-        padding: 10px;
-        min-height: 100vh;
-        height: 100vh;
-        justify-content: center;
-    }
-    
-    /* Fotos */
-    .pagina {
-        max-width: 250px;
-    }
-    
-    /* Botones ANTERIOR/SIGUIENTE */
-    .controles-carrusel {
-        margin-top: -10px;
-        gap: 15px;
-    }
-    .btn-anterior, .btn-siguiente {
-        padding: 5px 15px;
-        font-size: 11px;
-        margin-bottom: 10px;  /* ← Espacio con el footer */
-}
-    }
-    
-    /* Mensaje emotivo */
-    .mensaje-container {
-        padding: 10px;
-        margin-bottom: 10px;
-       max-width: 95%;      /* ← Reduce el ancho máximo */
-       width: 95%;          /* ← Fija el ancho */
-}
-    }
-    .mensaje-emotivo {
-        font-size: 11px;
-        line-height: 1.4;
-    }
-    .mensaje-emotivo .linea::first-letter {
-        font-size: 16px;
-    }
-    
-    /* ===== INVITACIÓN DETALLADA ===== */
-    .invitacion-detallada {
-        padding: 15px;
-        min-height: 100vh;
-        height: 100vh;
-        overflow-y: auto;
-    }
-    
-    .tarjeta-invitacion {
-        margin: 10px;
-    }
-    
-    .detalles-evento {
-        padding: 15px;
-        gap: 10px;
-    }
-    
-    .detalle-item i {
-        font-size: 18px;
-    }
-    .detalle-item h4 {
-        font-size: 12px;
-    }
-    .info-evento {
-        font-size: 13px;
-    }
-    
-    /* Botones CONFIRMAR, UBICACIÓN, APORTE */
-    .botones-accion {
-        gap: 8px;
-        padding: 0 15px 15px;
-    }
-    .boton-accion {
-        padding: 8px;
-        font-size: 11px;
-    }
-    
-    /* Formulario, mapa, aportes */
-    .formulario-rsvp,
-    .contenedor-mapa,
-    .contenedor-musica {
-        padding: 15px;
-    }
-    
-    .lista-musica p {
-        font-size: 11px;
-        padding: 6px;
-    }
+@keyframes flotar {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-8px) rotate(3deg) scale(1.05); }
+  75% { transform: translateY(5px) rotate(-2deg) scale(0.98); }
+  100% { transform: translateY(-15px) rotate(5deg) scale(1.02); }
 }
 
 /* 5. TÍTULOS ELEGANTES */
@@ -303,33 +73,33 @@ body {
 
 .titulo-elegante::before,
 .titulo-elegante::after {
-    content: "♠️";
-    font-size: 22px;
-    background: none;
-    color: #d4af37;
-    opacity: 0.7;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: flotarObjetos 3s infinite alternate;
-    display: inline-block;
+  content: "♠️";
+  font-size: 22px;
+  background: none;
+  color: #d4af37;
+  opacity: 0.7;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: flotarObjetos 3s infinite alternate;
+  display: inline-block;
 }
 
 .titulo-elegante::before {
-    left: -50px;
-    animation-delay: 0s;
+  left: -50px;
+  animation-delay: 0s;
 }
 
 .titulo-elegante::after {
-    right: -50px;
-    content: "♥️";
-    animation-delay: 0.5s;
+  right: -50px;
+  content: "♥️";
+  animation-delay: 0.5s;
 }
 
 @keyframes flotarObjetos {
-    0% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
-    50% { transform: translateY(-50%) translateX(5px) rotate(10deg); }
-    100% { transform: translateY(-50%) translateX(-5px) rotate(-10deg); }
+  0% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(-50%) translateX(5px) rotate(10deg); }
+  100% { transform: translateY(-50%) translateX(-5px) rotate(-10deg); }
 }
 
 .nombre-quinceanera {
@@ -460,18 +230,18 @@ body {
   100% { transform: translateY(-20px) rotate(15deg); opacity: 0.3; }
 }
 
-/* 9. CARRUSEL DE FOTOS Y MARCO ASIMÉTRICO */
+/* 9. CARRUSEL DE FOTOS */
 .carrusel-fotos {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
   background-size: cover;
- padding: 20px 20px 10px 20px;  /* ← Reduce el padding inferior */
+  padding: 20px 20px 10px 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-/* Contenedor de la página */
+
 .pagina {
   position: relative;
   background: transparent !important;
@@ -481,10 +251,10 @@ body {
   overflow: visible;
   width: 100%;
   height: 100%;
-  max-width: 400px;  /* ← AGREGA ESTA LÍNEA */
-  margin: 0 auto;    /* ← AGREGA ESTA LÍNEA (centra la foto) */
+  max-width: 400px;
+  margin: 0 auto;
 }
-/* Imagen de la quinceañera */
+
 .pagina img {
   position: relative;
   z-index: 2;
@@ -494,14 +264,8 @@ body {
   border-radius: 0;
   box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
   transition: all 0.4s ease;
-  //*border: 2px solid rgba(212, 175, 55, 0.6);*//
 }
-/* Responsive móvil */
-@media (max-width: 768px) {
-  .pagina {
-    max-width: 280px;  /* ← Más pequeño en móvil */
-  }
-}
+
 /* CORONA EN ESQUINA INFERIOR DERECHA */
 .corona-esquina {
   position: absolute;
@@ -521,22 +285,25 @@ body {
   animation: flotarCorona 2s ease-in-out infinite;
   cursor: pointer;
 }
+
 .corona-esquina i {
   font-size: 22px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   animation: brilloCorona 1.5s ease-in-out infinite;
 }
+
 @keyframes flotarCorona {
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-5px) rotate(5deg); }
   100% { transform: translateY(0px) rotate(0deg); }
 }
+
 @keyframes brilloCorona {
   0%, 100% { text-shadow: 0 0 2px gold; }
   50% { text-shadow: 0 0 10px gold, 0 0 5px #ffd700; }
 }
-//*aqui fue donde arregle para subir los botones *//
+
 .controles-carrusel {
   display: flex;
   justify-content: center;
@@ -544,87 +311,61 @@ body {
   gap: 30px;
   margin-top: -20px;
 }
-@media (max-width: 768px) {
-  .controles-carrusel {
-    margin-top: -30px;
-    gap: 15px;
-  }
-    .carrusel-fotos {
-    padding: 15px 10px 5px 10px;
-  }
-}
+
 .btn-anterior, .btn-siguiente {
-    position: relative;
-    background: linear-gradient(45deg, #8b0000, #5a0000);  /* Fondo rojo como el botón ABRIR */
-    color: #ffd700;
-    border: 3px solid #ffd700;
-    padding: 12px 30px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    text-shadow: 0 0 3px rgba(0,0,0,0.5);
-    font-family: 'Playfair Display', serif;
-    overflow: visible;
+  position: relative;
+  background: linear-gradient(45deg, #8b0000, #5a0000);
+  color: #ffd700;
+  border: 3px solid #ffd700;
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+  font-family: 'Playfair Display', serif;
+  overflow: visible;
 }
 
-/* Efecto hover (al pasar el mouse) */
 .btn-anterior:hover, .btn-siguiente:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-    background: linear-gradient(45deg, #a10000, #6b0000);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+  background: linear-gradient(45deg, #a10000, #6b0000);
 }
 
-/* CORONA EN LA ESQUINA (tamaño medio) */
 .btn-anterior::before, .btn-siguiente::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 35px;
-    height: 35px;
-    background: url('imagenes/corona.png') no-repeat center center;
-    background-size: contain;
-    filter: drop-shadow(0 0 5px gold);
-    z-index: 2;
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  background: url('imagenes/corona.png') no-repeat center center;
+  background-size: contain;
+  filter: drop-shadow(0 0 5px gold);
+  z-index: 2;
 }
 
-/* Brillo al pasar el mouse */
 .btn-anterior::after, .btn-siguiente::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-    transition: left 0.5s;
-    border-radius: 50px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  transition: left 0.5s;
+  border-radius: 50px;
 }
 
 .btn-anterior:hover::after, .btn-siguiente:hover::after {
-    left: 100%;
-}
-
-/* Responsive móvil */
-@media (max-width: 768px) {
-    .btn-anterior, .btn-siguiente {
-        padding: 8px 20px;
-        font-size: 12px;
-    }
-    
-    .btn-anterior::before, .btn-siguiente::before {
-        width: 28px;
-        height: 28px;
-        top: -12px;
-        right: -12px;
-    }
+  left: 100%;
 }
 
 /* 10. INVITACIÓN DETALLADA */
@@ -877,24 +618,6 @@ body {
 .pie-invitacion::before { left: 20px; }
 .pie-invitacion::after { right: 20px; }
 
-.iconos-redes {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
-}
-
-.icono-red {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.copiar-btn { background-color: var(--dorado); color: var(--azul-oscuro); }
-
 .mensaje-final {
   font-family: 'Great Vibes', cursive;
   font-size: 9px;
@@ -1061,12 +784,12 @@ body {
 }
 
 .mensaje-emotivo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.8;
-    color: #000000;
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #000000;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
 .mensaje-emotivo .linea {
@@ -1166,230 +889,13 @@ body {
   100% { opacity: 0; }
 }
 
-/* 19. RESPONSIVE MÓVIL */
+/* ===== RESPONSIVE MÓVIL ===== */
 @media (max-width: 768px) {
-  .titulo-elegante { font-size: 28px !important; }
-  .titulo-elegante::before, .titulo-elegante::after { font-size: 18px; top: 40%; }
-  .titulo-elegante::before { left: -30px; }
-  .titulo-elegante::after { right: -30px; }
-  .nombre-quinceanera { font-size: 24px !important; }
-  .subtitulo { font-size: 14px; }
-  .contador-simple { gap: 8px; }
-  .tiempo { min-width: 65px; padding: 8px; }
-  .tiempo .numero { font-size: 18px; }
-  .tiempo .texto { font-size: 8px; }
-  .boton-real { padding: 10px 25px; font-size: 14px; }
-  .cuaderno { max-width: 300px; height: 400px; }
-  .corona-esquina { width: 35px; height: 35px; bottom: 10px; right: 10px; }
-  .corona-esquina i { font-size: 16px; }
-  .btn-anterior, .btn-siguiente { padding: 8px 18px; font-size: 12px; }
-  
-  .joya1, .joya2, .joya3 { font-size: 20px; }
-  .joya4, .joya5, .joya11, .joya12, .joya13 { font-size: 25px; }
-  .joya6, .joya7, .joya8, .joya9, .joya10 { font-size: 16px; }
-  .joya1 { top: 10%; left: 5%; }
-  .joya2 { top: 75%; right: 8%; }
-  .joya3 { bottom: 15%; left: 8%; }
-  .joya4 { top: 12%; right: 8%; }
-  .joya5 { bottom: 25%; left: 5%; }
-  .joya6 { top: 45%; right: 3%; }
-  .joya7 { top: 85%; left: 90%; }
-  .joya8 { bottom: 8%; right: 15%; }
-  
-  .reloj-derretido { top: 5px; left: 5px; }
-  .reloj-cara-derretida { width: 55px; height: 55px; }
-  .manecilla-derretida { bottom: 28px; }
-  .hora-derretida { width: 3px; height: 16px; }
-  .minuto-derretida { width: 2px; height: 20px; }
-  .centro-derretido { width: 6px; height: 6px; }
-  .numeros-derretidos span { font-size: 8px; }
-  .numeros-derretidos span:nth-child(1) { top: 8%; }
-  .numeros-derretidos span:nth-child(2) { right: 8%; }
-  .numeros-derretidos span:nth-child(3) { bottom: 8%; }
-  .numeros-derretidos span:nth-child(4) { left: 8%; }
-  .gotas-reloj { left: 10px; width: 6px; }
-  
-  .mensaje-container { padding: 15px; margin-bottom: 20px; }
-  .mensaje-emotivo { font-size: 14px; line-height: 1.6; }
-  .mensaje-emotivo .linea::first-letter { font-size: 20px; }
-  .varita-movimiento { font-size: 40px; }
-  
-  .pagina .flor-izquierda-1,
-  .pagina .flor-izquierda-2,
-  .pagina .flor-izquierda-3 { transform: scale(0.7); }
-  .pagina .flor-inferior { transform: scale(0.7); left: 30px; }
-  .pagina .filigrana-inferior::before { font-size: 12px; letter-spacing: 5px; }
-  .pagina .cinta-superior { height: 10px; top: -5px; left: 30px; }
-  .pagina .cinta-derecha { width: 10px; right: -5px; bottom: 30px; }
-}
-/* Mariposa 1 - esquina inferior derecha */
-.mariposa-1 {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    width: 75px;
-    height: auto;
-    z-index: 25;
-    animation: volarMariposa1 4s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* Mariposa 2 - esquina superior izquierda */
-.mariposa-2 {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    width: 75px;
-    height: auto;
-    z-index: 25;
-    animation: volarMariposa2 5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* Mariposa 3 - cerca del centro derecho */
-.mariposa-3 {
-    position: fixed;
-    top:20%;
-    right: 20px;
-    width:75px;
-    height: auto;
-    z-index: 25;
-    animation: volarMariposa3 6s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* Mariposa 4 - abajo izquierda */
-.mariposa-4 {
-    position: fixed;
-    bottom: 80px;
-    left: 15px;
-    width:80px;
-    height: auto;
-    z-index: 25;
-    animation: volarMariposa4 3.5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* Animaciones diferentes para cada mariposa */
-@keyframes volarMariposa1 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(-5px, -8px) rotate(5deg); }
-    50% { transform: translate(3px, -12px) rotate(-3deg); }
-    75% { transform: translate(-3px, -5px) rotate(4deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes volarMariposa2 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(8px, -5px) rotate(-5deg); }
-    50% { transform: translate(-3px, -10px) rotate(3deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes volarMariposa3 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(-10px, -15px) rotate(8deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes volarMariposa4 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    30% { transform: translate(5px, -6px) rotate(-4deg); }
-    70% { transform: translate(-3px, -10px) rotate(5deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-/* Responsive móvil */
-@media (max-width: 768px) {
-    .mariposa-1 { width:80px; bottom: 10px; right: 10px; }
-    .mariposa-2 { width:85px; top: 10px; left: 10px; }
-    .mariposa-3 { width:80px; top: 45%; right: 10px; }
-    .mariposa-4 { width:85px; bottom: 60px; left: 10px; }
-}
-/* ========== IMÁGENES DECORATIVAS FLOTANTES (PÁGINA 2) ========== */
-
-.decoracion-flotante {
-    position: fixed;
-    pointer-events: none;  /* No interfieren con los clics */
-    z-index: 20;
-    animation: flotarDecoracion 6s ease-in-out infinite;
-}
-
-/* Posiciones ALEJADAS del texto central */
-.deco-1 { top: 5%; left: 2%; width: 55px; animation-delay: 0s; }
-.deco-2 { top: 10%; right: 2%; width: 50px; animation-delay: 1s; }
-.deco-3 { bottom: 15%; left: 3%; width: 45px; animation-delay: 2s; }
-.deco-4 { bottom: 20%; right: 3%; width: 55px; animation-delay: 3s; }
-.deco-5 { top: 35%; left: 1%; width: 40px; animation-delay: 4s; }
-
-/* Tamaño de las mariposas adicionales */
-.mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
-    width: 80px;
-}
-
-/* Animación de flotar */
-@keyframes flotarDecoracion {
-    0% { transform: translate(0px, 0px) rotate(0deg); }
-    25% { transform: translate(5px, -10px) rotate(3deg); }
-    50% { transform: translate(-3px, -15px) rotate(-3deg); }
-    75% { transform: translate(8px, -5px) rotate(2deg); }
-    100% { transform: translate(0px, 0px) rotate(0deg); }
-}
-
-/* Responsive móvil */
-@media (max-width: 768px) {
-    .deco-1 { width: 40px; top: 3%; left: 1%; }
-    .deco-2 { width: 45px; top: 5%; right: 1%; }
-    .deco-3 { width: 50px; bottom: 10%; left: 2%; }
-    .deco-4 { width: 45px; bottom: 15%; right: 2%; }
-    .deco-5 { width: 50px; top: 40%; left: 0%; }
-    
-    
-    .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
-        width: 90px;
-    }
-}
-
-/* ========== CORRECCIÓN TEXTO APORTES ========== */
-.lista-musica {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 5px solid var(--dorado);
-  color: #0a2463;  /* Texto azul oscuro */
-}
-
-.lista-musica p {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  color: #0a2463;  /* Texto azul oscuro */
-  font-weight: 500;
-}
-
-.lista-musica p:last-child {
-  border-bottom: none;
-}
-
-/* En móvil también */
-@media (max-width: 768px) {
-  .lista-musica p {
-    font-size: 12px;
+  .portada {
+    justify-content: center;
+    padding: 5px;
+    min-height: 100vh;
+    height: 100vh;
   }
-}
-
-/* ========== FORZAR TEXTO VISIBLE EN APORTES ========== */
-#contenedorMusica,
-#contenedorMusica .lista-musica,
-#contenedorMusica .lista-musica p,
-#contenedorMusica p {
-  color: #0a2463 !important;
-  background-color: #f9f9f9 !important;
-}
-
-#contenedorMusica .lista-musica p {
-  border-bottom: 1px solid #ddd !important;
-}
-
-#contenedorMusica strong {
-  color: #0a2463 !important;
-}
+  
+  .
