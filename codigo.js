@@ -554,13 +554,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
      console.log('🚀 Todo listo');
-    // PRUEBA FORZADA - Botón APORTE
+    // Botón APORTE
     if (botonMusica) {
-        botonMusica.onclick = function() {
-            document.getElementById('contenedorMusica').style.display = 'block';
+        botonMusica.addEventListener('click', function() {
             document.getElementById('formularioRSVP').style.display = 'none';
             document.getElementById('contenedorMapa').style.display = 'none';
-            alert('APORTE: ' + document.getElementById('contenedorMusica').style.display);
-        };
+            document.getElementById('contenedorMusica').style.display = 'block';
+            // alert('APORTE: block');  ← ELIMINADO o COMENTADO
+        });
     }
 }); // <--- CIERRE DEL DOMContentLoaded
