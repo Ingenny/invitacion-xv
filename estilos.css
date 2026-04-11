@@ -209,25 +209,30 @@ body {
     
     /* Botones ANTERIOR/SIGUIENTE */
     .controles-carrusel {
-        margin-top: 5px;
-        gap: 10px;
+        margin-top: -10px;
+        gap: 15px;
     }
     .btn-anterior, .btn-siguiente {
-        padding: 5px 12px;
-        font-size: 10px;
+        padding: 5px 15px;
+        font-size: 11px;
+        margin-bottom: 10px;  /* ← Espacio con el footer */
+}
     }
     
     /* Mensaje emotivo */
     .mensaje-container {
-        padding: 8px;
+        padding: 10px;
         margin-bottom: 10px;
+       max-width: 95%;      /* ← Reduce el ancho máximo */
+       width: 95%;          /* ← Fija el ancho */
+}
     }
     .mensaje-emotivo {
-        font-size: 10px;
+        font-size: 11px;
         line-height: 1.4;
     }
     .mensaje-emotivo .linea::first-letter {
-        font-size: 14px;
+        font-size: 16px;
     }
     
     /* ===== INVITACIÓN DETALLADA ===== */
@@ -353,24 +358,24 @@ body {
 .contador-simple {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0px 0;
+  flex-wrap: nowrap;
 }
 
 .tiempo {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
-  padding: 5px;
+  padding: 3px;
   border-radius: 10px;
-  min-width: 55px;
+  min-width: 45px;
   border: 1px solid rgba(212, 175, 55, 0.4);
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
   position: relative;
 }
 
 .tiempo .numero {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
   color: #ffd966;
   display: block;
@@ -379,7 +384,7 @@ body {
 }
 
 .tiempo .texto {
-  font-size: 7px;
+  font-size: 6px;
   color: var(--dorado-claro);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -853,7 +858,8 @@ body {
 /* 15. PIE DE PÁGINA */
 .pie-invitacion {
   background: linear-gradient(135deg, #1a0f2a, #0f0a1a);
-  padding: 30px 20px;
+  padding: 8px;
+  margin-top: 0px;
   text-align: center;
   border-top: 3px solid #d4af37;
   position: relative;
@@ -891,7 +897,7 @@ body {
 
 .mensaje-final {
   font-family: 'Great Vibes', cursive;
-  font-size: 18px;
+  font-size: 9px;
   color: var(--dorado-claro);
   font-style: italic;
 }
