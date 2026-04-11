@@ -1197,3 +1197,30 @@ body {
         width: 90px;
     }
 }
+
+/* ========== CORRECCIÓN TEXTO APORTES ========== */
+.lista-musica {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid var(--dorado);
+  color: #0a2463;  /* Texto azul oscuro */
+}
+
+.lista-musica p {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #0a2463;  /* Texto azul oscuro */
+  font-weight: 500;
+}
+
+.lista-musica p:last-child {
+  border-bottom: none;
+}
+
+/* En móvil también */
+@media (max-width: 768px) {
+  .lista-musica p {
+    font-size: 12px;
+  }
+}
