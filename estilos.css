@@ -898,4 +898,310 @@ body {
     height: 100vh;
   }
   
-  .
+  .corona-animada {
+    margin-bottom: 0px;
+  }
+  .corona-animada img {
+    width: 55px !important;
+  }
+  
+  .contenedor-titulos {
+    margin-bottom: 0px;
+  }
+  .titulo-elegante {
+    font-size: 18px !important;
+    margin-bottom: 0px;
+  }
+  .titulo-elegante::before,
+  .titulo-elegante::after {
+    font-size: 10px;
+  }
+  .titulo-elegante::before { left: -20px; }
+  .titulo-elegante::after { right: -20px; }
+  .nombre-quinceanera {
+    font-size: 14px !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .subtitulo {
+    font-size: 8px;
+    margin-bottom: 0px;
+    padding: 2px 8px;
+  }
+  
+  .contenedor-titulos p {
+    font-size: 7px !important;
+    margin-top: 0px !important;
+  }
+  
+  .contador-simple {
+    gap: 4px;
+    margin: 0px 0;
+  }
+  .tiempo {
+    min-width: 32px;
+    padding: 2px;
+  }
+  .tiempo .numero {
+    font-size: 9px;
+  }
+  .tiempo .texto {
+    font-size: 5px;
+    margin-top: 0px;
+  }
+  
+  .boton-real {
+    padding: 4px 12px;
+    font-size: 9px;
+    margin-top: 5px;
+    gap: 3px;
+  }
+  
+  .carrusel-fotos {
+    padding: 10px;
+    min-height: 100vh;
+    height: 100vh;
+    justify-content: center;
+  }
+  
+  .pagina {
+    max-width: 250px;
+  }
+  
+  .mensaje-container {
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 95%;
+    width: 95%;
+  }
+  .mensaje-emotivo {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .mensaje-emotivo .linea::first-letter {
+    font-size: 16px;
+  }
+  
+  .controles-carrusel {
+    margin-top: -10px;
+    gap: 15px;
+  }
+  .btn-anterior, .btn-siguiente {
+    padding: 5px 15px;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  
+  .invitacion-detallada {
+    padding: 15px;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .tarjeta-invitacion {
+    margin: 10px;
+  }
+  
+  .detalles-evento {
+    padding: 15px;
+    gap: 10px;
+  }
+  
+  .detalle-item i {
+    font-size: 18px;
+  }
+  .detalle-item h4 {
+    font-size: 12px;
+  }
+  .info-evento {
+    font-size: 13px;
+  }
+  
+  .botones-accion {
+    gap: 8px;
+    padding: 0 15px 15px;
+  }
+  .boton-accion {
+    padding: 8px;
+    font-size: 11px;
+  }
+  
+  .formulario-rsvp,
+  .contenedor-mapa,
+  .contenedor-musica {
+    padding: 15px;
+  }
+  
+  .lista-musica p {
+    font-size: 11px;
+    padding: 6px;
+  }
+  
+  .pie-invitacion {
+    padding: 8px;
+    margin-top: 0px;
+  }
+  .mensaje-final {
+    font-size: 9px;
+  }
+}
+
+/* Mariposa 1 - esquina inferior derecha */
+.mariposa-1 {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 75px;
+  height: auto;
+  z-index: 25;
+  animation: volarMariposa1 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.mariposa-2 {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 75px;
+  height: auto;
+  z-index: 25;
+  animation: volarMariposa2 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.mariposa-3 {
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  width: 75px;
+  height: auto;
+  z-index: 25;
+  animation: volarMariposa3 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.mariposa-4 {
+  position: fixed;
+  bottom: 80px;
+  left: 15px;
+  width: 80px;
+  height: auto;
+  z-index: 25;
+  animation: volarMariposa4 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes volarMariposa1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-5px, -8px) rotate(5deg); }
+  50% { transform: translate(3px, -12px) rotate(-3deg); }
+  75% { transform: translate(-3px, -5px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes volarMariposa2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(8px, -5px) rotate(-5deg); }
+  50% { transform: translate(-3px, -10px) rotate(3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes volarMariposa3 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10px, -15px) rotate(8deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes volarMariposa4 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  30% { transform: translate(5px, -6px) rotate(-4deg); }
+  70% { transform: translate(-3px, -10px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media (max-width: 768px) {
+  .mariposa-1 { width: 80px; bottom: 10px; right: 10px; }
+  .mariposa-2 { width: 85px; top: 10px; left: 10px; }
+  .mariposa-3 { width: 80px; top: 45%; right: 10px; }
+  .mariposa-4 { width: 85px; bottom: 60px; left: 10px; }
+}
+
+/* ========== IMÁGENES DECORATIVAS FLOTANTES ========== */
+.decoracion-flotante {
+  position: fixed;
+  pointer-events: none;
+  z-index: 20;
+  animation: flotarDecoracion 6s ease-in-out infinite;
+}
+
+.deco-1 { top: 5%; left: 2%; width: 55px; animation-delay: 0s; }
+.deco-2 { top: 10%; right: 2%; width: 50px; animation-delay: 1s; }
+.deco-3 { bottom: 15%; left: 3%; width: 45px; animation-delay: 2s; }
+.deco-4 { bottom: 20%; right: 3%; width: 55px; animation-delay: 3s; }
+.deco-5 { top: 35%; left: 1%; width: 40px; animation-delay: 4s; }
+
+.mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
+  width: 80px;
+}
+
+@keyframes flotarDecoracion {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  25% { transform: translate(5px, -10px) rotate(3deg); }
+  50% { transform: translate(-3px, -15px) rotate(-3deg); }
+  75% { transform: translate(8px, -5px) rotate(2deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+@media (max-width: 768px) {
+  .deco-1 { width: 40px; top: 3%; left: 1%; }
+  .deco-2 { width: 45px; top: 5%; right: 1%; }
+  .deco-3 { width: 50px; bottom: 10%; left: 2%; }
+  .deco-4 { width: 45px; bottom: 15%; right: 2%; }
+  .deco-5 { width: 50px; top: 40%; left: 0%; }
+  .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
+    width: 90px;
+  }
+}
+
+/* ========== CORRECCIÓN TEXTO APORTES ========== */
+.lista-musica {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid var(--dorado);
+  color: #0a2463;
+}
+
+.lista-musica p {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #0a2463;
+  font-weight: 500;
+}
+
+.lista-musica p:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .lista-musica p {
+    font-size: 12px;
+  }
+}
+
+#contenedorMusica,
+#contenedorMusica .lista-musica,
+#contenedorMusica .lista-musica p,
+#contenedorMusica p {
+  color: #0a2463 !important;
+  background-color: #f9f9f9 !important;
+}
+
+#contenedorMusica .lista-musica p {
+  border-bottom: 1px solid #ddd !important;
+}
+
+#contenedorMusica strong {
+  color: #0a2463 !important;
+}
