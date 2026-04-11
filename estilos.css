@@ -1224,3 +1224,20 @@ body {
     font-size: 12px;
   }
 }
+
+/* ========== FORZAR TEXTO VISIBLE EN APORTES ========== */
+#contenedorMusica,
+#contenedorMusica .lista-musica,
+#contenedorMusica .lista-musica p,
+#contenedorMusica p {
+  color: #0a2463 !important;
+  background-color: #f9f9f9 !important;
+}
+
+#contenedorMusica .lista-musica p {
+  border-bottom: 1px solid #ddd !important;
+}
+
+#contenedorMusica strong {
+  color: #0a2463 !important;
+}
