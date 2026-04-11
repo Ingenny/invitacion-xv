@@ -167,8 +167,8 @@ body {
   background: linear-gradient(45deg, #8b0000, #5a0000);
   color: #ffd700;
   border: 3px solid #ffd700;
-  padding: 8px 20px;
-  font-size: 12px;
+  padding: 9px 25px;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
@@ -176,8 +176,8 @@ body {
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 8px;
+  margin-top: 15px;
   text-shadow: 0 0 3px rgba(0,0,0,0.5);
   font-family: 'Playfair Display', serif;
 }
@@ -599,7 +599,7 @@ body {
 /* 15. PIE DE PÁGINA */
 .pie-invitacion {
   background: linear-gradient(135deg, #1a0f2a, #0f0a1a);
-  padding: 10px;
+  padding: 15px;
   margin-top: 5px;
   text-align: center;
   border-top: 3px solid #d4af37;
@@ -620,8 +620,8 @@ body {
 
 .mensaje-final {
   font-family: 'Great Vibes', cursive;
-  font-size: 12px;
-  color: var(--dorado-claro);
+  font-size: 18px;
+  color: var(--dorado-oscuro);
   font-style: italic;
 }
 
