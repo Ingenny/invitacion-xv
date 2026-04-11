@@ -122,16 +122,162 @@ body {
 }
 /* FORZAR AJUSTE EN MÓVIL */
 @media (max-width: 768px) {
+    /* ===== PORTADA ===== */
     .portada {
+        justify-content: center;
+        padding: 5px;
+        min-height: 100vh;
         height: 100vh;
-        min-height: -webkit-fill-available;
     }
-}
-@keyframes flotar {
-  0% { transform: translateY(0px) rotate(0deg) scale(1); }
-  25% { transform: translateY(-8px) rotate(3deg) scale(1.05); }
-  75% { transform: translateY(5px) rotate(-2deg) scale(0.98); }
-  100% { transform: translateY(-15px) rotate(5deg) scale(1.02); }
+    
+    /* Corona */
+    .corona-animada {
+        margin-bottom: 0px;
+    }
+    .corona-animada img {
+        width: 55px !important;
+    }
+    
+    /* Títulos */
+    .contenedor-titulos {
+        margin-bottom: 0px;
+    }
+    .titulo-elegante {
+        font-size: 18px !important;
+        margin-bottom: 0px;
+    }
+    .titulo-elegante::before,
+    .titulo-elegante::after {
+        font-size: 10px;
+    }
+    .titulo-elegante::before { left: -20px; }
+    .titulo-elegante::after { right: -20px; }
+    .nombre-quinceanera {
+        font-size: 14px !important;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .subtitulo {
+        font-size: 8px;
+        margin-bottom: 0px;
+        padding: 2px 8px;
+    }
+    
+    /* Texto música */
+    .contenedor-titulos p {
+        font-size: 7px !important;
+        margin-top: 0px !important;
+    }
+    
+    /* Contador */
+    .contador-simple {
+        gap: 4px;
+        margin: 0px 0;
+    }
+    .tiempo {
+        min-width: 32px;
+        padding: 2px;
+    }
+    .tiempo .numero {
+        font-size: 9px;
+    }
+    .tiempo .texto {
+        font-size: 5px;
+        margin-top: 0px;
+    }
+    
+    /* Botón ABRIR */
+    .boton-real {
+        padding: 4px 12px;
+        font-size: 9px;
+        margin-top: 5px;
+        gap: 3px;
+    }
+    
+    /* ===== CARRUSEL DE FOTOS ===== */
+    .carrusel-fotos {
+        padding: 10px;
+        min-height: 100vh;
+        height: 100vh;
+        justify-content: center;
+    }
+    
+    /* Fotos */
+    .pagina {
+        max-width: 250px;
+    }
+    
+    /* Botones ANTERIOR/SIGUIENTE */
+    .controles-carrusel {
+        margin-top: 5px;
+        gap: 10px;
+    }
+    .btn-anterior, .btn-siguiente {
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+    
+    /* Mensaje emotivo */
+    .mensaje-container {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    .mensaje-emotivo {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+    .mensaje-emotivo .linea::first-letter {
+        font-size: 14px;
+    }
+    
+    /* ===== INVITACIÓN DETALLADA ===== */
+    .invitacion-detallada {
+        padding: 15px;
+        min-height: 100vh;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .tarjeta-invitacion {
+        margin: 10px;
+    }
+    
+    .detalles-evento {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .detalle-item i {
+        font-size: 18px;
+    }
+    .detalle-item h4 {
+        font-size: 12px;
+    }
+    .info-evento {
+        font-size: 13px;
+    }
+    
+    /* Botones CONFIRMAR, UBICACIÓN, APORTE */
+    .botones-accion {
+        gap: 8px;
+        padding: 0 15px 15px;
+    }
+    .boton-accion {
+        padding: 8px;
+        font-size: 11px;
+    }
+    
+    /* Formulario, mapa, aportes */
+    .formulario-rsvp,
+    .contenedor-mapa,
+    .contenedor-musica {
+        padding: 15px;
+    }
+    
+    .lista-musica p {
+        font-size: 11px;
+        padding: 6px;
+    }
 }
 
 /* 5. TÍTULOS ELEGANTES */
