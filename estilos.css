@@ -703,6 +703,24 @@ body {
   cursor: pointer;
   margin-top: 20px;
 }
+* 14. LISTA DE MÚSICA / APORTES */
+.lista-musica {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid var(--dorado);
+  color: #0a2463;
+}
+
+.lista-musica p {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #0a2463;
+  font-weight: 500;
+}
+
+.lista-musica p:last-child {
+  border-bottom: none;
 
 /* 15. PIE DE PÁGINA */
 .pie-invitacion {
