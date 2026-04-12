@@ -1120,11 +1120,11 @@ body {
   animation: flotarDecoracion 6s ease-in-out infinite;
 }
 
-.deco-1 { top: 5%; left: 2%; width: 35px; animation-delay: 0s; }
-.deco-2 { top: 10%; right: 2%; width: 30px; animation-delay: 1s; }
-.deco-3 { bottom: 15%; left: 3%; width: 32px; animation-delay: 2s; }
-.deco-4 { bottom: 20%; right: 3%; width: 35px; animation-delay: 3s; }
-.deco-5 { top: 35%; left: 1%; width: 28px; animation-delay: 4s; }
+.deco-1 { top: 5%; left: 2%; width: 25px; animation-delay: 0s; }
+.deco-2 { top: 10%; right: 2%; width: 22px; animation-delay: 1s; }
+.deco-3 { bottom: 15%; left: 3%; width: 24px; animation-delay: 2s; }
+.deco-4 { bottom: 20%; right: 3%; width: 25px; animation-delay: 3s; }
+.deco-5 { top: 35%; left: 1%; width: 20px; animation-delay: 4s; }
 
 .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
   width: 80px;
