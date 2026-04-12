@@ -614,7 +614,7 @@ body {
 .mensaje-final {
   font-family: 'Great Vibes', cursive;
   font-size: 18px;
-  color: var(--dorado-oscuro);
+  color: var(--dorado-claro);
   font-style: italic;
 }
 
@@ -890,15 +890,13 @@ body {
     min-height: 100vh;
     height: 100vh;
   }
-  
-  .corona-animada {
+    .corona-animada {
     margin-bottom: 5px;
   }
   .corona-animada img {
     width: 100px !important;
   }
-  
-  .contenedor-titulos {
+    .contenedor-titulos {
     margin-bottom: 10px;
   }
   .titulo-elegante {
@@ -921,13 +919,11 @@ body {
     margin-bottom: 10px;
     padding: 4px 12px;
   }
-  
-  .contenedor-titulos p {
+    .contenedor-titulos p {
     font-size: 10px !important;
     margin-top: 5px !important;
   }
-  
-  .contador-simple {
+    .contador-simple {
     gap: 8px;
     margin: 10px 0;
     flex-wrap: wrap;
@@ -944,26 +940,22 @@ body {
     font-size: 8px;
     margin-top: 3px;
   }
-  
-  .boton-real {
+    .boton-real {
     padding: 4px 12px;
     font-size: 9px;
     margin-top: 5px;
     gap: 3px;
   }
-  
-  .carrusel-fotos {
+    .carrusel-fotos {
     padding: 10px;
     min-height: 100vh;
     height: 100vh;
     justify-content: center;
   }
-  
-  .pagina {
+    .pagina {
     max-width: 250px;
   }
-  
-  .mensaje-container {
+    .mensaje-container {
     padding: 10px;
     margin-bottom: 10px;
     max-width: 95%;
@@ -976,8 +968,7 @@ body {
   .mensaje-emotivo .linea::first-letter {
     font-size: 16px;
   }
-  
-  .controles-carrusel {
+    .controles-carrusel {
     margin-top: -30px;
     gap: 15px;
   }
@@ -986,24 +977,20 @@ body {
     font-size: 11px;
     margin-bottom: 10px;
   }
-  
-  .invitacion-detallada {
+    .invitacion-detallada {
     padding: 15px;
     min-height: 100vh;
     height: 100vh;
     overflow-y: auto;
   }
-  
-  .tarjeta-invitacion {
+    .tarjeta-invitacion {
     margin: 10px;
   }
-  
-  .detalles-evento {
+    .detalles-evento {
     padding: 15px;
     gap: 10px;
   }
-  
-  .detalle-item i {
+    .detalle-item i {
     font-size: 18px;
   }
   .detalle-item h4 {
@@ -1039,7 +1026,7 @@ body {
   }
   .mensaje-final {
   font-family: 'Great Vibes', cursive;
-  font-size: 18px;  /* ← Cambia este número */
+  font-size: 14px;  /* ← Cambia este número */
   color: var(--dorado-claro);
   font-style: italic;
   }
@@ -1203,3 +1190,4 @@ body {
 #contenedorMusica strong {
   color: #0a2463 !important;
 }
+  
