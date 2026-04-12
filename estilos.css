@@ -1127,7 +1127,7 @@ body {
 .deco-5 { top: 35%; left: 1%; width: 20px; animation-delay: 4s; }
 
 .mariposa-1, .mariposa-2, .mariposa-3, .mariposa-4 {
-  width: 80px;
+  width: 30px;
 }
 
 @keyframes flotarDecoracion {
