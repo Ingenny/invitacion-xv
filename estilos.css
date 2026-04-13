@@ -956,14 +956,17 @@ body {
     max-width: 250px;
   }
     .mensaje-container {
-    padding: 10px;
-    margin-bottom: 10px;
-    max-width: 95%;
-    width: 95%;
-  }
+    padding: 12px;
+    margin-bottom: 15px;
+    max-width: 90%;
+    width: 90%;
+}
   .mensaje-emotivo {
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.5;
+     word-break: break-word;
+    text-align: center;
+    padding: 0 5px;
   }
   .mensaje-emotivo .linea::first-letter {
     font-size: 16px;
