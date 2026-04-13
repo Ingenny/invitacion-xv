@@ -1129,7 +1129,7 @@ body {
     text-align: center;
 }
 
-.muneca-img {
+.quinceañera-img {
     width: 250px;
     max-width: 80%;
     height: auto;
@@ -1166,7 +1166,7 @@ body {
 
 /* Responsive móvil */
 @media (max-width: 768px) {
-    .muneca-img {
+    .quinceañera-img {
         width: 200px;
     }
     .btn-siguiente-pagina {
