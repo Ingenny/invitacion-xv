@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const numeroPersonas = document.getElementById('numeroPersonas');
   
     // Carrusel
-        const btnAnterior = document.getElementById('btnAnterior');
+    const btnAnterior = document.getElementById('btnAnterior');
     const btnSiguiente = document.getElementById('btnSiguiente');
     const indicador = document.getElementById('indicador');
 
