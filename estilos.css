@@ -230,31 +230,6 @@ body {
   100% { transform: translateY(-20px) rotate(15deg); opacity: 0.3; }
 }
 
-/* 9. CARRUSEL DE FOTOS */
-.carrusel-fotos {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
-  background-size: cover;
-  padding: 20px 20px 10px 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.pagina {
-  position: relative;
-  background: transparent !important;
-  border-radius: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: visible;
-  width: 100%;
-  height: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
 .pagina img {
   box-shadow: none;  /* ← Elimina la sombra */
 }
@@ -295,70 +270,6 @@ body {
 @keyframes brilloCorona {
   0%, 100% { text-shadow: 0 0 2px gold; }
   50% { text-shadow: 0 0 10px gold, 0 0 5px #ffd700; }
-}
-
-.controles-carrusel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin-top: -20px;
-}
-
-.btn-anterior, .btn-siguiente {
-  position: relative;
-  background: linear-gradient(45deg, #8b0000, #5a0000);
-  color: #ffd700;
-  border: 3px solid #ffd700;
-  padding: 12px 30px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-shadow: 0 0 3px rgba(0,0,0,0.5);
-  font-family: 'Playfair Display', serif;
-  overflow: visible;
-}
-
-.btn-anterior:hover, .btn-siguiente:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-  background: linear-gradient(45deg, #a10000, #6b0000);
-}
-
-.btn-anterior::before, .btn-siguiente::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 35px;
-  height: 35px;
-  background: url('imagenes/corona.png') no-repeat center center;
-  background-size: contain;
-  filter: drop-shadow(0 0 5px gold);
-  z-index: 2;
-}
-
-.btn-anterior::after, .btn-siguiente::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-  transition: left 0.5s;
-  border-radius: 50px;
-}
-
-.btn-anterior:hover::after, .btn-siguiente:hover::after {
-  left: 100%;
 }
 
 /* 10. INVITACIÓN DETALLADA */
@@ -946,12 +857,7 @@ body {
     margin-top: 5px;
     gap: 3px;
   }
-    .carrusel-fotos {
-    padding: 10px;
-    min-height: 100vh;
-    height: 100vh;
-    justify-content: center;
-  }
+  
     .pagina {
     max-width: 250px;
   }
@@ -1204,3 +1110,67 @@ body {
     height: auto !important;
 }
 /* actualización forzada */
+/* ========== PÁGINA 2 - MENSAJE + MUÑECA ========== */
+.pagina-dos {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fondos/fondo3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Contenedor de la muñeca */
+.muneca-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.muneca-img {
+    width: 250px;
+    max-width: 80%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 3px solid #d4af37;
+}
+
+/* Botón SIGUIENTE */
+.boton-siguiente-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-siguiente-pagina {
+    background: linear-gradient(45deg, #8b0000, #5a0000);
+    color: #ffd700;
+    border: 3px solid #ffd700;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    font-family: 'Playfair Display', serif;
+}
+
+.btn-siguiente-pagina:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    background: linear-gradient(45deg, #a10000, #6b0000);
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+    .muneca-img {
+        width: 200px;
+    }
+    .btn-siguiente-pagina {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
