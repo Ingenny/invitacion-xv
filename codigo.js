@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const botonMapa = document.getElementById('botonMapa');
     const botonMusica = document.getElementById('botonMusica');
     const portada = document.getElementById('portada');
+    const paginaDos = document.getElementById('paginaDos');
     const invitacionDetallada = document.getElementById('invitacionDetallada');
     const formularioRSVP = document.getElementById('formularioRSVP');
     const contenedorMapa = document.getElementById('contenedorMapa');
@@ -23,11 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menosPersonas = document.getElementById('menosPersonas');
     const masPersonas = document.getElementById('masPersonas');
     const numeroPersonas = document.getElementById('numeroPersonas');
-  
-    // Carrusel
-    const btnAnterior = document.getElementById('btnAnterior');
-    const btnSiguiente = document.getElementById('btnSiguiente');
-    const indicador = document.getElementById('indicador');
+    const btnSiguientePagina = document.getElementById('btnSiguientePagina');
 
     // ============================================
     // 2. CONTADOR
@@ -48,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('minutos').textContent = minutos < 10 ? '0' + minutos : minutos;
             document.getElementById('segundos').textContent = segundos < 10 ? '0' + segundos : segundos;
         }
+    }
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
 
     // ============================================
-    // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA
+    // 3. EFECTO ESPIRAL
     // ============================================
 
     function crearEfectoEspiral(x, y) {
@@ -172,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // BOTONES: CONFIRMAR, UBICACIÓN, APORTE
     // ============================================
 
-    // Botón CONFIRMAR
     if (botonRSVP) {
         botonRSVP.addEventListener('click', function() {
             document.getElementById('contenedorMapa').style.display = 'none';
@@ -181,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Botón UBICACIÓN
     if (botonMapa) {
         botonMapa.addEventListener('click', function() {
             document.getElementById('formularioRSVP').style.display = 'none';
@@ -190,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Botón APORTE
     if (botonMusica) {
         botonMusica.addEventListener('click', function() {
             document.getElementById('formularioRSVP').style.display = 'none';
@@ -198,119 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('contenedorMusica').style.display = 'block';
         });
     }
-    
-        // ============================================
-    // 6. BOTONES CARRUSEL CON EFECTO ESCARCHA
-    // ============================================
-
-    function crearEfectoEscarchaBoton(x, y) {
-        const esMovil = window.innerWidth <= 768;
-        const radioGrande = esMovil ? 55 : 80;
-        const radioPequeno = esMovil ? 30 : 45;
-        
-        const onda = document.createElement('div');
-        onda.style.position = 'fixed';
-        onda.style.left = x + 'px';
-        onda.style.top = y + 'px';
-        onda.style.width = '0';
-        onda.style.height = '0';
-        onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0))';
-        onda.style.borderRadius = '50%';
-        onda.style.transform = 'translate(-50%, -50%)';
-        onda.style.pointerEvents = 'none';
-        onda.style.zIndex = '9997';
-        onda.style.animation = 'onda 0.5s ease-out forwards';
-        document.body.appendChild(onda);
-        
-        const formas = ['✦', '✧', '✵', '✶', '·', '•'];
-        
-        const numGrande = esMovil ? 10 : 12;
-        for (let i = 0; i < numGrande; i++) {
-            setTimeout(function() {
-                const particula = document.createElement('div');
-                particula.style.position = 'fixed';
-                particula.style.pointerEvents = 'none';
-                particula.style.zIndex = '9999';
-                particula.style.animation = 'brilloEspiral 0.6s ease-out forwards';
-                particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
-                particula.style.color = '#ffd700';
-                
-                const angulo = (i / numGrande) * Math.PI * 2;
-                particula.style.left = (x + Math.cos(angulo) * radioGrande) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radioGrande) + 'px';
-                particula.style.fontSize = (esMovil ? 10 : 14) + Math.random() * 8 + 'px';
-                
-                document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 600);
-            }, i * 25);
-        }
-        
-        const numPequeno = esMovil ? 8 : 10;
-        for (let i = 0; i < numPequeno; i++) {
-            setTimeout(function() {
-                const particula = document.createElement('div');
-                particula.style.position = 'fixed';
-                particula.style.pointerEvents = 'none';
-                particula.style.zIndex = '9999';
-                particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
-                particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
-                particula.style.color = '#ffd700';
-                
-                const angulo = (i / numPequeno) * Math.PI * 2;
-                particula.style.left = (x + Math.cos(angulo) * radioPequeno) + 'px';
-                particula.style.top = (y + Math.sin(angulo) * radioPequeno) + 'px';
-                particula.style.fontSize = (esMovil ? 8 : 12) + Math.random() * 6 + 'px';
-                
-                document.body.appendChild(particula);
-                setTimeout(function() { particula.remove(); }, 500);
-            }, i * 20);
-        }
-        
-        setTimeout(function() { onda.remove(); }, 500);
-    }
-
-    // Botón SIGUIENTE
-    if (btnSiguiente) {
-        btnSiguiente.addEventListener('click', function(event) {
-            const x = event.clientX;
-            const y = event.clientY;
-            crearEfectoEscarchaBoton(x, y);
-            this.style.transform = 'scale(0.95)';
-            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
-            }, 200);
-            if (paginaActualCarrusel < totalPaginasCarrusel) {
-                mostrarPaginaCarrusel(paginaActualCarrusel + 1);
-            } else {
-                if (carruselFotos) carruselFotos.style.display = 'none';
-                if (invitacionDetallada) invitacionDetallada.style.display = 'block';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
-    }
-
-    // Botón ANTERIOR
-    if (btnAnterior) {
-        btnAnterior.addEventListener('click', function(event) {
-            const x = event.clientX;
-            const y = event.clientY;
-            crearEfectoEscarchaBoton(x, y);
-            this.style.transform = 'scale(0.95)';
-            this.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.8)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
-            }, 200);
-            if (paginaActualCarrusel > 1) {
-                mostrarPaginaCarrusel(paginaActualCarrusel - 1);
-            }
-        });
-    }
 
     // ============================================
-    // 7. FORMULARIO WHATSAPP
+    // FORMULARIO WHATSAPP
     // ============================================
 
     if (menosPersonas) {
@@ -351,9 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     // ============================================
-    // 9. MÚSICA
+    // MÚSICA
     // ============================================
 
     let musicaActiva = false;
@@ -402,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================
-    // 10. VARITA MÁGICA CON EFECTO GLITTER
+    // VARITA MÁGICA
     // ============================================
 
     function crearEfectoVaritaMagica() {
@@ -461,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // 11. BOTÓN ABRIR INVITACIÓN
+    // BOTÓN ABRIR INVITACIÓN
     // ============================================
 
     if (botonAbrir) {
@@ -474,9 +360,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => destello.remove(), 600);
             
             if (portada) portada.style.display = 'none';
-            if (carruselFotos) {
-                carruselFotos.style.display = 'flex';
-                mostrarPaginaCarrusel(1);
+            if (paginaDos) {
+                paginaDos.style.display = 'flex';
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
@@ -486,14 +371,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-     console.log('🚀 Todo listo');
-    // Botón APORTE
-    if (botonMusica) {
-        botonMusica.addEventListener('click', function() {
-            document.getElementById('formularioRSVP').style.display = 'none';
-            document.getElementById('contenedorMapa').style.display = 'none';
-            document.getElementById('contenedorMusica').style.display = 'block';
-            // alert('APORTE: block');  ← ELIMINADO o COMENTADO
+    // ============================================
+    // BOTÓN SIGUIENTE (página 2 -> página 3)
+    // ============================================
+
+    if (btnSiguientePagina) {
+        btnSiguientePagina.addEventListener('click', function() {
+            console.log('➡️ Siguiente página');
+            
+            if (paginaDos) paginaDos.style.display = 'none';
+            if (invitacionDetallada) invitacionDetallada.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-}); // <--- CIERRE DEL DOMContentLoaded
+
+    console.log('🚀 Todo listo');
+
+});
