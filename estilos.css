@@ -1190,4 +1190,9 @@ body {
 #contenedorMusica strong {
   color: #0a2463 !important;
 }
-  
+ /* FORZAR TAMAÑO DE IMÁGENES DECORATIVAS */
+.deco-1, .deco-2, .deco-3, .deco-4, .deco-5 {
+    width: 30px !important;
+    height: auto !important;
+    max-width: 30px !important;
+} 
