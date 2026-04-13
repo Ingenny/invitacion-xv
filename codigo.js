@@ -23,16 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const menosPersonas = document.getElementById('menosPersonas');
     const masPersonas = document.getElementById('masPersonas');
     const numeroPersonas = document.getElementById('numeroPersonas');
-    const whatsappBtn = document.querySelector('.whatsapp-btn');
-    const facebookBtn = document.querySelector('.facebook-btn');
-    const copiarBtn = document.querySelector('.copiar-btn');
-
+  
     // Carrusel
-    const carruselFotos = document.getElementById('carruselFotos');
-    const pagina1 = document.getElementById('pagina1');
-    const pagina2 = document.getElementById('pagina2');
-    const pagina3 = document.getElementById('pagina3');
-    const btnAnterior = document.getElementById('btnAnterior');
+        const btnAnterior = document.getElementById('btnAnterior');
     const btnSiguiente = document.getElementById('btnSiguiente');
     const indicador = document.getElementById('indicador');
 
@@ -55,66 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('minutos').textContent = minutos < 10 ? '0' + minutos : minutos;
             document.getElementById('segundos').textContent = segundos < 10 ? '0' + segundos : segundos;
         }
-    }
-    setInterval(actualizarContador, 1000);
-    actualizarContador();
-
-    // ============================================
-    // 3. CARRUSEL DE FOTOS
-    // ============================================
-
-    let paginaActualCarrusel = 1;
-    const totalPaginasCarrusel = 3;
-
-    function mostrarPaginaCarrusel(numero) {
-        const paginas = [pagina1, pagina2, pagina3];
-        paginas.forEach(pagina => {
-            if (pagina) pagina.style.display = 'none';
-        });
-        const paginaSeleccionada = document.getElementById('pagina' + numero);
-        if (paginaSeleccionada) {
-            paginaSeleccionada.style.display = 'block';
-            
-            const foto = paginaSeleccionada.querySelector('img');
-            if (foto) {
-                foto.style.transition = 'all 0.3s ease';
-                foto.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.8)';
-                foto.style.transform = 'scale(1.02)';
-                setTimeout(() => {
-                    foto.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.3)';
-                    foto.style.transform = 'scale(1)';
-                }, 400);
-            }
-            
-            const rect = paginaSeleccionada.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            
-            const formas = ['✦', '✧', '·', '•'];
-            for (let i = 0; i < 12; i++) {
-                setTimeout(() => {
-                    const particula = document.createElement('div');
-                    particula.style.position = 'fixed';
-                    particula.style.pointerEvents = 'none';
-                    particula.style.zIndex = '9999';
-                    particula.style.animation = 'brilloEspiral 0.5s ease-out forwards';
-                    particula.innerHTML = formas[Math.floor(Math.random() * formas.length)];
-                    particula.style.color = '#ffd700';
-                    particula.style.fontSize = (12 + Math.random() * 10) + 'px';
-                    
-                    const angulo = Math.random() * Math.PI * 2;
-                    const radio = 40 + Math.random() * 50;
-                    particula.style.left = (x + Math.cos(angulo) * radio) + 'px';
-                    particula.style.top = (y + Math.sin(angulo) * radio) + 'px';
-                    
-                    document.body.appendChild(particula);
-                    setTimeout(() => particula.remove(), 500);
-                }, i * 30);
-            }
-        }
-        paginaActualCarrusel = numero;
-        if (indicador) indicador.textContent = paginaActualCarrusel + ' / ' + totalPaginasCarrusel;
-    }
 
     // ============================================
     // 4. EFECTO ESCARCHA CON ESPIRAL ABIERTA
