@@ -389,6 +389,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+            // ============================================
+    // SOBRE CON EFECTO DE HUMO
+    // ============================================
+    const sobreInicial = document.getElementById('sobreInicial');
+    const portadaInv = document.getElementById('portada');
+
+    if (sobreInicial) {
+        // Mostrar el sobre al inicio
+        sobreInicial.classList.remove('abierto');
+        
+        // Al hacer clic en el sobre
+        sobreInicial.addEventListener('click', function() {
+            this.classList.add('abierto');
+            
+            // Esperar a que termine la animación del humo y desaparecer el sobre
+            setTimeout(() => {
+                sobreInicial.style.opacity = '0';
+                setTimeout(() => {
+                    sobreInicial.style.display = 'none';
+                    // Mostrar la portada principal
+                    if (portadaInv) portadaInv.style.display = 'flex';
+                }, 500);
+            }, 1500);
+        });
+    }
+    
+    // Asegurar que la portada esté oculta al inicio
+    if (portadaInv) portadaInv.style.display = 'none';
     }
 
     console.log('🚀 Todo listo');
