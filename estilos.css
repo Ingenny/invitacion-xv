@@ -1025,7 +1025,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0a0a1a, #1a0f2a);
+    background: linear-gradient(135deg, #1a0f2a, #0a0a1a);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1037,8 +1037,8 @@ body {
 
 .sobre-cerrado {
     position: relative;
-    width: 300px;
-    height: 200px;
+    width: 280px;
+    height: 180px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -1057,51 +1057,30 @@ body {
     background: linear-gradient(145deg, #0a2463, #001845);
     border-radius: 0 0 15px 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    overflow: hidden;
-}
-
-/* Destellos brillantes en el cuerpo azul */
-.sobre-cuerpo::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
-    animation: brilloAzul 4s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes brilloAzul {
-    0% { transform: translate(0%, 0%) scale(1); opacity: 0.3; }
-    50% { transform: translate(10%, 10%) scale(1.2); opacity: 0.6; }
-    100% { transform: translate(0%, 0%) scale(1); opacity: 0.3; }
 }
 
 /* Tapa del sobre - DORADA */
 .sobre-tapa {
     position: absolute;
-    top: -70px;
+    top: -60px;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 70px;
     background: linear-gradient(145deg, #e8d9b0, #d4af37);
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-origin: top;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
-/* Destellos dorados en la tapa */
+/* Brillo en la tapa */
 .sobre-tapa::before {
     content: "✨";
     position: absolute;
-    top: 20%;
+    top: 15px;
     left: 20%;
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     opacity: 0;
     animation: destelloDorado 2s ease-in-out infinite;
@@ -1111,9 +1090,9 @@ body {
 .sobre-tapa::after {
     content: "✨";
     position: absolute;
-    bottom: 30%;
+    bottom: 10px;
     right: 20%;
-    font-size: 12px;
+    font-size: 10px;
     color: #fff;
     opacity: 0;
     animation: destelloDorado 2.5s ease-in-out infinite;
@@ -1126,7 +1105,6 @@ body {
     100% { opacity: 0; transform: scale(0.5); }
 }
 
-/* Corazón en el centro */
 .sobre-corazon {
     position: absolute;
     top: 50%;
@@ -1134,9 +1112,8 @@ body {
     transform: translate(-50%, -50%);
     font-size: 40px;
     color: #ffd700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     animation: latido 1.5s ease-in-out infinite;
-    z-index: 5;
 }
 
 @keyframes latido {
@@ -1165,9 +1142,9 @@ body {
     position: absolute;
     bottom: 30%;
     left: 50%;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(200,200,220,0.5), transparent);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(200,200,210,0.4), transparent);
     border-radius: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -1198,7 +1175,7 @@ body {
         bottom: 30%;
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.6;
         transform: translateX(-50%) scale(1.2);
         bottom: 45%;
     }
@@ -1227,11 +1204,11 @@ body {
 @media (max-width: 768px) {
     .sobre-cerrado {
         width: 220px;
-        height: 150px;
+        height: 140px;
     }
     .sobre-tapa {
-        top: -55px;
-        height: 65px;
+        top: -45px;
+        height: 55px;
     }
     .sobre-corazon {
         font-size: 30px;
