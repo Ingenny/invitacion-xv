@@ -1119,7 +1119,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
     position: relative;
 }
 
@@ -1129,8 +1129,8 @@ body {
     text-align: center;
 }
 
-.quinceañera-img {
-    width: 250px;
+.quinceanera-img {
+    width: 200px;
     max-width: 80%;
     height: auto;
     border-radius: 15px;
@@ -1156,7 +1156,23 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
     font-family: 'Playfair Display', serif;
+    margin-top: 20px;
 }
+
+  
+/* ========== .btn-siguiente-pagina {
+    background: linear-gradient(45deg, #8b0000, #5a0000);
+    color: #ffd700;
+    border: 3px solid #ffd700;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    font-family: 'Playfair Display', serif;
+}========== */
 
 .btn-siguiente-pagina:hover {
     transform: translateY(-3px);
@@ -1166,8 +1182,8 @@ body {
 
 /* Responsive móvil */
 @media (max-width: 768px) {
-    .quinceañera-img {
-        width: 200px;
+    .quinceanera-img {
+        width: 150px;
     }
     .btn-siguiente-pagina {
         padding: 10px 25px;
