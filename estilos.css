@@ -1018,7 +1018,7 @@ body {
     width: 55px;
   }
 }
-/* ========== SOBRE CON EFECTO DE HUMO (AZUL REY + DORADO) ========== */
+/* ========== SOBRE CON EFECTO DE HUMO ========== */
 .sobre-inicial {
     position: fixed;
     top: 0;
@@ -1047,62 +1047,28 @@ body {
     transform: scale(1.02);
 }
 
-/* Cuerpo del sobre - AZUL REY */
 .sobre-cuerpo {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, #0a2463, #001845);
+    background: linear-gradient(145deg, #d4af37, #b88d3a);
     border-radius: 0 0 15px 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* Tapa del sobre - DORADA */
 .sobre-tapa {
     position: absolute;
     top: -60px;
     left: 0;
     width: 100%;
     height: 70px;
-    background: linear-gradient(145deg, #e8d9b0, #d4af37);
+    background: linear-gradient(145deg, #e8d9b0, #c5a059);
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-origin: top;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-}
-
-/* Brillo en la tapa */
-.sobre-tapa::before {
-    content: "✨";
-    position: absolute;
-    top: 15px;
-    left: 20%;
-    font-size: 12px;
-    color: #fff;
-    opacity: 0;
-    animation: destelloDorado 2s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.sobre-tapa::after {
-    content: "✨";
-    position: absolute;
-    bottom: 10px;
-    right: 20%;
-    font-size: 10px;
-    color: #fff;
-    opacity: 0;
-    animation: destelloDorado 2.5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes destelloDorado {
-    0% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 5px gold; }
-    100% { opacity: 0; transform: scale(0.5); }
 }
 
 .sobre-corazon {
@@ -1111,8 +1077,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 40px;
-    color: #ffd700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     animation: latido 1.5s ease-in-out infinite;
 }
 
