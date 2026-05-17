@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================
-    // VARITA MÁGICA
+    // VARITA MÁGICA CON EFECTO GLITTER
     // ============================================
 
     function crearEfectoVaritaMagica() {
@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // BOTÓN ABRIR INVITACIÓN
+    // BOTÓN ABRIR INVITACIÓN (con efecto explosión)
     // ============================================
 
     if (botonAbrir) {
@@ -362,6 +362,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (portada) portada.style.display = 'none';
             if (paginaDos) {
                 paginaDos.style.display = 'flex';
+                paginaDos.style.animation = 'none';
+                paginaDos.offsetHeight;
+                paginaDos.style.animation = 'explosion 0.6s ease-out forwards';
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
@@ -380,7 +383,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('➡️ Siguiente página');
             
             if (paginaDos) paginaDos.style.display = 'none';
-            if (invitacionDetallada) invitacionDetallada.style.display = 'block';
+            if (invitacionDetallada) {
+                invitacionDetallada.style.display = 'block';
+                invitacionDetallada.style.animation = 'abrirCarta 0.6s ease-out forwards';
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
