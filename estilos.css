@@ -689,7 +689,8 @@ body {
 
 .mensaje-emotivo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+ //* font-size: 18px;*//
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.8;
   color: #000000;
@@ -794,7 +795,8 @@ body {
 }
 
 /* ===== RESPONSIVE MÓVIL ===== */
-@media (max-width: 768px) {
+///*@media (max-width: 768px) {*///
+  @media (max-width: 700px) {
   .portada {
     justify-content: center;
     padding: 15px;
