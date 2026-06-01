@@ -1006,25 +1006,6 @@ body {
   background: linear-gradient(45deg, #a10000, #6b0000);
 }
 
-/* ===== EFECTO EXPLOSIÓN AL ABRIR PÁGINA 2 ===== */
-@keyframes explosion {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.pagina-dos {
-  animation: explosion 0.6s ease-out forwards;
-}
 
 /* ===== IMÁGENES DECORATIVAS FLOTANTES ===== */
 .decoracion-flotante {
