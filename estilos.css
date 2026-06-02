@@ -20,7 +20,7 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: transparent;
+  background-color: #001845; /* <-- CAMBIO AQUÍ: De 'transparent' a tu azul oscuro */
   color: var(--blanco);
   line-height: 1.6;
 }
