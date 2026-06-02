@@ -432,6 +432,6 @@ if (btnMusicaFlotante) {
     sobreInicial.addEventListener('click', accionAbrirSobre);
   }
   console.log('🚀 Todo listo')
-}
+
 }) // <-- Esta llave cierra el DOMContentLoaded
 
