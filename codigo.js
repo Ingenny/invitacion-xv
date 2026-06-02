@@ -389,39 +389,49 @@ if (btnMusicaFlotante) {
       }
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
+ 
   // ============================================
-  // NUEVO SOBRE INTERACTIVO (CORREGIDO)
+  // NUEVO SOBRE INTERACTIVO (A PRUEBA DE FALLAS)
   // ============================================
   const sobreInicial = document.getElementById('sobreInicial');
   const envelope = document.getElementById('envelope');
   const portada = document.getElementById('portada');
 
-  if (envelope && sobreInicial && portada) {
-    envelope.addEventListener('click', function() {
-      // 1. Activar la animación de apertura del sobre
+  function accionAbrirSobre() {
+    console.log("🎯 ¡Clic detectado! Abriendo sobre...");
+    
+    // 1. Animar el sobre
+    if (envelope) {
       envelope.classList.add('open');
       envelope.classList.remove('close');
+    }
 
-      // 2. Esperar 2.5 segundos a que salga la carta y los corazones
+    // 2. Esperar a que termine la animación de la carta y corazones (2.5 seg)
+    if (sobreInicial && portada) {
       setTimeout(() => {
-        // Desvanecer suavemente toda la pantalla del sobre
+        // Desvanecer la pantalla de introducción
         sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
         sobreInicial.style.opacity = '0';
         sobreInicial.style.visibility = 'hidden';
-        sobreInicial.style.pointerEvents = 'none'; // Evita que bloquee clics al desvanecerse
+        sobreInicial.style.pointerEvents = 'none'; // CRUCIAL: Deja de bloquear clics
         
-        // 3. Mostrar la portada principal
+        // Mostrar la portada
         portada.style.display = 'flex';
         
-        // Pequeña pausa para que el navegador procese el 'display: flex' antes de animar
+        // Pequeña pausa para activar la animación CSS suavemente
         setTimeout(() => {
           portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
         }, 50);
         
       }, 2500); 
-    });
+    }
   }
 
+  // Asignamos el clic a TODO el contenedor de la intro para asegurar que funcione
+  if (sobreInicial) {
+    sobreInicial.addEventListener('click', accionAbrirSobre);
+  }
   console.log('🚀 Todo listo')
-}) // <-- Esta es la llave que cierra el DOMContentLoaded
+}) // <-- Esta llave cierra el DOMContentLoaded
+
    
