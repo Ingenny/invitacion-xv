@@ -389,37 +389,39 @@ if (btnMusicaFlotante) {
       }
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
+  // ============================================
+  // NUEVO SOBRE INTERACTIVO (CORREGIDO)
+  // ============================================
+  const sobreInicial = document.getElementById('sobreInicial');
+  const envelope = document.getElementById('envelope');
+  const portada = document.getElementById('portada');
 
-    // ============================================
-    // SOBRE CON EFECTO DE HUMO
-    // ============================================
-    
-/ ============================================
-// NUEVO SOBRE INTERACTIVO
-// ============================================
-const sobreInicial = document.getElementById('sobreInicial');
-const envelope = document.getElementById('envelope');
-const portada = document.getElementById('portada');
+  if (envelope && sobreInicial && portada) {
+    envelope.addEventListener('click', function() {
+      // 1. Activar la animación de apertura del sobre
+      envelope.classList.add('open');
+      envelope.classList.remove('close');
 
-if (envelope && sobreInicial && portada) {
-  envelope.addEventListener('click', function() {
-    // 1. Abrir el sobre (activa la animación CSS)
-    envelope.classList.add('open');
-    envelope.classList.remove('close');
+      // 2. Esperar 2.5 segundos a que salga la carta y los corazones
+      setTimeout(() => {
+        // Desvanecer suavemente toda la pantalla del sobre
+        sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
+        sobreInicial.style.opacity = '0';
+        sobreInicial.style.visibility = 'hidden';
+        sobreInicial.style.pointerEvents = 'none'; // Evita que bloquee clics al desvanecerse
+        
+        // 3. Mostrar la portada principal
+        portada.style.display = 'flex';
+        
+        // Pequeña pausa para que el navegador procese el 'display: flex' antes de animar
+        setTimeout(() => {
+          portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
+        }, 50);
+        
+      }, 2500); 
+    });
+  }
 
-    // 2. Esperar a que termine la animación de la carta y los corazones (2.5 segundos)
-    setTimeout(() => {
-      // Desvanecer el contenedor del sobre
-      sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
-      sobreInicial.style.opacity = '0';
-      sobreInicial.style.visibility = 'hidden';
-      
-      // 3. Mostrar la portada principal con su animación
-      portada.style.display = 'flex';
-      portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
-      
-    }, 2500); 
-  });
-}
   console.log('🚀 Todo listo')
-})
+}) // <-- Esta es la llave que cierra el DOMContentLoaded
+   
