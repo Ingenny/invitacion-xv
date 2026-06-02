@@ -347,31 +347,29 @@ if (btnMusicaFlotante) {
   }
 
   // ============================================
-  // BOTÓN ABRIR INVITACIÓN (con efecto explosión)
+  // BOTÓN ABRIR INVITACIÓN
   // ============================================
 
   if (botonAbrir) {
     botonAbrir.addEventListener('click', function (event) {
       console.log('🎉 Abriendo invitación')
 
-      const destello = document.createElement('div')
-      destello.className = 'destello'
-      document.body.appendChild(destello)
-      setTimeout(() => destello.remove(), 600)
+      // --- ELIMINADO EL EFECTO DESTELLO (FLASH) ---
+      // const destello = document.createElement('div')
+      // destello.className = 'destello'
+      // document.body.appendChild(destello)
+      // setTimeout(() => destello.remove(), 600)
 
       if (portada) portada.style.display = 'none'
+      
       if (paginaDos) {
         paginaDos.style.display = 'flex'
-        paginaDos.style.animation = 'none'
-        paginaDos.offsetHeight
-        paginaDos.style.animation = 'explosion 0.6s ease-out forwards'
+        // Cambiamos 'explosion' por 'abrirCarta' que es más suave y ya está en tu CSS
+        paginaDos.style.animation = 'abrirCarta 0.8s ease-out forwards'
       }
+      
       window.scrollTo({ top: 0, behavior: 'smooth' })
-
-      setTimeout(() => {
-        crearEfectoVaritaMagica()
-      }, 300)
-    })
+ })
   }
 
   // ============================================
