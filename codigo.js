@@ -406,12 +406,27 @@ if (btnMusicaFlotante) {
     }
 
     setTimeout(() => {
-      if (sobreInicial) {
-        sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
-        sobreInicial.style.opacity = '0';
-        sobreInicial.style.visibility = 'hidden';
-        sobreInicial.style.pointerEvents = 'none';
-      }
+
+        // Agregar clic al sobre Y al wrapper para máxima compatibilidad
+  const envelopeWrapper = document.querySelector('.envelope-wrapper');
+  
+  if (sobreInicial) {
+    sobreInicial.addEventListener('click', accionAbrirSobre);
+  }
+  
+  if (envelopeWrapper) {
+    envelopeWrapper.addEventListener('click', function(e) {
+      e.stopPropagation(); // Evita que el clic se propague
+      accionAbrirSobre();
+    });
+  }
+  
+  if (envelope) {
+    envelope.addEventListener('click', function(e) {
+      e.stopPropagation();
+      accionAbrirSobre();
+    });
+  }
       
       if (portada) {
         portada.style.display = 'flex';
