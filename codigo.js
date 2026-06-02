@@ -393,32 +393,33 @@ if (btnMusicaFlotante) {
     // ============================================
     // SOBRE CON EFECTO DE HUMO
     // ============================================
-    const sobreInicial = document.getElementById('sobreInicial')
-    const portadaInv = document.getElementById('portada')
+    
+/ ============================================
+// NUEVO SOBRE INTERACTIVO
+// ============================================
+const sobreInicial = document.getElementById('sobreInicial');
+const envelope = document.getElementById('envelope');
+const portada = document.getElementById('portada');
 
-    if (sobreInicial) {
-      // Mostrar el sobre al inicio
-      sobreInicial.classList.remove('abierto')
+if (envelope && sobreInicial && portada) {
+  envelope.addEventListener('click', function() {
+    // 1. Abrir el sobre (activa la animación CSS)
+    envelope.classList.add('open');
+    envelope.classList.remove('close');
 
-      // Al hacer clic en el sobre
-      sobreInicial.addEventListener('click', function () {
-        this.classList.add('abierto')
-
-        // Esperar a que termine la animación del humo y desaparecer el sobre
-        setTimeout(() => {
-          sobreInicial.style.opacity = '0'
-          setTimeout(() => {
-            sobreInicial.style.display = 'none'
-            // Mostrar la portada principal
-            if (portadaInv) portadaInv.style.display = 'flex'
-          }, 500)
-        }, 1500)
-      })
-    }
-
-    // Asegurar que la portada esté oculta al inicio
-    if (portadaInv) portadaInv.style.display = 'none'
-  }
-
+    // 2. Esperar a que termine la animación de la carta y los corazones (2.5 segundos)
+    setTimeout(() => {
+      // Desvanecer el contenedor del sobre
+      sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
+      sobreInicial.style.opacity = '0';
+      sobreInicial.style.visibility = 'hidden';
+      
+      // 3. Mostrar la portada principal con su animación
+      portada.style.display = 'flex';
+      portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
+      
+    }, 2500); 
+  });
+}
   console.log('🚀 Todo listo')
 })
