@@ -243,58 +243,48 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 }
 
-  // ============================================
-  // MÚSICA
-  // ============================================
+ // ============================================
+// MÚSICA (Versión simplificada y ordenada)
+// ============================================
+let musicaActiva = false;
+const musicaActual = new Audio('musica/no-crezcas-mas.mp3');
+musicaActual.loop = true;
+musicaActual.volume = 0.6;
+const btnMusicaFlotante = document.getElementById('botonMusicaFlotante');
 
-  let musicaActiva = false
-  let musicaActual = null
-  let yaReprodujo = false
+function iniciarMusica() {
+  musicaActual.play().then(() => {
+    musicaActiva = true;
+    btnMusicaFlotante.innerHTML = '🔊';
+    btnMusicaFlotante.classList.add('reproduciendo');
+  }).catch(() => {
+    console.log('Esperando que el usuario toque la pantalla');
+  });
+}
 
-  const botonMusicaFlotante = document.createElement('div')
-  botonMusicaFlotante.id = 'musicaFlotante'
-  botonMusicaFlotante.innerHTML = '🎵'
-  botonMusicaFlotante.style.cssText =
-    'position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; border-radius: 50%; background: #D4AF37; color: #0A2463; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s;'
-  document.body.appendChild(botonMusicaFlotante)
+// Iniciar música al primer clic en cualquier parte de la pantalla
+document.body.addEventListener('click', function activarMusica() {
+  iniciarMusica();
+  document.body.removeEventListener('click', activarMusica); // Se desactiva después del primer clic
+}, { once: true });
 
-  musicaActual = new Audio('musica/no-crezcas-mas.mp3')
-  musicaActual.loop = true
-  musicaActual.volume = 0.6
-
-  function iniciarMusica() {
-    if (!yaReprodujo && musicaActual) {
-      musicaActual
-        .play()
-        .then(function () {
-          musicaActiva = true
-          yaReprodujo = true
-          botonMusicaFlotante.innerHTML = '🔊'
-        })
-        .catch(function (e) {
-          console.log('Error:', e)
-        })
-    }
-  }
-
-  document.body.addEventListener('click', function activarMusica() {
-    iniciarMusica()
-    document.body.removeEventListener('click', activarMusica)
-  })
-
-  botonMusicaFlotante.addEventListener('click', function (e) {
-    e.stopPropagation()
+// Control del botón flotante
+if (btnMusicaFlotante) {
+  btnMusicaFlotante.addEventListener('click', function (e) {
+    e.stopPropagation(); // Evita conflictos con otros clics
     if (musicaActiva) {
-      musicaActual.pause()
-      this.innerHTML = '🎵'
-      musicaActiva = false
+      musicaActual.pause();
+      this.innerHTML = '🎵';
+      this.classList.remove('reproduciendo');
+      musicaActiva = false;
     } else {
-      musicaActual.play().catch(function () {})
-      this.innerHTML = '🔊'
-      musicaActiva = true
-      yaReprodujo = true
+      musicaActual.play();
+      this.innerHTML = '🔊';
+      this.classList.add('reproduciendo');
+      musicaActiva = true;
     }
-  })
+  });
+}
 
   // ============================================
   // VARITA MÁGICA CON EFECTO GLITTER
