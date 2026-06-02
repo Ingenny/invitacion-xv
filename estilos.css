@@ -1338,196 +1338,241 @@ body {
     width: 55px;
   }
 }
-/* ========== SOBRE CON EFECTO DE HUMO (AZUL REY + DORADO) ========== */
+
+/* ===== NUEVO SOBRE INTERACTIVO (AZUL REY Y DORADO) ===== */
 .sobre-inicial {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: url('fondos/fondo0.gif') no-repeat center center fixed;
-  background-size: cover;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  cursor: pointer;
-  transition:
-    opacity 1s ease,
-    visibility 1s ease;
+  overflow: hidden;
+  background: #001845;
 }
 
-.sobre-cerrado {
-  position: relative;
-  width: 280px;
-  height: 180px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.sobre-cerrado:hover {
-  transform: scale(1.02);
-}
-
-/* Cuerpo del sobre - AZUL REY */
-.sobre-cuerpo {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg, #0a2463, #001845);
-  border-radius: 0 0 15px 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Tapa del sobre - DORADA */
-.sobre-tapa {
-  position: absolute;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background: linear-gradient(145deg, #e8d9b0, #d4af37);
-  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform-origin: top;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-}
-
-/* Brillo en la tapa */
-.sobre-tapa::before {
-  content: '✨';
-  position: absolute;
-  top: 15px;
-  left: 20%;
-  font-size: 12px;
-  color: #fff;
-  opacity: 0;
-  animation: destelloDorado 2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.sobre-tapa::after {
-  content: '✨';
-  position: absolute;
-  bottom: 10px;
-  right: 20%;
-  font-size: 10px;
-  color: #fff;
-  opacity: 0;
-  animation: destelloDorado 2.5s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes destelloDorado {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-    text-shadow: 0 0 5px gold;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-}
-
-.sobre-corazon {
+.video-fondo-sobre {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  animation: latido 1.5s ease-in-out infinite;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
 }
 
-@keyframes latido {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-}
-
-/* Sobre abierto */
-.sobre-inicial.abierto .sobre-tapa {
-  transform: rotateX(180deg);
-  top: -50px;
-}
-
-.sobre-inicial.abierto .sobre-cerrado {
-  animation: desaparecer 0.5s forwards;
-  animation-delay: 0.6s;
-}
-
-@keyframes desaparecer {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-
-/* Efecto de humo */
-.humo {
+.overlay-video {
   position: absolute;
-  bottom: 30%;
-  left: 50%;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(200, 200, 210, 0.4), transparent);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.envelope-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 380px;
+}
+
+#envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin: 0 auto;
+  background-color: #001235;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.front { 
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 82px solid transparent;
+  border-top: 98px solid #d4af37; /* SOLAPA DORADA */
+  transform-origin: top;
   pointer-events: none;
 }
 
-.sobre-inicial.abierto .humo {
-  animation: humoAnimacion 1.2s ease-out forwards;
-  animation-delay: 0.3s;
+.pocket {
+  border-left: 140px solid #0a2463; /* CUERPO AZUL REY */
+  border-right: 140px solid #0a2463;
+  border-bottom: 90px solid #001845; /* BASE AZUL OSCURO */
+  border-top: 90px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
-.sobre-inicial.abierto .humo2 {
-  animation: humoAnimacion 1.5s ease-out forwards;
-  animation-delay: 0.5s;
-  left: 40%;
+.letter {
+  position: absolute;
+  background-color: #fff;
+  width: 90%;
+  left: 5%;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-.sobre-inicial.abierto .humo3 {
-  animation: humoAnimacion 1.8s ease-out forwards;
+.letter:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(180deg, 
+    rgba(255,255,255,0.00) 25%, 
+    rgba(212, 175, 55, 0.15) 55%, 
+    rgba(212, 175, 55, 0.30) 100%);
+  border-radius: 6px;
+}
+
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: #EEEFF0;
+  border-radius: 2px;
+}
+
+.words.line1 {
+  top: 15%;
+  width: 40%;
+  height: 8%;
+  background-color: #d4af37; /* Línea dorada decorativa */
+}
+
+.words.line2 { top: 30%; }
+.words.line3 { top: 50%; }
+.words.line4 { top: 70%; }
+
+/* Animaciones de apertura */
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px); 
+  transition: transform 0.4s ease, z-index 1s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-60px); /* La carta sube */
+  transition: transform 0.5s 0.5s ease, z-index 0.6s;
+  z-index: 2;
+}
+
+.hearts {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 25px;
+  top: 0;
+  width: 25px;
+  height: 40px;
+  background: #d4af37; /* CORAZONES DORADOS */
+  border-radius: 25px 25px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .heart {
+  opacity: 0;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  opacity: 1;
+  animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  animation-fill-mode: forwards;
   animation-delay: 0.7s;
-  left: 60%;
 }
 
-@keyframes humoAnimacion {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.5);
-    bottom: 30%;
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateX(-50%) scale(1.2);
-    bottom: 45%;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) scale(2);
-    bottom: 60%;
-  }
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  opacity: 1;
+  animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  opacity: 1;
+  animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes slideUp { 
+  0% { top: 0; }
+  100% { top: -300px; }
+}
+
+@keyframes sideSway {
+  0% { margin-left: 0px; }
+  100% { margin-left: 30px; }
 }
 
 .mensaje-sobre {
@@ -1537,68 +1582,43 @@ body {
   color: #ffd700;
   text-align: center;
   animation: brilloTexto 2s ease-in-out infinite;
+  z-index: 2;
 }
 
 @keyframes brilloTexto {
-  0%,
-  100% {
-    opacity: 0.7;
-    text-shadow: 0 0 0px gold;
+  0%, 100% { opacity: 0.7; text-shadow: 0 0 0px gold; }
+  50% { opacity: 1; text-shadow: 0 0 10px gold; }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #envelope {
+    width: 240px;
+    height: 154px;
   }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 10px gold;
+  .flap {
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-bottom-width: 69px;
+    border-top-width: 85px;
+  }
+  .pocket {
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-bottom-width: 77px;
+    border-top-width: 77px;
+  }
+  .heart:before, .heart:after {
+    left: 20px;
+    width: 20px;
+    height: 32px;
+    border-radius: 20px 20px 0 0;
+  }
+  .open .letter {
+    transform: translateY(-50px);
   }
 }
 
-/* Responsive móvil */
-@media (max-width: 768px) {
-  .sobre-cerrado {
-    width: 220px;
-    height: 140px;
-  }
-  .sobre-tapa {
-    top: -45px;
-    height: 55px;
-  }
-  .sobre-corazon {
-    font-size: 30px;
-  }
-  .mensaje-sobre {
-    font-size: 14px;
-    margin-top: 30px;
-  }
-}
-.musica-flotante {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #d4af37; /* Tu color dorado */
-  color: #0a2463;      /* Tu color azul rey */
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 9999;
-  font-size: 24px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-.musica-flotante:hover {
-  transform: scale(1.1);
-}
-.musica-flotante.reproduciendo {
-  animation: pulsoMusica 2s infinite;
-}
-@keyframes pulsoMusica {
-  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-}
 /* ===== VIDEO DE FONDO - CORREGIDO PARA MÓVIL ===== */
 .sobre-inicial {
   position: fixed;
