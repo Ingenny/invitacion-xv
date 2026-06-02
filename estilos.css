@@ -1569,3 +1569,33 @@ body {
     margin-top: 30px;
   }
 }
+.musica-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d4af37; /* Tu color dorado */
+  color: #0a2463;      /* Tu color azul rey */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  font-size: 24px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.musica-flotante:hover {
+  transform: scale(1.1);
+}
+.musica-flotante.reproduciendo {
+  animation: pulsoMusica 2s infinite;
+}
+@keyframes pulsoMusica {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
