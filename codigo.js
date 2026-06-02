@@ -219,27 +219,29 @@ document.addEventListener('DOMContentLoaded', function () {
   // ============================================
   // FORMULARIO WHATSAPP
   // ============================================
-
   if (formulario) {
-    formulario.addEventListener('submit', function (evento) {
-      evento.preventDefault()
-      const nombre = document.getElementById('nombreInvitado').value.trim()
-      if (nombre === '') {
-        alert('⚠️ Ingresa tu nombre')
-        return
-      }
-      const numeroWhatsApp = '584141346514'
-      const mensaje =
-        '🎉 *NUEVA CONFIRMACIÓN* 🎉%0A📝 ' + nombre + '%0A✨ Confirmado!'
-      window.open(
-        'https://wa.me/' + numeroWhatsApp + '?text=' + mensaje,
-        '_blank',
-      )
-      alert('✅ ¡Gracias ' + nombre + '! Te esperamos.')
-      formulario.reset()
-      if (formularioRSVP) formularioRSVP.style.display = 'none'
-    })
-  }
+  formulario.addEventListener('submit', function (evento) {
+    evento.preventDefault();
+    const nombreInput = document.getElementById('nombreInvitado');
+    const nombre = nombreInput.value.trim();
+    
+    if (nombre === '') {
+      alert('⚠️ Por favor, ingresa tu nombre');
+      nombreInput.focus();
+      return;
+    }
+    
+    const numeroWhatsApp = '584141346514';
+    // Esto arregla automáticamente las tildes y espacios para WhatsApp
+    const mensaje = `🎉 *NUEVA CONFIRMACIÓN* 🎉\n📝 ${nombre}\n✨ ¡Confirmado!`;
+    const urlSegura = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    
+    window.open(urlSegura, '_blank');
+    alert(`✅ ¡Gracias ${nombre}! Te esperamos.`);
+    formulario.reset();
+    if (formularioRSVP) formularioRSVP.style.display = 'none';
+  });
+}
 
   // ============================================
   // MÚSICA
