@@ -1339,7 +1339,7 @@ body {
   }
 }
 
-/* ===== NUEVO SOBRE INTERACTIVO (AZUL REY Y DORADO) ===== */
+/* ===== NUEVO SOBRE INTERACTIVO + VIDEO DE FONDO (LIMPIO) ===== */
 .sobre-inicial {
   position: fixed;
   top: 0;
@@ -1412,15 +1412,15 @@ body {
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
   border-bottom: 82px solid transparent;
-  border-top: 98px solid #d4af37; /* SOLAPA DORADA */
+  border-top: 98px solid #d4af37;
   transform-origin: top;
   pointer-events: none;
 }
 
 .pocket {
-  border-left: 140px solid #0a2463; /* CUERPO AZUL REY */
+  border-left: 140px solid #0a2463;
   border-right: 140px solid #0a2463;
-  border-bottom: 90px solid #001845; /* BASE AZUL OSCURO */
+  border-bottom: 90px solid #001845;
   border-top: 90px solid transparent;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -1465,14 +1465,13 @@ body {
   top: 15%;
   width: 40%;
   height: 8%;
-  background-color: #d4af37; /* Línea dorada decorativa */
+  background-color: #d4af37;
 }
 
 .words.line2 { top: 30%; }
 .words.line3 { top: 50%; }
 .words.line4 { top: 70%; }
 
-/* Animaciones de apertura */
 .open .flap {
   transform: rotateX(180deg);
   transition: transform 0.4s ease, z-index 0.6s;
@@ -1492,7 +1491,7 @@ body {
 }
 
 .open .letter {
-  transform: translateY(-60px); /* La carta sube */
+  transform: translateY(-60px);
   transition: transform 0.5s 0.5s ease, z-index 0.6s;
   z-index: 2;
 }
@@ -1521,7 +1520,7 @@ body {
   top: 0;
   width: 25px;
   height: 40px;
-  background: #d4af37; /* CORAZONES DORADOS */
+  background: #d4af37;
   border-radius: 25px 25px 0 0;
   transform: rotate(-45deg);
   transform-origin: 0 100%;
@@ -1533,10 +1532,7 @@ body {
   transform-origin: 100% 100%;
 }
 
-.close .heart {
-  opacity: 0;
-  animation: none;
-}
+.close .heart { opacity: 0; animation: none; }
 
 .a1 {
   left: 20%;
@@ -1546,7 +1542,6 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
 }
-
 .a2 {
   left: 55%;
   transform: scale(1);
@@ -1555,7 +1550,6 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
 }
-
 .a3 {
   left: 10%;
   transform: scale(0.8);
@@ -1617,67 +1611,7 @@ body {
   .open .letter {
     transform: translateY(-50px);
   }
-}
-
-/* ===== VIDEO DE FONDO - CORREGIDO PARA MÓVIL ===== */
-.sobre-inicial {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* Altura exacta de la pantalla */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra horizontalmente */
-  overflow: hidden;
-  z-index: 10000;
-}
-
-.video-fondo-sobre {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover; /* Mantiene proporciones sin distorsión */
-  z-index: -2;
-}
-
-.overlay-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: -1;
-}
-
-.sobre-cerrado,
-.humo,
-.mensaje-sobre {
-  position: relative;
-  z-index: 1;
-}
-
-/* En móvil: asegurar que todo quepa */
-@media (max-width: 768px) {
-  .sobre-inicial {
-    height: 100vh;
-    padding: 20px;
-  }
-  
-  .sobre-cerrado {
-    width: 220px;
-    height: 140px;
-  }
-  
-  .mensaje-sobre {
-    margin-top: 20px;
-    font-size: 14px;
+  .envelope-wrapper {
+    height: 320px;
   }
 }
