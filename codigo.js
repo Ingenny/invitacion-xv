@@ -389,7 +389,7 @@ if (btnMusicaFlotante) {
       }
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
- 
+  }
   // ============================================
   // NUEVO SOBRE INTERACTIVO (A PRUEBA DE FALLAS)
   // ============================================
@@ -432,5 +432,6 @@ if (btnMusicaFlotante) {
     sobreInicial.addEventListener('click', accionAbrirSobre);
   }
   console.log('🚀 Todo listo')
+}
 }) // <-- Esta llave cierra el DOMContentLoaded
 
