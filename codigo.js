@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // 2. CONTADOR
   // ============================================
 
-  const fechaEvento = new Date(2026, 6, 4, 20, 0, 0).getTime()
+  // Fecha y hora explicitando zona horaria de Venezuela (VET, -04:00)
+  const fechaEvento = new Date('2026-07-04T20:00:00-04:00').getTime()
 
   function actualizarContador() {
     const ahora = new Date().getTime()
