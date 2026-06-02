@@ -1546,6 +1546,7 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
 }
+
 .a2 {
   left: 55%;
   transform: scale(1);
@@ -1554,6 +1555,7 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
 }
+
 .a3 {
   left: 10%;
   transform: scale(0.8);
@@ -1619,5 +1621,3 @@ body {
     height: 320px;
   }
 }
-
-
