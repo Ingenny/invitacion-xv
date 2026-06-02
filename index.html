@@ -1,85 +1,155 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>XV Años - Elisabet Romero</title>
-    
-    <!-- SEO y WhatsApp -->
     <meta name="description" content="Estás invitado a los XV Años de Elisabet Romero. 04 de Julio, 2026. ¡Acompáñame!">
-    <meta property="og:title" content="XV Años de Elisabet Romero 👑">
-    <meta property="og:description" content="Comparte conmigo este día especial. 04 de Julio, 2026 - 8:00 PM. ¡Te espero!">
-    <meta property="og:image" content="https://tudominio.com/imagenes/vista-previa.jpg"> 
-    <meta property="og:type" content="website">
-    
+<meta property="og:title" content="XV Años de Elisabet Romero 👑">
+<meta property="og:description" content="Comparte conmigo este día especial. 04 de Julio, 2026 - 8:00 PM. ¡Te espero!">
+<!-- NOTA: Cambia esta URL por la dirección real de tu imagen cuando subas la web -->
+<meta property="og:image" content="https://tudominio.com/imagenes/vista-previa.jpg"> 
+<meta property="og:type" content="website">
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- ========== 1. PANTALLA DE INICIO: SOBRE + VIDEO ========== -->
-    <div class="sobre-inicial" id="sobreInicial">
-        <video autoplay muted loop playsinline class="video-fondo-sobre">
-            <source src="videos/videofondo.mp4" type="video/mp4">
-        </video>
-        <div class="overlay-video"></div>
-        
-        <div class="envelope-wrapper">
-            <div id="envelope" class="close">
-                <div class="front flap"></div>
-                <div class="front pocket"></div>
-                <div class="letter">
-                    <div class="words line1"></div>
-                    <div class="words line2"></div>
-                    <div class="words line3"></div>
-                    <div class="words line4"></div>
-                </div>
-                <div class="hearts">
-                    <div class="heart a1"></div>
-                    <div class="heart a2"></div>
-                    <div class="heart a3"></div>
-                </div>
+   <!-- ========== NUEVO SOBRE INTERACTIVO CON VIDEO DE FONDO ========== -->
+<div class="sobre-inicial" id="sobreInicial">
+    <!-- VIDEO DE FONDO -->
+    <video autoplay muted loop playsinline class="video-fondo-sobre">
+        <source src="videos/videofondo.mp4" type="video/mp4">
+    </video>
+    
+    <!-- CAPA OSCURA PARA QUE EL SOBRE RESALTE -->
+    <div class="overlay-video"></div>
+    
+    <!-- SOBRE INTERACTIVO -->
+    <div class="envelope-wrapper">
+        <div id="envelope" class="close">
+            <div class="front flap"></div>
+            <div class="front pocket"></div>
+            <div class="letter">
+                <div class="words line1"></div>
+                <div class="words line2"></div>
+                <div class="words line3"></div>
+                <div class="words line4"></div>
             </div>
-            <div class="mensaje-sobre">Toca el sobre para abrir</div>
+            <div class="hearts">
+                <div class="heart a1"></div>
+                <div class="heart a2"></div>
+                <div class="heart a3"></div>
+            </div>
         </div>
+        <div class="mensaje-sobre">Toca el sobre para abrir</div>
     </div>
+</div>
 
-    <!-- ========== 2. PORTADA PRINCIPAL ========== -->
+    <!-- ========== PORTADA PRINCIPAL ========== -->
     <section class="portada" id="portada" style="display: none;">
         <div class="corona-animada">
             <img src="imagenes/corona1.png" alt="Corona">
         </div>
+
         <div class="contenedor-titulos">
             <h1 class="titulo-elegante">MIS XV AÑOS</h1>
             <h2 class="nombre-quinceanera">ELISABET ROMERO</h2>
             <p class="subtitulo">Comparte conmigo este día especial</p>
-            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px;">🎵 Toca en cualquier lugar para activar la música</p>
+            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px;">
+                🎵 Toca en cualquier lugar para activar la música
+            </p>
 
             <div class="contador-simple">
-                <div class="tiempo"><span class="numero" id="dias">00</span><span class="texto">DÍAS</span></div>
-                <div class="tiempo"><span class="numero" id="horas">00</span><span class="texto">HORAS</span></div>
-                <div class="tiempo"><span class="numero" id="minutos">00</span><span class="texto">MINUTOS</span></div>
-                <div class="tiempo"><span class="numero" id="segundos">00</span><span class="texto">SEGUNDOS</span></div>
+                <div class="tiempo">
+                    <span class="numero" id="dias">00</span>
+                    <span class="texto">DÍAS</span>
+                </div>
+                <div class="tiempo">
+                    <span class="numero" id="horas">00</span>
+                    <span class="texto">HORAS</span>
+                </div>
+                <div class="tiempo">
+                    <span class="numero" id="minutos">00</span>
+                    <span class="texto">MINUTOS</span>
+                </div>
+                <div class="tiempo">
+                    <span class="numero" id="segundos">00</span>
+                    <span class="texto">SEGUNDOS</span>
+                </div>
             </div>
         </div>
-        <button class="boton-real" id="botonAbrir"><i class="fas fa-gem"></i> ABRIR INVITACIÓN</button>
 
+        <button class="boton-real" id="botonAbrir">
+            <i class="fas fa-gem"></i> ABRIR INVITACIÓN
+        </button>
+
+        <!-- Reloj del Sombrerero Loco -->
         <div class="reloj-derretido">
             <div class="reloj-cara-derretida">
                 <div class="reloj-fondo"></div>
                 <div class="manecilla-derretida hora-derretida"></div>
                 <div class="manecilla-derretida minuto-derretida"></div>
                 <div class="centro-derretido"></div>
-                <div class="numeros-derretidos"><span>12</span><span>3</span><span>6</span><span>9</span></div>
+                <div class="numeros-derretidos">
+                    <span>12</span>
+                    <span>3</span>
+                    <span>6</span>
+                    <span>9</span>
+                </div>
             </div>
             <div class="gotas-reloj"></div>
         </div>
+
+        <div class="elementos-flotantes">
+            <div class="joya joya1">✦</div>
+            <div class="joya joya2">✦</div>
+            <div class="joya joya3">✦</div>
+            <div class="joya joya4">💎</div>
+            <div class="joya joya5">💎</div>
+            <div class="joya joya6">✨</div>
+            <div class="joya joya7">✨</div>
+            <div class="joya joya8">✨</div>
+            <div class="joya joya9">✨</div>
+            <div class="joya joya10">✨</div>
+            <div class="joya joya11">💎</div>
+            <div class="joya joya12">💎</div>
+            <div class="joya joya13">💎</div>
+        </div>
+
+        <!-- NAIPES DECORATIVOS -->
+        <div style="position: absolute; bottom: 20px; left: 20px; opacity: 0.6; font-size: 28px; z-index: 5;">
+            <span style="color: #000000;">♠️</span>
+            <span style="color: #8b0000;">♥️</span>
+            <span style="color: #000000;">♣️</span>
+            <span style="color: #8b0000;">♦️</span>
+        </div>
+        <div style="position: absolute; bottom: 20px; right: 20px; opacity: 0.6; font-size: 28px; z-index: 5;">
+            🕐 🕰️ 🃏
+        </div>
     </section>
 
-    <!-- ========== 3. PÁGINA 2: MENSAJE + MUÑECA ========== -->
+    <!-- ========== PÁGINA 2 - MENSAJE + MUÑECA ========== -->
     <section class="pagina-dos" id="paginaDos" style="display: none;">
+
+        <!-- IMÁGENES DECORATIVAS FLOTANTES (más grandes para móvil) -->
+        <img src="imagenes/imagen1.png" alt="imagen1" class="decoracion-flotante deco-1">
+        <img src="imagenes/imagen2.png" alt="imagen2" class="decoracion-flotante deco-2">
+        <img src="imagenes/imagen3.png" alt="imagen3" class="decoracion-flotante deco-3">
+        <img src="imagenes/imagen4.png" alt="imagen4" class="decoracion-flotante deco-4">
+        <img src="imagenes/imagen5.png" alt="imagen5" class="decoracion-flotante deco-5">
+
+        <!-- MARIPOSAS Y ELEMENTOS TEMÁTICOS -->
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-1">
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-2">
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-3">
+        <img src="imagenes/mariposa1.gif" alt="Mariposa" class="mariposa-4">
+
+        <!-- MENSAJE EMOTIVO -->
         <div class="mensaje-container">
-            <div class="mensaje-emotivo">
+            <div class="mensaje-emotivo" id="mensajeEmotivo">
                 <p class="linea line1">Hace quince años nació nuestra hermosa hija,</p>
                 <p class="linea line2">enviada por Dios para ser criada y formada</p>
                 <p class="linea line3">con el más grande tesoro.</p>
@@ -89,31 +159,71 @@
                 <p class="linea line7">y queremos compartirlo contigo.</p>
             </div>
         </div>
+
+        <!-- MUÑECA DE 15 AÑOS -->
         <div class="muneca-container">
             <img src="imagenes/quinceanera.png" alt="Muñeca de 15 años" class="muneca-img">
         </div>
-        <button class="btn-siguiente-pagina" id="btnSiguientePagina">SIGUIENTE ▶</button>
+
+        <!-- BOTÓN SIGUIENTE -->
+        <div class="boton-siguiente-container">
+            <button class="btn-siguiente-pagina" id="btnSiguientePagina">SIGUIENTE ▶</button>
+        </div>
     </section>
 
-    <!-- ========== 4. PÁGINA 3: DETALLES Y ACCIONES ========== -->
+    <!-- ========== INVITACIÓN DETALLADA (PÁGINA 3) ========== -->
     <section class="invitacion-detallada" id="invitacionDetallada" style="display: none;">
         <div class="tarjeta-invitacion">
             <div class="encabezado-tarjeta">
                 <h3>Tienes el honor de ser invitado a la celebración de mis</h3>
                 <h1 class="titulo-grande">XV AÑOS</h1>
             </div>
+
             <div class="detalles-evento">
-                <div class="detalle-item"><i class="fas fa-calendar-alt"></i><div><h4>FECHA</h4><p class="info-evento">04 de julio 2026</p></div></div>
-                <div class="detalle-item"><i class="fas fa-clock"></i><div><h4>HORA</h4><p class="info-evento">8:00 PM</p></div></div>
-                <div class="detalle-item"><i class="fas fa-map-marker-alt"></i><div><h4>LUGAR</h4><p class="info-evento">Mi casa</p><p class="detalle-lugar">Sector La Carbonera, Municipio Carrizal</p></div></div>
-                <div class="detalle-item"><i class="fas fa-tshirt"></i><div><h4>VESTIMENTA</h4><p class="info-evento">Elegante - Etiqueta</p><p class="detalle-lugar">Azul Rey y Dorados</p></div></div>
+                <div class="detalle-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div>
+                        <h4>FECHA</h4>
+                        <p class="info-evento">04 de julio 2026</p>
+                    </div>
+                </div>
+                <div class="detalle-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>HORA</h4>
+                        <p class="info-evento">8:00 PM</p>
+                    </div>
+                </div>
+                <div class="detalle-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>LUGAR</h4>
+                        <p class="info-evento">Mi casa</p>
+                        <p class="detalle-lugar">Sector La Carbonera, Municipio Carrizal</p>
+                    </div>
+                </div>
+                <div class="detalle-item">
+                    <i class="fas fa-tshirt"></i>
+                    <div>
+                        <h4>VESTIMENTA</h4>
+                        <p class="info-evento">Elegante - Etiqueta</p>
+                        <p class="detalle-lugar">Azul Rey y Dorados</p>
+                    </div>
+                </div>
             </div>
+
             <div class="botones-accion">
-                <button class="boton-accion boton-rsvp" id="botonRSVP"><i class="fas fa-check-circle"></i> CONFIRMAR</button>
-                <button class="boton-accion boton-mapa" id="botonMapa"><i class="fas fa-map-marked-alt"></i> UBICACIÓN</button>
-                <button class="boton-accion boton-musica" id="botonMusica"><i class="fas fa-gift"></i> APORTE</button>
+                <button class="boton-accion boton-rsvp" id="botonRSVP">
+                    <i class="fas fa-check-circle"></i> CONFIRMAR
+                </button>
+                <button class="boton-accion boton-mapa" id="botonMapa">
+                    <i class="fas fa-map-marked-alt"></i> UBICACIÓN
+                </button>
+                <button class="boton-accion boton-musica" id="botonMusica">
+                    <i class="fas fa-gift"></i> APORTE
+                </button>
             </div>
-            
+
             <div class="formulario-rsvp" id="formularioRSVP" style="display: none;">
                 <h3><i class="fas fa-crown"></i> CONFIRMAR ASISTENCIA</h3>
                 <form id="formConfirmacion">
@@ -121,7 +231,9 @@
                         <label><i class="fas fa-user"></i> Tu Nombre:</label>
                         <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre completo" required>
                     </div>
-                    <button type="submit" class="boton-enviar"><i class="fas fa-paper-plane"></i> ENVIAR CONFIRMACIÓN</button>
+                    <button type="submit" class="boton-enviar">
+                        <i class="fas fa-paper-plane"></i> ENVIAR CONFIRMACIÓN
+                    </button>
                 </form>
             </div>
 
@@ -130,7 +242,10 @@
                 <p><strong>Km 19, Sector La Carbonera</strong></p>
                 <p>Av. Principal, Los Teques</p>
                 <div style="border-radius: 15px; overflow: hidden; margin: 15px 0;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.123456789!2d-66.903!3d10.491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58c8b5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sPlaza%20Bol%C3%ADvar!5e0!3m2!1ses!2sve!4v1234567890" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.123456789!2d-66.903!3d10.491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58c8b5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sPlaza%20Bol%C3%ADvar!5e0!3m2!1ses!2sve!4v1234567890"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
                 </div>
             </div>
 
@@ -138,7 +253,8 @@
                 <h3><i class="fas fa-heart"></i> REGALO ESPECIAL</h3>
                 <div class="lista-musica">
                     <p>✨ Tu presencia es el mejor regalo...</p>
-                    <p>💫 También puedes realizar tu regalo a través de pago móvil:</p>
+                    <p>💫 También puedes realizar tu regalo a través de pago móvil, efectivo o transferencia bancaria:
+                    </p>
                     <p><strong>🏦 Banco:</strong> Banesco</p>
                     <p><strong>💰 Cuenta:</strong> Ahorro 0134/1020/80000/200/2881</p>
                     <p><strong>📋 Cédula:</strong> 33329502</p>
@@ -149,11 +265,16 @@
         </div>
     </section>
 
+    <!-- ========== PIE DE PÁGINA ========== -->
     <footer class="pie-invitacion">
         <p class="mensaje-final">Con amor, Elisabet Romero y Familia ❤️</p>
     </footer>
-
-    <button id="botonMusicaFlotante" class="musica-flotante" aria-label="Activar o pausar música">🎵</button>
+<!-- Botón de música flotante -->
+<button id="botonMusicaFlotante" class="musica-flotante" aria-label="Activar o pausar música">
+  🎵
+</button>
     <script src="codigo.js"></script>
 </body>
+
 </html>
+
