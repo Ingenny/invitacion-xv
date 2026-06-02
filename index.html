@@ -20,12 +20,12 @@
    <!-- ========== NUEVO SOBRE INTERACTIVO CON VIDEO DE FONDO ========== -->
 <div class="sobre-inicial" id="sobreInicial">
     <!-- VIDEO DE FONDO -->
-    <video autoplay muted loop playsinline class="video-fondo-sobre">
-        <source src="videos/videofondo.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline class="video-fondo-sobre" style="pointer-events: none !important;">
+           <source src="videos/videofondo.mp4" type="video/mp4">
     </video>
     
     <!-- CAPA OSCURA PARA QUE EL SOBRE RESALTE -->
-    <div class="overlay-video"></div>
+   <div class="overlay-video" style="pointer-events: none !important;"></div>
     
     <!-- SOBRE INTERACTIVO -->
     <div class="envelope-wrapper">
