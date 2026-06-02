@@ -17,26 +17,37 @@
 
 <body>
 
-    <!-- ========== SOBRE CON EFECTO DE HUMO + VIDEO ========== -->
-<div class="sobre-inicial" id="sobreInicial">
-    <!-- VIDEO DE FONDO -->
-    <video autoplay muted loop playsinline class="video-fondo-sobre">
-        <source src="videos/videofondo.mp4" type="video/mp4">
-    </video>
-    
-    <!-- OSCURECER UN POCO EL VIDEO PARA QUE SE VEA MEJOR EL SOBRE -->
-    <div class="overlay-video"></div>
-    
-    <!-- SOBRE (se mantiene igual) -->
-    <div class="sobre-cerrado">
-        <div class="sobre-cuerpo">
-            <div class="sobre-tapa"></div>
-            <div class="sobre-corazon">💌</div>
+    <!-- ========== SOBRE CON EFECTO  ========== -->
+<div class="envlope-wrapper">
+    <div id="envelope" class="close">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+        <div class="letter">
+            <div class="words line1"></div>
+            <div class="words line2"></div>
+            <div class="words line3"></div>
+            <div class="words line4"></div>
+        </div>
+        <div class="hearts">
+            <div class="heart a1"></div>
+            <div class="heart a2"></div>
+            <div class="heart a3"></div>
         </div>
     </div>
-    <div class="humo"></div>
-    <div class="humo humo2"></div>
-    <div class="humo humo3"></div>
+</div>
+<div class="reset">
+    <button id="open">Open</button>
+    <button id="reset">Reset</button>
+</div>
+
+<!-- 
+
+Inspired by:
+
+    * https://medium.com/web-for-you/how-to-make-a-interactive-envelope-9df970614eea
+    * https://codepen.io/lisafolkerson/pen/BjRoJO    
+
+-->
     <div class="mensaje-sobre">Toca para abrir</div>
 </div>
 
