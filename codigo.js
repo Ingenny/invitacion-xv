@@ -390,48 +390,41 @@ if (btnMusicaFlotante) {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
   }
-  // ============================================
-  // NUEVO SOBRE INTERACTIVO (A PRUEBA DE FALLAS)
+    // ============================================
+  // NUEVO SOBRE INTERACTIVO (CORREGIDO)
   // ============================================
   const sobreInicial = document.getElementById('sobreInicial');
   const envelope = document.getElementById('envelope');
-  const portada = document.getElementById('portada');
+  // ⚠️ NO redeclaramos 'portada' porque ya existe arriba
 
   function accionAbrirSobre() {
     console.log("🎯 ¡Clic detectado! Abriendo sobre...");
     
-    // 1. Animar el sobre
     if (envelope) {
       envelope.classList.add('open');
       envelope.classList.remove('close');
     }
 
-    // 2. Esperar a que termine la animación de la carta y corazones (2.5 seg)
-    if (sobreInicial && portada) {
-      setTimeout(() => {
-        // Desvanecer la pantalla de introducción
+    setTimeout(() => {
+      if (sobreInicial) {
         sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
         sobreInicial.style.opacity = '0';
         sobreInicial.style.visibility = 'hidden';
-        sobreInicial.style.pointerEvents = 'none'; // CRUCIAL: Deja de bloquear clics
-        
-        // Mostrar la portada
+        sobreInicial.style.pointerEvents = 'none';
+      }
+      
+      if (portada) {
         portada.style.display = 'flex';
-        
-        // Pequeña pausa para activar la animación CSS suavemente
         setTimeout(() => {
           portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
         }, 50);
-        
-      }, 2500); 
-    }
+      }
+    }, 2500); 
   }
 
-  // Asignamos el clic a TODO el contenedor de la intro para asegurar que funcione
   if (sobreInicial) {
     sobreInicial.addEventListener('click', accionAbrirSobre);
   }
+
   console.log('🚀 Todo listo')
-
-}) // <-- Esta llave cierra el DOMContentLoaded
-
+}) // ← Esta es la ÚNICA llave que cierra el DOMContentLoaded
