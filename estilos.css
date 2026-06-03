@@ -1475,147 +1475,135 @@ background-color: #001845;
     border-bottom-width: 75px; 
     border-top-width: 75px; 
   }
-  /* ============================================
-     PÁGINA 2: PORTADA (LETRAS GRANDES, TODO VISIBLE Y ARRIBA)
-     ============================================ */
+ /* ============================================
+   PÁGINA 2: PORTADA - CENTRADA VERTICAL, FOOTER PEGADO
+   ============================================ */
+@media only screen and (max-width: 768px) {
+  
   .portada {
-    min-height: 100vh;
-    height: auto;
-    padding: 30px 15px 5px 15px !important; /* Empuja todo hacia arriba, casi sin espacio abajo */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start !important; /* Todo empieza desde arriba */
-    align-items: center;
-    gap: 4px; /* Espacios MUY cortos entre elementos para que no haga scroll */
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh !important;
+    height: auto !important;
+    padding: 0 15px !important; /* Sin padding arriba/abajo */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centra todo verticalmente */
+    align-items: center !important;
+    gap: 8px !important; /* Espacio corto entre elementos */
+    position: relative !important;
+    overflow: hidden !important;
   }
 
-  /* Corona */
-  .corona-animada { 
-    margin: 0 0 5px 0 !important; 
-    transform: scale(1); 
+  /* CORONA */
+  .corona-animada {
+    margin: 0 0 8px 0 !important;
   }
-  .corona-animada img { 
-    width: 110px !important; 
+  .corona-animada img {
+    width: 110px !important;
   }
 
-  /* Título MIS XV AÑOS */
-  .titulo-elegante { 
-    font-size: 40px !important; 
-    margin: 0 0 2px 0 !important; 
+  /* TÍTULO MIS XV AÑOS */
+  .titulo-elegante {
+    font-size: 42px !important;
+    margin: 0 !important;
     letter-spacing: 2px !important;
-    line-height: 1.1;
-  }
-  .titulo-elegante::before, .titulo-elegante::after {
-    font-size: 20px !important;
-    left: -25px !important;
-    right: -25px !important;
-  }
-  
-  /* Nombre ELISABET ROMERO (AUMENTADO) */
-  .nombre-quinceanera { 
-    font-size: 36px !important; /* De 28px a 36px */
-    margin: 0 0 2px 0 !important; 
-  }
-  
-  /* Subtítulo "Comparte conmigo..." (AUMENTADO) */
-  .subtitulo { 
-    font-size: 17px !important; /* De 14px a 17px */
-    padding: 4px 12px !important; 
-    margin: 0 0 8px 0 !important; 
+    line-height: 1.1 !important;
   }
 
-  /* Contador DÍAS, HORAS, MIN, SEG (AUMENTADO) */
-  .contador-simple { 
-    gap: 6px !important; 
-    margin: 5px 0 !important; 
-    flex-wrap: nowrap;
-  }
-  .tiempo { 
-    min-width: 60px !important; 
-    padding: 6px 3px !important; 
-  }
-  .tiempo .numero { 
-    font-size: 24px !important; /* De 20px a 24px */
-  }
-  .tiempo .texto { 
-    font-size: 9px !important; 
-    margin-top: 2px !important; 
+  /* NOMBRE ELISABET ROMERO */
+  .nombre-quinceanera {
+    font-size: 40px !important;
+    margin: 3px 0 !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
   }
 
-  /* Botón ABRIR INVITACIÓN */
-  .boton-real { 
-    padding: 12px 25px !important; 
-    font-size: 16px !important; 
-    margin-top: 8px !important; 
-    margin-bottom: 5px !important; 
-    width: 85% !important; 
+  /* SUBTÍTULO */
+  .subtitulo {
+    font-size: 18px !important;
+    padding: 6px 18px !important;
+    margin: 3px 0 8px 0 !important;
+    color: #f0e6c5 !important;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
+  }
+
+  /* CONTADOR */
+  .contador-simple {
+    gap: 8px !important;
+    margin: 8px 0 !important;
+  }
+  .tiempo {
+    min-width: 70px !important;
+    padding: 10px 6px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-radius: 10px !important;
+    border: 2px solid rgba(212, 175, 55, 0.6) !important;
+  }
+  .tiempo .numero {
+    font-size: 28px !important;
+    color: #ffd700 !important;
+    font-weight: bold !important;
+  }
+  .tiempo .texto {
+    font-size: 10px !important;
+    color: #f4e4a6 !important;
+    margin-top: 3px !important;
+  }
+
+  /* BOTÓN ABRIR INVITACIÓN */
+  .boton-real {
+    padding: 14px 30px !important;
+    font-size: 18px !important;
+    margin-top: 12px !important;
+    margin-bottom: 8px !important;
+    width: 85% !important;
+    max-width: 320px !important;
+    z-index: 100 !important;
+  }
+
+  /* FRASE FINAL "Con amor..." - PEGADA AL BOTÓN */
+  .pie-invitacion {
+    margin-top: 0 !important; /* PEGADO al botón, sin espacio */
+    padding: 10px 15px !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 8px !important;
+    width: 90% !important;
     max-width: 300px !important;
-    position: relative;
-    z-index: 100;
+  }
+  .mensaje-final {
+    font-size: 20px !important;
+    color: #f4e4a6 !important;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
   }
 
-  /* FRASE FINAL "Con amor..." (SUBIDA Y AUMENTADA) */
-  .pie-invitacion { 
-    margin-top: 2px !important; /* Pegada al botón */
-    padding: 8px 10px !important; 
-    font-size: 18px !important; /* AUMENTADO */
-    position: relative;
-    z-index: 100;
-    width: 100%;
-  }
-  .mensaje-final { 
-    font-size: 18px !important; /* AUMENTADO */
-  }
-
-  /* ============================================
-     ELEMENTOS FLOTANTES (RELOJ Y DECORACIONES GRANDES)
-     ============================================ */
-  
-  /* Reloj derretido (V visible y grande) */
-  .reloj-derretido { 
-    transform: scale(1.1) !important; /* Más grande */
-    top: 15px !important; 
-    left: 15px !important; 
-    z-index: 50;
+  /* RELOJ DERRTIDO */
+  .reloj-derretido {
+    transform: scale(1.2) !important;
+    top: 12px !important;
+    left: 12px !important;
   }
   .reloj-cara-derretida {
-    width: 80px !important;
-    height: 80px !important;
+    width: 85px !important;
+    height: 85px !important;
   }
 
-  /* Joyas, cartas, diamantes (V visibles y grandes) */
-  .joya { 
-    font-size: 24px !important; /* De 14px a 24px */
-    opacity: 0.7 !important; /* Más brillantes */
+  /* JOYAS/DIAMANTES */
+  .joya {
+    font-size: 28px !important;
+    opacity: 0.9 !important;
+    text-shadow: 0 0 10px gold !important;
+    color: #ffd700 !important;
   }
   .joya4, .joya5, .joya11, .joya12 {
-    font-size: 28px !important;
+    font-size: 32px !important;
   }
-  
-  /* Ajuste de posición para que no tapen el botón ni la frase final */
-  .joya1 { top: 10%; left: 5%; }
-  .joya2 { top: 15%; right: 5%; }
-  .joya3 { bottom: 25%; left: 5%; } /* Subido para no tapar la frase */
-  .joya4 { top: 25%; right: 8%; }
-  .joya5 { bottom: 30%; left: 8%; } /* Subido */
-  .joya6 { top: 45%; right: 3%; }
-  .joya7 { top: 55%; left: 3%; }
-  .joya8 { bottom: 25%; right: 8%; } /* Subido */
-  .joya9 { top: 65%; left: 5%; }
-  .joya10 { top: 35%; right: 5%; }
-  .joya11 { bottom: 30%; right: 15%; } /* Subido */
-  .joya12 { top: 8%; left: 15%; }
-  .joya13 { bottom: 35%; right: 35%; } /* Subido */
 
-  /* Naipes decorativos de abajo (Cartas y Trebol) */
+  /* Naipes de abajo */
   .portada > div[style*="bottom: 20px"] {
-    font-size: 32px !important; /* Más grandes */
-    opacity: 0.8 !important;
-    bottom: 5px !important; /* Pegados al fondo */
+    font-size: 38px !important;
+    opacity: 1 !important;
+    bottom: 5px !important;
   }
-  
+}
     /* ============================================
      PÁGINA 3: MENSAJE ARRIBA, MUÑECA A LA ESQUINA
      ============================================ */
