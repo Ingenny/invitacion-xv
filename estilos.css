@@ -1476,131 +1476,141 @@ background-color: #001845;
     border-top-width: 75px; 
   }
  /* ============================================
-   PÁGINA 2: PORTADA - CENTRADA VERTICAL, FOOTER PEGADO
+   PÁGINA 2: PORTADA - FONDO ADAPTADO Y LETRAS GRANDES
    ============================================ */
 @media only screen and (max-width: 768px) {
   
+  /* Fondo adaptado a la pantalla (igual que el video de la Página 1) */
+  .portada::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('fondos/fondo1.jpg') no-repeat center center !important;
+    background-size: cover !important;
+    z-index: -1 !important;
+  }
+
   .portada {
     min-height: 100vh !important;
-    height: auto !important;
-    padding: 0 15px !important; /* Sin padding arriba/abajo */
+    height: 100vh !important; /* Altura fija de la pantalla */
+    padding: 0 15px !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Centra todo verticalmente */
+    justify-content: center !important; /* Centrado vertical perfecto */
     align-items: center !important;
-    gap: 8px !important; /* Espacio corto entre elementos */
+    gap: 8px !important;
     position: relative !important;
     overflow: hidden !important;
   }
 
   /* CORONA */
-  .corona-animada {
-    margin: 0 0 8px 0 !important;
-  }
-  .corona-animada img {
-    width: 130px !important;
-  }
+  .corona-animada { margin: 0 0 5px 0 !important; }
+  .corona-animada img { width: 110px !important; }
 
   /* TÍTULO MIS XV AÑOS */
   .titulo-elegante {
-    font-size: 42px !important;
+    font-size: 38px !important;
     margin: 0 !important;
     letter-spacing: 2px !important;
     line-height: 1.1 !important;
   }
 
-  /* NOMBRE ELISABET ROMERO */
+  /* NOMBRE ELISABET ROMERO (AUMENTADO) */
   .nombre-quinceanera {
-    font-size: 40px !important;
-    margin: 3px 0 !important;
+    font-size: 44px !important; /* AUMENTADO */
+    margin: 5px 0 !important;
     color: #ffffff !important;
-    text-shadow: 6px 6px 9x rgba(0,0,0,0.8) !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
   }
 
-  /* SUBTÍTULO */
+  /* SUBTÍTULO "Comparte conmigo..." (AUMENTADO) */
   .subtitulo {
-    font-size: 18px !important;
-    padding: 8px 18px !important;
-    margin: 3px 0 8px 0 !important;
+    font-size: 20px !important; /* AUMENTADO */
+    padding: 6px 18px !important;
+    margin: 5px 0 10px 0 !important;
     color: #f0e6c5 !important;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
   }
 
-  /* CONTADOR */
+  /* CONTADOR (AUMENTADO) */
   .contador-simple {
     gap: 8px !important;
-    margin: 8px 0 !important;
+    margin: 10px 0 !important;
   }
   .tiempo {
-    min-width: 70px !important;
-    padding: 10px 6px !important;
+    min-width: 65px !important;
+    padding: 10px 5px !important;
     background: rgba(0, 0, 0, 0.6) !important;
-    border-radius: 10px !important;
-    border: 2px solid rgba(212, 175, 55, 0.6) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(212, 175, 55, 0.5) !important;
   }
   .tiempo .numero {
-    font-size: 28px !important;
+    font-size: 28px !important; /* AUMENTADO */
     color: #ffd700 !important;
     font-weight: bold !important;
   }
   .tiempo .texto {
-    font-size: 10px !important;
+    font-size: 11px !important; /* AUMENTADO */
     color: #f4e4a6 !important;
     margin-top: 3px !important;
   }
 
   /* BOTÓN ABRIR INVITACIÓN */
   .boton-real {
-    padding: 18px 30px !important;
+    padding: 14px 28px !important;
     font-size: 18px !important;
     margin-top: 12px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 5px !important;
     width: 85% !important;
-    max-width: 320px !important;
+    max-width: 300px !important;
     z-index: 100 !important;
   }
 
-  /* FRASE FINAL "Con amor..." - PEGADA AL BOTÓN */
+  /* FRASE FINAL "Con amor..." (AUMENTADO) */
   .pie-invitacion {
-    margin-top: 0 !important; /* PEGADO al botón, sin espacio */
-    padding: 20px 25px !important;
+    margin-top: 5px !important;
+    padding: 10px 15px !important;
     background: rgba(0, 0, 0, 0.7) !important;
     border-radius: 8px !important;
     width: 90% !important;
-    max-width: 300px !important;
+    max-width: 320px !important;
   }
   .mensaje-final {
-    font-size: 20px !important;
+    font-size: 22px !important; /* AUMENTADO */
     color: #f4e4a6 !important;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
   }
 
-  /* RELOJ DERRTIDO */
+  /* RELOJ DERRETIDO */
   .reloj-derretido {
-    transform: scale(1.2) !important;
-    top: 16px !important;
-    left: 16px !important;
+    transform: scale(1.1) !important;
+    top: 10px !important;
+    left: 10px !important;
   }
   .reloj-cara-derretida {
-    width: 85px !important;
-    height: 85px !important;
+    width: 75px !important;
+    height: 75px !important;
   }
 
   /* JOYAS/DIAMANTES */
   .joya {
-    font-size: 38px !important;
-    opacity: 0.9 !important;
-    text-shadow: 0 0 10px gold !important;
+    font-size: 24px !important;
+    opacity: 0.8 !important;
+    text-shadow: 0 0 8px gold !important;
     color: #ffd700 !important;
   }
   .joya4, .joya5, .joya11, .joya12 {
-    font-size: 40px !important;
+    font-size: 28px !important;
   }
 
   /* Naipes de abajo */
   .portada > div[style*="bottom: 20px"] {
-    font-size: 45px !important;
-    opacity: 1 !important;
+    font-size: 32px !important;
+    opacity: 0.9 !important;
     bottom: 5px !important;
   }
 }
