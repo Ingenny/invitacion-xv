@@ -1186,7 +1186,7 @@ background-color: #001845;
     width: 100% !important;
     height: 100% !important;
     overflow-x: hidden !important;
-    font-size: 16px !important; /* Base segura para evitar zoom en iOS */
+    font-size: 22px !important; /* Base segura para evitar zoom en iOS */
   }
 
   /* ==========================================
@@ -1201,12 +1201,12 @@ background-color: #001845;
 
   /* Corona más grande y arriba */
   .corona-animada { margin-bottom: 0 !important; }
-  .corona-animada img { width: 110px !important; }
+  .corona-animada img { width: 150px !important; }
 
   /* Títulos compactos pero legibles */
-  .titulo-elegante { font-size: 36px !important; margin: 5px 0 !important; letter-spacing: 2px !important; }
-  .nombre-quinceanera { font-size: 30px !important; margin: 5px 0 !important; }
-  .subtitulo { font-size: 15px !important; padding: 5px 15px !important; margin: 5px 0 !important; }
+  .titulo-elegante { font-size: 48px !important; margin: 5px 0 !important; letter-spacing: 2px !important; }
+  .nombre-quinceanera { font-size: 36px !important; margin: 5px 0 !important; }
+  .subtitulo { font-size: 28px !important; padding: 5px 15px !important; margin: 5px 0 !important; }
 
   /* Contador ajustado */
   .contador-simple { gap: 8px !important; margin: 10px 0 !important; }
@@ -1255,9 +1255,9 @@ background-color: #001845;
   .muneca-img { width: 130px !important; border-radius: 10px !important; }
 
   /* Decoraciones tamaño mediano */
-  .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 { width: 50px !important; }
-  .mariposa-1, .mariposa-2 { width: 65px !important; }
-  .mariposa-3, .mariposa-4 { width: 55px !important; }
+  .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 { width: 80px !important; }
+  .mariposa-1, .mariposa-2 { width: 80px !important; }
+  .mariposa-3, .mariposa-4 { width: 75px !important; }
 
   /* Botón siguiente mediano y fijo abajo */
   .btn-siguiente-pagina {
