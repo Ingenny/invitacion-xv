@@ -390,12 +390,18 @@ if (btnMusicaFlotante) {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
   }
-    // ============================================
-  // NUEVO SOBRE INTERACTIVO (CORREGIDO)
+     // ============================================
+  // NUEVO SOBRE INTERACTIVO (CON DEPURACIÓN)
   // ============================================
   const sobreInicial = document.getElementById('sobreInicial');
   const envelope = document.getElementById('envelope');
-  // ⚠️ NO redeclaramos 'portada' porque ya existe arriba
+  const portadaPrincipal = document.getElementById('portada'); // Renombramos para evitar conflictos
+
+  console.log('🔍 Elementos capturados:', {
+    sobreInicial: sobreInicial,
+    envelope: envelope,
+    portada: portadaPrincipal
+  });
 
   function accionAbrirSobre() {
     console.log("🎯 ¡Clic detectado! Abriendo sobre...");
@@ -406,8 +412,33 @@ if (btnMusicaFlotante) {
     }
 
     setTimeout(() => {
+      console.log('⏰ Ejecutando transición después de 2.5s');
+      
+      if (sobreInicial) {
+        sobreInicial.style.transition = 'opacity 0.8s ease, visibility 0.8s';
+        sobreInicial.style.opacity = '0';
+        sobreInicial.style.visibility = 'hidden';
+        sobreInicial.style.pointerEvents = 'none';
+        console.log('✅ Sobre ocultado');
+      }
+      
+      if (portadaPrincipal) {
+        console.log('📄 Mostrando portada...');
+        portadaPrincipal.style.display = 'flex';
+        portadaPrincipal.style.opacity = '1';
+        portadaPrincipal.style.visibility = 'visible';
+        
+        setTimeout(() => {
+          portadaPrincipal.style.animation = 'abrirCarta 0.8s ease-out forwards';
+          console.log('✅ Portada visible con animación');
+        }, 100);
+      } else {
+        console.error('❌ ERROR: No se encontró el elemento .portada');
+      }
+    }, 2500); 
+  }
 
-        // Agregar clic al sobre Y al wrapper para máxima compatibilidad
+   // Agregar clic al sobre Y al wrapper para máxima compatibilidad
   const envelopeWrapper = document.querySelector('.envelope-wrapper');
   
   if (sobreInicial) {
@@ -416,7 +447,7 @@ if (btnMusicaFlotante) {
   
   if (envelopeWrapper) {
     envelopeWrapper.addEventListener('click', function(e) {
-      e.stopPropagation(); // Evita que el clic se propague
+      e.stopPropagation();
       accionAbrirSobre();
     });
   }
@@ -426,19 +457,6 @@ if (btnMusicaFlotante) {
       e.stopPropagation();
       accionAbrirSobre();
     });
-  }
-      
-      if (portada) {
-        portada.style.display = 'flex';
-        setTimeout(() => {
-          portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
-        }, 50);
-      }
-    }, 2500); 
-  }
-
-  if (sobreInicial) {
-    sobreInicial.addEventListener('click', accionAbrirSobre);
   }
 
   console.log('🚀 Todo listo')
