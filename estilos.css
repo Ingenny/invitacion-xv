@@ -1456,19 +1456,33 @@ background-color: #001845;
     gap: 0;
   }
 
-  /* SOBRE GIGANTE */
-  .sobre-inicial { height: 100vh; }
-  .envelope-wrapper { 
-    transform: scale(1.3); /* 30% más grande */
-    height: auto;
+    /* SOBRE TAMAÑO AJUSTADO (no toca los bordes) */
+  .sobre-inicial { 
+    height: 100vh;
+    padding: 0 20px !important; /* Espacio lateral */
   }
-  #envelope { width: 280px; height: 175px; }
-  .flap { border-left-width: 140px; border-right-width: 140px; border-bottom-width: 77px; border-top-width: 98px; }
-  .pocket { border-left-width: 140px; border-right-width: 140px; border-bottom-width: 87px; border-top-width: 87px; }
-  .open .letter { transform: translateY(-55px); }
-  .hearts { top: 87px; }
-  .mensaje-sobre { font-size: 20px !important; margin-top: 50px !important; }
-
+  .envelope-wrapper { 
+    transform: scale(1.1); /* Un poco más pequeño */
+    height: auto;
+    padding: 0 10px; /* Espacio interno */
+  }
+  #envelope { 
+    width: 240px; /* REDUCIDO de 280px a 240px */
+    height: 150px; 
+    margin: 0 auto; /* Centrado */
+  }
+  .flap { 
+    border-left-width: 120px; /* Mitad del width */
+    border-right-width: 120px; 
+    border-bottom-width: 67px; 
+    border-top-width: 83px; 
+  }
+  .pocket { 
+    border-left-width: 120px; /* Mitad del width */
+    border-right-width: 120px; 
+    border-bottom-width: 75px; 
+    border-top-width: 75px; 
+  }
 
   /* ============================================
      PÁGINA 2: TODO ARRIBA, CORONA GRANDE
