@@ -44,7 +44,7 @@ background-color: #001845;
 
 /* 4. CORONA ANIMADA */
 .corona-animada {
-  font-size: 100px;
+  font-size: 180px;
   color: var(--dorado);
   margin-bottom: 20px;
   animation: flotar 3s infinite alternate;
@@ -78,7 +78,7 @@ background-color: #001845;
 
 .titulo-elegante {
   font-family: 'Playfair Display', serif;
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 700;
   letter-spacing: 6px;
   color: #d4af37;
@@ -94,7 +94,7 @@ background-color: #001845;
 .titulo-elegante::before,
 .titulo-elegante::after {
   content: '♠️';
-  font-size: 22px;
+  font-size: 28px;
   background: none;
   color: #d4af37;
   opacity: 0.7;
@@ -130,7 +130,7 @@ background-color: #001845;
 
 .nombre-quinceanera {
   font-family: 'Great Vibes', cursive;
-  font-size: 18px;
+  font-size: 23px;
   font-weight: normal;
   color: #f0e6c5;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -171,7 +171,7 @@ background-color: #001845;
 }
 
 .tiempo .numero {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: bold;
   color: #ffd966;
   display: block;
@@ -180,7 +180,7 @@ background-color: #001845;
 }
 
 .tiempo .texto {
-  font-size: 6px;
+  font-size: 10px;
   color: var(--dorado-claro);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -194,7 +194,7 @@ background-color: #001845;
   color: #ffd700;
   border: 3px solid #ffd700;
   padding: 12px 28px;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
@@ -232,7 +232,7 @@ background-color: #001845;
   position: absolute;
   color: var(--dorado);
   opacity: 0.3;
-  font-size: 14px;
+  font-size: 19px;
   animation: flotar-joya 8s infinite alternate;
 }
 
@@ -255,13 +255,13 @@ background-color: #001845;
   top: 20%;
   right: 10%;
   animation-delay: 1s;
-  font-size: 20px;
+  font-size: 24px;
 }
 .joya5 {
   bottom: 30%;
   left: 8%;
   animation-delay: 3s;
-  font-size: 20px;
+  font-size: 24px;
 }
 .joya6 {
   top: 45%;
@@ -298,13 +298,13 @@ background-color: #001845;
   top: 10%;
   left: 20%;
   animation-delay: 4.5s;
-  font-size: 18px;
+  font-size: 20px;
 }
 .joya13 {
   bottom: 40%;
   right: 40%;
   animation-delay: 1.2s;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 @keyframes flotar-joya {
