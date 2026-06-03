@@ -1498,7 +1498,7 @@ background-color: #001845;
     margin: 0 0 8px 0 !important;
   }
   .corona-animada img {
-    width: 110px !important;
+    width: 130px !important;
   }
 
   /* TÍTULO MIS XV AÑOS */
@@ -1514,13 +1514,13 @@ background-color: #001845;
     font-size: 40px !important;
     margin: 3px 0 !important;
     color: #ffffff !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+    text-shadow: 6px 6px 9x rgba(0,0,0,0.8) !important;
   }
 
   /* SUBTÍTULO */
   .subtitulo {
     font-size: 18px !important;
-    padding: 6px 18px !important;
+    padding: 8px 18px !important;
     margin: 3px 0 8px 0 !important;
     color: #f0e6c5 !important;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
@@ -1551,7 +1551,7 @@ background-color: #001845;
 
   /* BOTÓN ABRIR INVITACIÓN */
   .boton-real {
-    padding: 14px 30px !important;
+    padding: 18px 30px !important;
     font-size: 18px !important;
     margin-top: 12px !important;
     margin-bottom: 8px !important;
@@ -1563,7 +1563,7 @@ background-color: #001845;
   /* FRASE FINAL "Con amor..." - PEGADA AL BOTÓN */
   .pie-invitacion {
     margin-top: 0 !important; /* PEGADO al botón, sin espacio */
-    padding: 10px 15px !important;
+    padding: 20px 25px !important;
     background: rgba(0, 0, 0, 0.7) !important;
     border-radius: 8px !important;
     width: 90% !important;
@@ -1578,8 +1578,8 @@ background-color: #001845;
   /* RELOJ DERRTIDO */
   .reloj-derretido {
     transform: scale(1.2) !important;
-    top: 12px !important;
-    left: 12px !important;
+    top: 16px !important;
+    left: 16px !important;
   }
   .reloj-cara-derretida {
     width: 85px !important;
@@ -1588,18 +1588,18 @@ background-color: #001845;
 
   /* JOYAS/DIAMANTES */
   .joya {
-    font-size: 28px !important;
+    font-size: 38px !important;
     opacity: 0.9 !important;
     text-shadow: 0 0 10px gold !important;
     color: #ffd700 !important;
   }
   .joya4, .joya5, .joya11, .joya12 {
-    font-size: 32px !important;
+    font-size: 40px !important;
   }
 
   /* Naipes de abajo */
   .portada > div[style*="bottom: 20px"] {
-    font-size: 38px !important;
+    font-size: 45px !important;
     opacity: 1 !important;
     bottom: 5px !important;
   }
