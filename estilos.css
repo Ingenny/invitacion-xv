@@ -1178,233 +1178,251 @@ background-color: #001845;
   border-bottom: none;
 }
 
-/* ===== RESPONSIVE MÓVIL DEFINITIVO ===== */
+/* ===== RESPONSIVE MÓVIL - TAMAÑOS GIGANTES ===== */
 @media (max-width: 768px) {
-  /* REGLA DE ORO: Permitir scroll vertical, sin aplastar */
+  /* ESTRUCTURA: Scroll vertical natural */
   html, body {
     width: 100%;
     overflow-x: hidden;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .portada, .pagina-dos, .invitacion-detallada {
     width: 100%;
     max-width: 100vw;
-    padding: 30px 15px;
+    padding: 40px 20px;
     min-height: 100vh;
     height: auto !important;
     overflow-x: hidden;
     overflow-y: visible;
     box-sizing: border-box;
+    justify-content: flex-start !important;
+    align-items: center;
+    padding-top: 60px;
   }
 
-  /* CORONA GRANDE */
+  /* PORTADA - TÍTULOS ENORMES */
   .corona-animada img {
-    width: 140px !important;
+    width: 160px !important;
     height: auto;
   }
-
-  /* TÍTULOS GRANDES Y QUE NO SE DESBORDEN */
   .titulo-elegante {
-    font-size: 42px !important;
-    letter-spacing: 2px !important;
+    font-size: 48px !important;
+    letter-spacing: 3px !important;
     line-height: 1.2;
-    padding: 0 10px;
+    padding: 0 15px;
     box-sizing: border-box;
   }
   .titulo-elegante::before, .titulo-elegante::after {
-    font-size: 22px;
-    left: -30px;
-    right: -30px;
+    font-size: 26px;
+    left: -35px;
+    right: -35px;
   }
-
   .nombre-quinceanera {
-    font-size: 38px !important;
-    margin: 15px 0;
-    padding: 0 10px;
+    font-size: 42px !important;
+    margin: 20px 0;
+    padding: 0 15px;
   }
-
   .subtitulo {
-    font-size: 18px;
-    padding: 10px 20px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    padding: 12px 25px;
+    margin-bottom: 20px;
   }
 
-  /* CONTADOR GRANDE */
+  /* CONTADOR GIGANTE */
   .contador-simple {
-    gap: 12px;
-    margin: 25px 0;
+    gap: 15px;
+    margin: 35px 0;
     flex-wrap: wrap;
     justify-content: center;
   }
   .tiempo {
-    min-width: 75px;
-    padding: 12px 8px;
+    min-width: 85px;
+    padding: 15px 10px;
   }
   .tiempo .numero {
-    font-size: 28px;
+    font-size: 32px;
   }
   .tiempo .texto {
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 13px;
+    margin-top: 6px;
   }
 
-  /* BOTÓN ABRIR INVITACIÓN GRANDE */
+  /* BOTÓN ABRIR INVITACIÓN ENORME */
   .boton-real {
-    padding: 18px 30px;
-    font-size: 20px;
-    margin-top: 25px;
+    padding: 22px 40px;
+    font-size: 24px;
+    margin-top: 30px;
     width: 90%;
-    max-width: 320px;
+    max-width: 350px;
     justify-content: center;
   }
 
   /* JOYAS FLOTANTES VISIBLES */
   .joya {
-    font-size: 22px;
-    opacity: 0.6;
+    font-size: 26px;
+    opacity: 0.7;
   }
   .joya4, .joya5, .joya11, .joya12 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
-  /* RELOJ DERRITIDO */
+  /* RELOJ DERRITIDO GRANDE */
   .reloj-derretido {
-    top: 15px;
-    left: 15px;
-    transform: scale(1.2);
+    top: 20px;
+    left: 20px;
+    transform: scale(1.3);
   }
 
-  /* PÁGINA 2: MENSAJE GRANDE */
+  /* ===== PÁGINA 2 - TAMAÑOS MUY GRANDES ===== */
   .mensaje-container {
     width: 95%;
-    max-width: 450px;
-    padding: 30px 20px;
-    margin: 0 auto 30px auto;
+    max-width: 500px;
+    padding: 40px 25px;
+    margin: 0 auto 40px auto;
   }
   .mensaje-emotivo {
-    font-size: 20px !important;
-    line-height: 1.7;
+    font-size: 26px !important; /* ← LETRA MUY GRANDE */
+    line-height: 1.8;
   }
   .mensaje-emotivo .linea::first-letter {
-    font-size: 28px;
+    font-size: 36px;
   }
 
-  /* MUÑECA GRANDE */
+  /* MUÑECA GIGANTE */
   .muneca-img {
-    width: 85%;
-    max-width: 320px;
-    margin: 20px auto;
+    width: 90%; /* ← Casi todo el ancho de la pantalla */
+    max-width: 400px;
+    margin: 30px auto;
   }
 
-  /* BOTÓN SIGUIENTE GRANDE */
+  /* BOTÓN SIGUIENTE ENORME */
   .btn-siguiente-pagina {
-    padding: 18px 35px;
-    font-size: 18px;
-    margin-top: 25px;
+    padding: 22px 45px;
+    font-size: 22px;
+    margin-top: 35px;
     width: 90%;
-    max-width: 320px;
+    max-width: 350px;
   }
 
-  /* MARIPOSAS Y DECORACIONES GRANDES */
+  /* MARIPOSAS Y DECORACIONES GIGANTES */
   .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 {
-    width: 65px !important;
+    width: 80px !important; /* ← 80px en lugar de 35px */
   }
   .mariposa-1, .mariposa-2 {
-    width: 80px;
+    width: 100px; /* ← 100px en lugar de 50px */
   }
   .mariposa-3, .mariposa-4 {
-    width: 65px;
+    width: 85px;
   }
 
-  /* PÁGINA 3: TODO EN UNA COLUMNA */
+  /* ===== PÁGINA 3 - TODO GIGANTE ===== */
   .invitacion-detallada {
-    padding: 20px 10px;
+    padding: 30px 15px;
     height: auto !important;
   }
   .tarjeta-invitacion {
     margin: 0;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
   }
   .encabezado-tarjeta {
-    padding: 30px 15px;
+    padding: 40px 20px;
   }
   .encabezado-tarjeta h3 {
-    font-size: 18px;
-    padding: 0 10px;
+    font-size: 22px;
+    padding: 0 15px;
+    line-height: 1.4;
   }
   .titulo-grande {
-    font-size: 42px;
-    letter-spacing: 2px;
+    font-size: 52px; /* ← TÍTULO ENORME */
+    letter-spacing: 3px;
   }
   .titulo-grande::before, .titulo-grande::after {
-    font-size: 22px;
-    margin: 0 8px;
+    font-size: 28px;
+    margin: 0 10px;
   }
 
-  /* DETALLES EN UNA SOLA COLUMNA */
+  /* DETALLES ENORMES */
   .detalles-evento {
     grid-template-columns: 1fr !important;
-    padding: 25px 20px;
-    gap: 25px;
+    padding: 35px 25px;
+    gap: 30px;
+  }
+  .detalle-item i {
+    font-size: 32px;
   }
   .detalle-item h4 {
-    font-size: 18px;
+    font-size: 22px;
   }
   .info-evento {
-    font-size: 22px;
+    font-size: 26px; /* ← FECHA Y HORA GIGANTES */
   }
   .detalle-lugar {
-    font-size: 17px;
+    font-size: 20px;
   }
 
-  /* BOTONES DE ACCIÓN EN UNA COLUMNA */
+  /* BOTONES DE ACCIÓN ENORMES */
   .botones-accion {
     grid-template-columns: 1fr !important;
-    padding: 0 20px 30px 20px;
-    gap: 15px;
+    padding: 0 25px 40px 25px;
+    gap: 20px;
   }
   .boton-accion {
-    padding: 20px 15px;
-    font-size: 18px;
-    border-radius: 12px;
+    padding: 25px 20px;
+    font-size: 20px;
+    border-radius: 15px;
   }
 
-  /* FORMULARIOS */
+  /* FORMULARIOS GRANDES */
   .formulario-rsvp, .contenedor-mapa, .contenedor-musica {
-    padding: 30px 20px;
+    padding: 40px 25px;
   }
   .formulario-rsvp h3, .contenedor-mapa h3, .contenedor-musica h3 {
-    font-size: 22px;
-    margin-bottom: 25px;
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  .grupo-formulario label {
+    font-size: 20px;
   }
   .grupo-formulario input {
-    padding: 16px;
-    font-size: 16px !important;
+    padding: 20px;
+    font-size: 18px !important;
     width: 100%;
     box-sizing: border-box;
   }
   .boton-enviar {
-    padding: 18px;
-    font-size: 18px;
-    margin-top: 25px;
+    padding: 22px;
+    font-size: 22px;
+    margin-top: 30px;
     width: 100%;
   }
   .lista-musica {
-    padding: 20px;
+    padding: 25px;
   }
   .lista-musica p {
-    font-size: 17px;
-    padding: 12px 0;
+    font-size: 20px;
+    padding: 15px 0;
   }
 
-  /* PIE DE PÁGINA */
+  /* PIE DE PÁGINA GRANDE */
   .pie-invitacion {
-    padding: 25px 15px;
+    padding: 35px 20px;
+    margin-top: 40px;
+    width: 100%;
   }
   .mensaje-final {
-    font-size: 22px;
+    font-size: 26px;
+  }
+
+  /* Asegurar que el body permita scroll */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .portada, .pagina-dos, .invitacion-detallada {
+    flex: 1;
   }
 }
 /* ===== NUEVO SOBRE INTERACTIVO + VIDEO DE FONDO (A PRUEBA DE FALLAS) ===== */
