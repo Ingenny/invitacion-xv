@@ -1445,238 +1445,360 @@ background-color: #001845;
   /* ============================================
      PÁGINA 1: SOBRE GRANDE CENTRADO
      ============================================ */
-  .portada {
-    min-height: 100vh;
-    height: auto;
-    padding: 0 !important;
+  .sobre-inicial { 
+    height: 100vh;
+    padding: 0 20px !important;
     display: flex;
     flex-direction: column;
     justify-content: center !important;
     align-items: center;
-    gap: 0;
-  }
-
-    /* SOBRE TAMAÑO AJUSTADO (no toca los bordes) */
-  .sobre-inicial { 
-    height: 100vh;
-    padding: 0 20px !important; /* Espacio lateral */
   }
   .envelope-wrapper { 
-    transform: scale(1.1); /* Un poco más pequeño */
+    transform: scale(1.1);
     height: auto;
-    padding: 0 10px; /* Espacio interno */
+    padding: 0 10px;
   }
   #envelope { 
-    width: 240px; /* REDUCIDO de 280px a 240px */
+    width: 240px;
     height: 150px; 
-    margin: 0 auto; /* Centrado */
+    margin: 0 auto;
   }
   .flap { 
-    border-left-width: 120px; /* Mitad del width */
+    border-left-width: 120px;
     border-right-width: 120px; 
     border-bottom-width: 67px; 
     border-top-width: 83px; 
   }
   .pocket { 
-    border-left-width: 120px; /* Mitad del width */
+    border-left-width: 120px;
     border-right-width: 120px; 
     border-bottom-width: 75px; 
     border-top-width: 75px; 
   }
 
   /* ============================================
-     PÁGINA 2: TODO ARRIBA, CORONA GRANDE
+     PÁGINA 2: PORTADA COMPACTA SIN SCROLL
+     ============================================ */
+  .portada {
+    min-height: 100vh;
+    height: auto;
+    padding: 10px 15px 20px 15px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .corona-animada { 
+    margin: 0 0 8px 0 !important; 
+    transform: scale(0.9);
+  }
+  .corona-animada img { 
+    width: 100px !important;
+  }
+
+  .titulo-elegante { 
+    font-size: 36px !important;
+    margin: 0 0 5px 0 !important; 
+    letter-spacing: 2px !important;
+  }
+  .titulo-elegante::before, .titulo-elegante::after {
+    font-size: 18px !important;
+    left: -25px !important;
+    right: -25px !important;
+  }
+  
+  .nombre-quinceanera { 
+    font-size: 28px !important;
+    margin: 0 0 5px 0 !important; 
+  }
+  
+  .subtitulo { 
+    font-size: 14px !important;
+    padding: 4px 12px !important; 
+    margin: 0 0 10px 0 !important; 
+  }
+
+  .contador-simple { 
+    gap: 6px !important; 
+    margin: 8px 0 !important; 
+    flex-wrap: nowrap;
+  }
+  .tiempo { 
+    min-width: 55px !important;
+    padding: 6px 3px !important;
+  }
+  .tiempo .numero { 
+    font-size: 20px !important;
+  }
+  .tiempo .texto { 
+    font-size: 9px !important; 
+    margin-top: 2px !important; 
+  }
+
+  .boton-real { 
+    padding: 14px 28px !important; 
+    font-size: 16px !important; 
+    margin-top: 10px !important; 
+    width: 80% !important; 
+    max-width: 280px !important;
+    position: relative;
+    z-index: 100;
+  }
+
+  .pie-invitacion { 
+    margin-top: 8px !important; 
+    padding: 8px !important; 
+    font-size: 14px !important;
+    position: relative;
+    z-index: 100;
+  }
+  .mensaje-final { 
+    font-size: 14px !important; 
+  }
+
+  .reloj-derretido { 
+    transform: scale(0.75) !important;
+    top: 8px !important; 
+    left: 8px !important; 
+    z-index: 50;
+  }
+  .reloj-cara-derretida {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .joya { 
+    font-size: 14px !important;
+    opacity: 0.4;
+  }
+  .joya4, .joya5, .joya11, .joya12 {
+    font-size: 18px !important;
+  }
+  
+  .joya1 { top: 10%; left: 5%; }
+  .joya2 { top: 15%; right: 5%; }
+  .joya3 { bottom: 35%; left: 5%; }
+  .joya4 { top: 25%; right: 8%; }
+  .joya5 { bottom: 40%; left: 8%; }
+  .joya6 { top: 45%; right: 3%; }
+  .joya7 { top: 55%; left: 3%; }
+  .joya8 { bottom: 30%; right: 8%; }
+  .joya9 { top: 65%; left: 5%; }
+  .joya10 { top: 35%; right: 5%; }
+  .joya11 { bottom: 35%; right: 15%; }
+  .joya12 { top: 8%; left: 15%; }
+  .joya13 { bottom: 45%; right: 35%; }
+    /* ============================================
+     PÁGINA 3: MENSAJE ARRIBA, MUÑECA A LA ESQUINA
      ============================================ */
   .pagina-dos {
     min-height: 100vh;
     height: auto;
-    padding: 30px 15px 100px 15px !important;
+    padding: 30px 15px 100px 15px !important; /* Espacio abajo para el botón */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start !important; /* TODO ARRIBA */
+    justify-content: flex-start !important; /* Empuja todo hacia arriba */
     align-items: center;
     position: relative;
-  }
-
-  /* CORONA GRANDE Y ARRIBA */
-  .corona-animada { 
-    margin: 0 0 15px 0 !important; 
-  }
-  .corona-animada img { 
-    width: 140px !important; /* GRANDE */
-  }
-
-  /* TÍTULOS GRANDES */
-  .titulo-elegante { font-size: 42px !important; margin: 0 0 8px 0 !important; }
-  .nombre-quinceanera { font-size: 34px !important; margin: 0 0 8px 0 !important; }
-  .subtitulo { font-size: 17px !important; padding: 6px 18px !important; margin: 0 0 15px 0 !important; }
-
-  /* CONTADOR GRANDE */
-  .contador-simple { gap: 10px !important; margin: 0 0 20px 0 !important; }
-  .tiempo { min-width: 70px !important; padding: 10px 5px !important; }
-  .tiempo .numero { font-size: 26px !important; }
-  .tiempo .texto { font-size: 11px !important; }
-
-  /* BOTÓN ABRIR GRANDE */
-  .boton-real { 
-    padding: 18px 35px !important; 
-    font-size: 20px !important; 
-    margin-top: 15px !important; 
-    width: 85% !important; 
-    max-width: 320px !important;
-  }
-
-  .pie-invitacion { margin-top: 20px !important; padding: 15px !important; }
-  .mensaje-final { font-size: 18px !important; }
-
-  /* RELOJ VISIBLE */
-  .reloj-derretido { transform: scale(1) !important; top: 15px !important; left: 15px !important; }
-
-
-  /* ============================================
-     PÁGINA 3: MENSAJE ARRIBA, MUÑECA GRANDE
-     ============================================ */
-  .pagina-dos {
-    padding: 40px 15px 100px 15px !important;
+    overflow: hidden;
   }
 
   /* MENSAJE GRANDE Y ARRIBA */
   .mensaje-container {
-    width: 100%;
+    width: 95%;
     max-width: 480px;
     margin: 0 auto 20px auto !important;
     padding: 25px 20px !important;
   }
   .mensaje-emotivo { 
-    font-size: 22px !important; /* MUY GRANDE */
+    font-size: 20px !important; /* Grande y legible */
     line-height: 1.5 !important; 
   }
-  .mensaje-emotivo .linea::first-letter { font-size: 30px !important; }
+  .mensaje-emotivo .linea::first-letter { 
+    font-size: 28px !important; 
+  }
 
-  /* MUÑECA GRANDE A LA ESQUINA */
+  /* MUÑECA A LA ESQUINA INFERIOR DERECHA */
   .muneca-container {
     position: absolute;
-    bottom: 90px;
-    right: 15px;
+    bottom: 85px;
+    right: 10px;
     margin: 0 !important;
+    text-align: right;
+    z-index: 10;
   }
   .muneca-img { 
-    width: 160px !important; /* GRANDE */
+    width: 140px !important; /* Tamaño equilibrado */
+    border-radius: 10px !important;
   }
 
-  /* DECORACIONES VISIBLES Y GRANDES */
+  /* DECORACIONES VISIBLES */
   .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 { 
-    width: 70px !important; /* VISIBLES */
+    width: 60px !important;
   }
   .mariposa-1, .mariposa-2 { 
-    width: 80px !important; /* VISIBLES */
-  }
-  .mariposa-3, .mariposa-4 { 
     width: 70px !important;
   }
+  .mariposa-3, .mariposa-4 { 
+    width: 60px !important;
+  }
 
-  /* BOTÓN SIGUIENTE GRANDE */
+  /* BOTÓN SIGUIENTE FIJO ABAJO */
   .btn-siguiente-pagina {
     position: absolute;
     bottom: 20px;
     width: 80%;
     max-width: 280px;
-    padding: 18px !important;
-    font-size: 18px !important;
+    padding: 16px !important;
+    font-size: 17px !important;
     margin: 0 !important;
+    z-index: 20;
   }
-
-
-  /* ============================================
-     PÁGINA 4: FORMULARIO QUE OCUPA LA PANTALLA
+    /* ============================================
+     PÁGINA 4: INVITACIÓN DETALLADA (COMPACTA Y LEGIBLE)
      ============================================ */
   .invitacion-detallada {
     min-height: 100vh;
     height: auto;
-    padding: 0 !important;
+    padding: 0 !important; /* Sin padding para que ocupe todo */
     overflow-y: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('fondos/fondo3.jpg') no-repeat center center fixed;
+    background-size: cover;
   }
 
+  /* TARJETA SIN BORDES REDONDEADOS PARA OCUPAR TODO EL ANCHO */
   .tarjeta-invitacion { 
-    border-radius: 0; 
-    width: 100%;
-    max-width: 100%;
+    border-radius: 0 !important; 
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important;
   }
 
+  /* ENCABEZADO */
   .encabezado-tarjeta { 
-    padding: 30px 15px; 
+    padding: 25px 15px !important; 
   }
   .encabezado-tarjeta h3 { 
-    font-size: 17px; 
-    line-height: 1.3;
+    font-size: 16px !important; 
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
   }
   .titulo-grande { 
-    font-size: 42px !important; 
-    margin: 10px 0;
+    font-size: 40px !important; 
+    margin: 5px 0 !important;
+    letter-spacing: 2px !important;
   }
   .titulo-grande::before, .titulo-grande::after { 
-    font-size: 24px; 
-    margin: 0 10px;
+    font-size: 22px !important; 
+    margin: 0 8px !important;
   }
 
-  /* DETALLES GRANDES */
+  /* DETALLES EN UNA SOLA COLUMNA (MÁS LEÍBLE) */
   .detalles-evento { 
-    grid-template-columns: 1fr !important; 
-    padding: 25px 20px !important; 
+    grid-template-columns: 1fr !important; /* UNA SOLA COLUMNA */
+    padding: 20px 15px !important; 
     gap: 18px !important; 
   }
-  .detalle-item { gap: 12px; align-items: center; }
-  .detalle-item i { font-size: 26px; }
-  .detalle-item h4 { font-size: 16px; margin-bottom: 3px; }
-  .info-evento { font-size: 20px; }
-  .detalle-lugar { font-size: 15px; margin-top: 3px; }
+  .detalle-item { 
+    gap: 12px !important; 
+    align-items: flex-start !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+  }
+  .detalle-item:last-child {
+    border-bottom: none !important;
+  }
+  .detalle-item i { 
+    font-size: 24px !important;
+    min-width: 30px !important;
+    margin-top: 3px !important;
+  }
+  .detalle-item h4 { 
+    font-size: 15px !important; 
+    margin-bottom: 3px !important;
+    letter-spacing: 1px !important;
+  }
+  .info-evento { 
+    font-size: 19px !important; 
+    line-height: 1.3 !important;
+  }
+  .detalle-lugar { 
+    font-size: 14px !important; 
+    margin-top: 3px !important;
+    color: #888 !important;
+  }
 
-  /* BOTONES GRANDES */
+  /* BOTONES DE ACCIÓN EN UNA COLUMNA (FÁCILES DE TOCAR) */
   .botones-accion { 
-    grid-template-columns: 1fr !important; 
-    padding: 0 20px 25px 20px !important; 
+    grid-template-columns: 1fr !important; /* UNA SOLA COLUMNA */
+    padding: 0 15px 20px 15px !important; 
     gap: 12px !important; 
   }
   .boton-accion { 
-    padding: 18px 12px; 
-    font-size: 17px; 
-    border-radius: 12px;
+    padding: 16px 12px !important; 
+    font-size: 16px !important; 
+    border-radius: 10px !important;
+    justify-content: center !important;
   }
 
-  /* FORMULARIO GRANDE */
+  /* FORMULARIOS Y CONTENEDORES */
   .formulario-rsvp, .contenedor-mapa, .contenedor-musica { 
-    padding: 25px 20px; 
+    padding: 25px 20px !important; 
   }
   .formulario-rsvp h3, .contenedor-mapa h3, .contenedor-musica h3 { 
-    font-size: 22px; 
-    margin-bottom: 18px; 
+    font-size: 22px !important; 
+    margin-bottom: 20px !important; 
+    text-align: center !important;
   }
   .grupo-formulario label { 
-    font-size: 17px; 
-    margin-bottom: 6px; 
-    display: block; 
+    font-size: 16px !important; 
+    margin-bottom: 8px !important; 
+    display: block !important;
   }
   .grupo-formulario input { 
-    font-size: 16px !important; 
-    padding: 16px; 
-    border-radius: 10px; 
-    width: 100%; 
-    box-sizing: border-box; 
+    font-size: 16px !important; /* Evita zoom en iPhone */
+    padding: 16px !important; 
+    border-radius: 10px !important; 
+    width: 100% !important; 
+    box-sizing: border-box !important;
+    border: 2px solid #ddd !important;
+  }
+  .grupo-formulario input:focus {
+    border-color: #d4af37 !important;
+    outline: none !important;
   }
   .boton-enviar { 
-    padding: 18px; 
-    font-size: 19px; 
-    margin-top: 18px; 
-    width: 100%; 
-    border-radius: 12px; 
+    padding: 18px !important; 
+    font-size: 18px !important; 
+    margin-top: 20px !important; 
+    width: 100% !important; 
+    border-radius: 10px !important; 
   }
   
-  .lista-musica { padding: 18px; border-radius: 12px; }
-  .lista-musica p { font-size: 17px; padding: 10px 0; }
-
-  .pie-invitacion { 
-    padding: 25px 15px; 
-    margin-top: 0;
+  /* LISTA DE REGALOS/APORTES */
+  .lista-musica { 
+    padding: 20px !important; 
+    border-radius: 12px !important;
+    margin-top: 10px !important;
   }
-  .mensaje-final { font-size: 20px; }
-}
+  .lista-musica p { 
+    font-size: 16px !important; 
+    padding: 10px 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* PIE DE PÁGINA */
+  .pie-invitacion { 
+    padding: 20px 15px !important; 
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+  .mensaje-final { 
+    font-size: 18px !important; 
+  }
