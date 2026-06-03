@@ -44,14 +44,14 @@ background-color: #001845;
 
 /* 4. CORONA ANIMADA */
 .corona-animada {
-  font-size: 180px;
+  font-size: 200px;
   color: var(--dorado);
   margin-bottom: 20px;
   animation: flotar 3s infinite alternate;
 }
 
 .corona-animada img {
-  width: 100px;
+  width: 150px;
   height: auto;
   animation: flotar 3s infinite alternate;
 }
