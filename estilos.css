@@ -1559,7 +1559,7 @@ background-color: #001845;
   .mensaje-final { 
     font-size: 14px !important; 
   }
-
+}
   .reloj-derretido { 
     transform: scale(0.75) !important;
     top: 8px !important; 
