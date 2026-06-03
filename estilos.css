@@ -20,7 +20,7 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #001845; /* <-- CAMBIO AQUÍ: De 'transparent' a tu azul oscuro */
+ background-color: transparent; 
   color: var(--blanco);
   line-height: 1.6;
 }
@@ -1177,189 +1177,179 @@ body {
 .lista-musica p:last-child {
   border-bottom: none;
 }
-
-/* ===== RESPONSIVE MÓVIL OPTIMIZADO (VERTICAL SIN ZOOM) ===== */
+/* ===== RESPONSIVE MÓVIL - SOLO AJUSTES NECESARIOS ===== */
 @media (max-width: 768px) {
-  /* 1. ESTRUCTURA GENERAL: Permite scroll vertical natural, sin recortes */
-  .portada, .pagina-dos, .invitacion-detallada {
-    width: 100%;
-    max-width: 100vw;
-    padding: 30px 15px;
+  /* PORTADA - Mantiene proporciones originales */
+  .portada {
+    justify-content: center;
+    padding: 15px;
     min-height: 100vh;
-    height: auto; /* Clave: permite que el contenido crezca hacia abajo */
-    overflow-x: hidden;
   }
-
-  /* 2. CORONA Y TÍTULOS MÁS GRANDES */
+  
+  /* Corona - tamaño original que funcionaba */
+  .corona-animada {
+    margin-bottom: 5px;
+  }
   .corona-animada img {
-    width: 130px !important;
-    height: auto;
+    width: 100px !important;
+  }
+  
+  /* Títulos - tamaño original */
+  .contenedor-titulos {
+    margin-bottom: 10px;
   }
   .titulo-elegante {
-    font-size: 38px !important;
-    letter-spacing: 3px;
-    line-height: 1.2;
+    font-size: 28px !important;
+    margin-bottom: 5px;
   }
-  .titulo-elegante::before, .titulo-elegante::after {
-    font-size: 22px;
-    left: -35px;
-    right: -35px;
+  .titulo-elegante::before,
+  .titulo-elegante::after {
+    font-size: 16px;
   }
+  .titulo-elegante::before { left: -30px; }
+  .titulo-elegante::after { right: -30px; }
   .nombre-quinceanera {
-    font-size: 34px !important;
-    margin: 12px 0;
+    font-size: 22px !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   .subtitulo {
-    font-size: 16px;
-    padding: 8px 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 4px 12px;
   }
-
-  /* 3. CONTADOR DE FECHA MÁS LEGIBLE */
+  
+  /* Contador - tamaño original (4 en fila) */
   .contador-simple {
-    gap: 10px;
-    margin: 25px 0;
+    gap: 6px;
+    margin: 10px 0;
     flex-wrap: wrap;
     justify-content: center;
   }
   .tiempo {
-    min-width: 70px;
-    padding: 12px 5px;
+    min-width: 55px;
+    padding: 6px 4px;
   }
   .tiempo .numero {
-    font-size: 26px;
+    font-size: 14px;
   }
   .tiempo .texto {
-    font-size: 11px;
-    margin-top: 5px;
+    font-size: 7px;
+    margin-top: 2px;
   }
-
-  /* 4. BOTÓN ABRIR INVITACIÓN MÁS GRANDE Y FÁCIL DE TOCAR */
+  
+  /* Botón ABRIR - tamaño original */
   .boton-real {
-    padding: 18px 35px;
-    font-size: 18px;
-    margin-top: 25px;
-    width: 90%;
-    max-width: 320px;
-    justify-content: center;
+    padding: 8px 20px;
+    font-size: 12px;
+    margin-top: 10px;
+    gap: 6px;
   }
-
-  /* 5. JOYAS / DIAMANTES FLOTANTES MÁS VISIBLES */
-  .joya {
-    font-size: 22px;
-    opacity: 0.6;
+  
+  /* Página 2 - tamaños originales */
+  .pagina-dos {
+    padding: 15px;
   }
-  .joya4, .joya5, .joya11, .joya12 {
-    font-size: 28px;
-  }
-
-  /* 6. RELOJ DERRITIDO (SOMBRERO) AJUSTADO */
-  .reloj-derretido {
-    top: 15px;
-    left: 15px;
-    transform: scale(1.15); /* Un poco más grande */
-  }
-
-  /* 7. PÁGINA 2: MENSAJE Y MUÑECA */
   .mensaje-container {
-    width: 95%;
-    max-width: 450px;
-    padding: 30px 20px;
-    margin: 0 auto 30px auto;
+    padding: 12px;
+    margin-bottom: 15px;
+    max-width: 90%;
+    width: 90%;
   }
   .mensaje-emotivo {
-    font-size: 18px; /* Letra grande y legible */
-    line-height: 1.7;
+    font-size: 12px;
+    line-height: 1.5;
   }
   .mensaje-emotivo .linea::first-letter {
-    font-size: 26px;
+    font-size: 16px;
   }
+  
+  /* Muñeca - tamaño original */
   .muneca-img {
-    width: 280px; /* Muñeca más grande */
-    max-width: 85%;
-    margin: 15px auto;
+    width: 180px;
   }
+  
+  /* Botón SIGUIENTE - tamaño original */
   .btn-siguiente-pagina {
-    padding: 18px 40px;
-    font-size: 18px;
-    margin-top: 30px;
-    width: 90%;
-    max-width: 320px;
+    padding: 10px 25px;
+    font-size: 14px;
   }
-
-  /* 8. MARIPOSAS Y DECORACIONES MÁS GRANDES */
+  
+  /* Imágenes decorativas - tamaño original (pequeñas) */
   .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 {
-    width: 60px !important;
+    width: 30px !important;
   }
   .mariposa-1, .mariposa-2 {
-    width: 75px;
+    width: 45px;
   }
   .mariposa-3, .mariposa-4 {
-    width: 65px;
+    width: 35px;
   }
-
-  /* 9. PÁGINA 3: TARJETA Y DETALLES */
+  
+  /* Página 3 - tamaños originales */
   .invitacion-detallada {
-    padding: 20px 10px;
+    padding: 15px;
+    min-height: 100vh;
     height: auto;
-    overflow-y: visible;
+    overflow-y: auto;
   }
   .tarjeta-invitacion {
-    margin: 0;
-    width: 100%;
-    border-radius: 15px;
-  }
-  .encabezado-tarjeta {
-    padding: 30px 15px;
-  }
-  .titulo-grande {
-    font-size: 38px;
+    margin: 10px;
   }
   .detalles-evento {
-    padding: 30px 20px;
-    gap: 25px;
+    padding: 15px;
+    gap: 10px;
+  }
+  .detalle-item i {
+    font-size: 18px;
   }
   .detalle-item h4 {
-    font-size: 17px;
+    font-size: 12px;
   }
   .info-evento {
-    font-size: 19px;
+    font-size: 14px;
   }
-  .detalle-lugar {
-    font-size: 16px;
-  }
-
-  /* 10. BOTONES DE ACCIÓN (RSVP, MAPA, APORTE) */
+  
+  /* Botones de acción - tamaño original */
   .botones-accion {
-    padding: 0 20px 30px 20px;
-    gap: 15px;
+    gap: 8px;
+    padding: 0 15px 15px;
   }
   .boton-accion {
-    padding: 18px 10px;
-    font-size: 16px;
-    border-radius: 12px;
+    padding: 10px 8px;
+    font-size: 11px;
   }
-
-  /* 11. FORMULARIO Y CUADROS DE TEXTO */
-  .formulario-rsvp, .contenedor-mapa, .contenedor-musica {
-    padding: 30px 20px;
-  }
-  .formulario-rsvp h3, .contenedor-mapa h3, .contenedor-musica h3 {
-    font-size: 22px;
-    margin-bottom: 25px;
+  
+  /* Formulario */
+  .formulario-rsvp,
+  .contenedor-mapa,
+  .contenedor-musica {
+    padding: 15px;
   }
   .grupo-formulario input {
-    padding: 16px;
-    font-size: 16px; /* Clave: evita que iOS haga zoom automático al escribir */
+    padding: 10px;
+    font-size: 14px;
   }
   .boton-enviar {
-    padding: 18px;
-    font-size: 18px;
-    margin-top: 25px;
+    padding: 12px;
+    font-size: 14px;
   }
+  
+  /* Pie de página */
+  .pie-invitacion {
+    padding: 10px;
+    margin-top: 0;
+  }
+  .mensaje-final {
+    font-size: 12px;
+  }
+  
+  /* Lista de música */
   .lista-musica p {
-    font-size: 16px;
-    padding: 14px 0;
+    font-size: 12px;
+    padding: 8px;
   }
+}
 
   /* 12. PIE DE PÁGINA */
   .pie-invitacion {
