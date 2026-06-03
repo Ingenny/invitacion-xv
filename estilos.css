@@ -1475,123 +1475,147 @@ background-color: #001845;
     border-bottom-width: 75px; 
     border-top-width: 75px; 
   }
-
   /* ============================================
-     PÁGINA 2: PORTADA COMPACTA SIN SCROLL
+     PÁGINA 2: PORTADA (LETRAS GRANDES, TODO VISIBLE Y ARRIBA)
      ============================================ */
   .portada {
     min-height: 100vh;
     height: auto;
-    padding: 10px 15px 20px 15px !important;
+    padding: 30px 15px 5px 15px !important; /* Empuja todo hacia arriba, casi sin espacio abajo */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start !important;
+    justify-content: flex-start !important; /* Todo empieza desde arriba */
     align-items: center;
-    gap: 8px;
+    gap: 4px; /* Espacios MUY cortos entre elementos para que no haga scroll */
     position: relative;
     overflow: hidden;
   }
 
+  /* Corona */
   .corona-animada { 
-    margin: 0 0 8px 0 !important; 
-    transform: scale(0.9);
+    margin: 0 0 5px 0 !important; 
+    transform: scale(1); 
   }
   .corona-animada img { 
-    width: 100px !important;
+    width: 110px !important; 
   }
 
+  /* Título MIS XV AÑOS */
   .titulo-elegante { 
-    font-size: 36px !important;
-    margin: 0 0 5px 0 !important; 
+    font-size: 40px !important; 
+    margin: 0 0 2px 0 !important; 
     letter-spacing: 2px !important;
+    line-height: 1.1;
   }
   .titulo-elegante::before, .titulo-elegante::after {
-    font-size: 18px !important;
+    font-size: 20px !important;
     left: -25px !important;
     right: -25px !important;
   }
   
+  /* Nombre ELISABET ROMERO (AUMENTADO) */
   .nombre-quinceanera { 
-    font-size: 28px !important;
-    margin: 0 0 5px 0 !important; 
+    font-size: 36px !important; /* De 28px a 36px */
+    margin: 0 0 2px 0 !important; 
   }
   
+  /* Subtítulo "Comparte conmigo..." (AUMENTADO) */
   .subtitulo { 
-    font-size: 14px !important;
+    font-size: 17px !important; /* De 14px a 17px */
     padding: 4px 12px !important; 
-    margin: 0 0 10px 0 !important; 
+    margin: 0 0 8px 0 !important; 
   }
 
+  /* Contador DÍAS, HORAS, MIN, SEG (AUMENTADO) */
   .contador-simple { 
     gap: 6px !important; 
-    margin: 8px 0 !important; 
+    margin: 5px 0 !important; 
     flex-wrap: nowrap;
   }
   .tiempo { 
-    min-width: 55px !important;
-    padding: 6px 3px !important;
+    min-width: 60px !important; 
+    padding: 6px 3px !important; 
   }
   .tiempo .numero { 
-    font-size: 20px !important;
+    font-size: 24px !important; /* De 20px a 24px */
   }
   .tiempo .texto { 
     font-size: 9px !important; 
     margin-top: 2px !important; 
   }
 
+  /* Botón ABRIR INVITACIÓN */
   .boton-real { 
-    padding: 14px 28px !important; 
+    padding: 12px 25px !important; 
     font-size: 16px !important; 
-    margin-top: 10px !important; 
-    width: 80% !important; 
-    max-width: 280px !important;
+    margin-top: 8px !important; 
+    margin-bottom: 5px !important; 
+    width: 85% !important; 
+    max-width: 300px !important;
     position: relative;
     z-index: 100;
   }
 
+  /* FRASE FINAL "Con amor..." (SUBIDA Y AUMENTADA) */
   .pie-invitacion { 
-    margin-top: 8px !important; 
-    padding: 8px !important; 
-    font-size: 14px !important;
+    margin-top: 2px !important; /* Pegada al botón */
+    padding: 8px 10px !important; 
+    font-size: 18px !important; /* AUMENTADO */
     position: relative;
     z-index: 100;
+    width: 100%;
   }
   .mensaje-final { 
-    font-size: 14px !important; 
+    font-size: 18px !important; /* AUMENTADO */
   }
-}
+
+  /* ============================================
+     ELEMENTOS FLOTANTES (RELOJ Y DECORACIONES GRANDES)
+     ============================================ */
+  
+  /* Reloj derretido (V visible y grande) */
   .reloj-derretido { 
-    transform: scale(0.75) !important;
-    top: 8px !important; 
-    left: 8px !important; 
+    transform: scale(1.1) !important; /* Más grande */
+    top: 15px !important; 
+    left: 15px !important; 
     z-index: 50;
   }
   .reloj-cara-derretida {
-    width: 60px !important;
-    height: 60px !important;
+    width: 80px !important;
+    height: 80px !important;
   }
 
+  /* Joyas, cartas, diamantes (V visibles y grandes) */
   .joya { 
-    font-size: 14px !important;
-    opacity: 0.4;
+    font-size: 24px !important; /* De 14px a 24px */
+    opacity: 0.7 !important; /* Más brillantes */
   }
   .joya4, .joya5, .joya11, .joya12 {
-    font-size: 18px !important;
+    font-size: 28px !important;
   }
   
+  /* Ajuste de posición para que no tapen el botón ni la frase final */
   .joya1 { top: 10%; left: 5%; }
   .joya2 { top: 15%; right: 5%; }
-  .joya3 { bottom: 35%; left: 5%; }
+  .joya3 { bottom: 25%; left: 5%; } /* Subido para no tapar la frase */
   .joya4 { top: 25%; right: 8%; }
-  .joya5 { bottom: 40%; left: 8%; }
+  .joya5 { bottom: 30%; left: 8%; } /* Subido */
   .joya6 { top: 45%; right: 3%; }
   .joya7 { top: 55%; left: 3%; }
-  .joya8 { bottom: 30%; right: 8%; }
+  .joya8 { bottom: 25%; right: 8%; } /* Subido */
   .joya9 { top: 65%; left: 5%; }
   .joya10 { top: 35%; right: 5%; }
-  .joya11 { bottom: 35%; right: 15%; }
+  .joya11 { bottom: 30%; right: 15%; } /* Subido */
   .joya12 { top: 8%; left: 15%; }
-  .joya13 { bottom: 45%; right: 35%; }
+  .joya13 { bottom: 35%; right: 35%; } /* Subido */
+
+  /* Naipes decorativos de abajo (Cartas y Trebol) */
+  .portada > div[style*="bottom: 20px"] {
+    font-size: 32px !important; /* Más grandes */
+    opacity: 0.8 !important;
+    bottom: 5px !important; /* Pegados al fondo */
+  }
+  
     /* ============================================
      PÁGINA 3: MENSAJE ARRIBA, MUÑECA A LA ESQUINA
      ============================================ */
