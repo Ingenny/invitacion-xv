@@ -1177,72 +1177,89 @@ background-color: #001845;
 .lista-musica p:last-child {
   border-bottom: none;
 }
-/* ===== RESPONSIVE MÓVIL OPTIMIZADO (VERTICAL SIN ZOOM) ===== */
+
+/* ===== RESPONSIVE MÓVIL DEFINITIVO ===== */
 @media (max-width: 768px) {
-  /* 1. ESTRUCTURA GENERAL: Permite scroll vertical natural, sin recortes */
+  /* REGLA DE ORO: Permitir scroll vertical, sin aplastar */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 16px;
+  }
+
   .portada, .pagina-dos, .invitacion-detallada {
     width: 100%;
     max-width: 100vw;
     padding: 30px 15px;
     min-height: 100vh;
-    height: auto; /* Clave: permite que el contenido crezca hacia abajo */
+    height: auto !important;
     overflow-x: hidden;
+    overflow-y: visible;
+    box-sizing: border-box;
   }
 
-  /* 2. CORONA Y TÍTULOS MÁS GRANDES */
+  /* CORONA GRANDE */
   .corona-animada img {
-    width: 130px !important;
+    width: 140px !important;
     height: auto;
   }
+
+  /* TÍTULOS GRANDES Y QUE NO SE DESBORDEN */
   .titulo-elegante {
-    font-size: 38px !important;
-    letter-spacing: 3px;
+    font-size: 42px !important;
+    letter-spacing: 2px !important;
     line-height: 1.2;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   .titulo-elegante::before, .titulo-elegante::after {
     font-size: 22px;
-    left: -35px;
-    right: -35px;
-  }
-  .nombre-quinceanera {
-    font-size: 34px !important;
-    margin: 12px 0;
-  }
-  .subtitulo {
-    font-size: 16px;
-    padding: 8px 20px;
+    left: -30px;
+    right: -30px;
   }
 
-  /* 3. CONTADOR DE FECHA MÁS LEGIBLE */
+  .nombre-quinceanera {
+    font-size: 38px !important;
+    margin: 15px 0;
+    padding: 0 10px;
+  }
+
+  .subtitulo {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+  }
+
+  /* CONTADOR GRANDE */
   .contador-simple {
-    gap: 10px;
+    gap: 12px;
     margin: 25px 0;
     flex-wrap: wrap;
     justify-content: center;
   }
   .tiempo {
-    min-width: 70px;
-    padding: 12px 5px;
+    min-width: 75px;
+    padding: 12px 8px;
   }
   .tiempo .numero {
-    font-size: 26px;
+    font-size: 28px;
   }
   .tiempo .texto {
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 5px;
   }
 
-  /* 4. BOTÓN ABRIR INVITACIÓN MÁS GRANDE Y FÁCIL DE TOCAR */
+  /* BOTÓN ABRIR INVITACIÓN GRANDE */
   .boton-real {
-    padding: 18px 35px;
-    font-size: 18px;
+    padding: 18px 30px;
+    font-size: 20px;
     margin-top: 25px;
     width: 90%;
     max-width: 320px;
     justify-content: center;
   }
 
-  /* 5. JOYAS / DIAMANTES FLOTANTES MÁS VISIBLES */
+  /* JOYAS FLOTANTES VISIBLES */
   .joya {
     font-size: 22px;
     opacity: 0.6;
@@ -1251,14 +1268,14 @@ background-color: #001845;
     font-size: 28px;
   }
 
-  /* 6. RELOJ DERRITIDO (SOMBRERO) AJUSTADO */
+  /* RELOJ DERRITIDO */
   .reloj-derretido {
     top: 15px;
     left: 15px;
-    transform: scale(1.15); /* Un poco más grande */
+    transform: scale(1.2);
   }
 
-  /* 7. PÁGINA 2: MENSAJE Y MUÑECA */
+  /* PÁGINA 2: MENSAJE GRANDE */
   .mensaje-container {
     width: 95%;
     max-width: 450px;
@@ -1266,41 +1283,44 @@ background-color: #001845;
     margin: 0 auto 30px auto;
   }
   .mensaje-emotivo {
-    font-size: 18px; /* Letra grande y legible */
+    font-size: 20px !important;
     line-height: 1.7;
   }
   .mensaje-emotivo .linea::first-letter {
-    font-size: 26px;
+    font-size: 28px;
   }
+
+  /* MUÑECA GRANDE */
   .muneca-img {
-    width: 280px; /* Muñeca más grande */
-    max-width: 85%;
-    margin: 15px auto;
+    width: 85%;
+    max-width: 320px;
+    margin: 20px auto;
   }
+
+  /* BOTÓN SIGUIENTE GRANDE */
   .btn-siguiente-pagina {
-    padding: 18px 40px;
+    padding: 18px 35px;
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 25px;
     width: 90%;
     max-width: 320px;
   }
 
-  /* 8. MARIPOSAS Y DECORACIONES MÁS GRANDES */
+  /* MARIPOSAS Y DECORACIONES GRANDES */
   .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 {
-    width: 60px !important;
+    width: 65px !important;
   }
   .mariposa-1, .mariposa-2 {
-    width: 75px;
+    width: 80px;
   }
   .mariposa-3, .mariposa-4 {
     width: 65px;
   }
 
-  /* 9. PÁGINA 3: TARJETA Y DETALLES */
+  /* PÁGINA 3: TODO EN UNA COLUMNA */
   .invitacion-detallada {
     padding: 20px 10px;
-    height: auto;
-    overflow-y: visible;
+    height: auto !important;
   }
   .tarjeta-invitacion {
     margin: 0;
@@ -1310,35 +1330,48 @@ background-color: #001845;
   .encabezado-tarjeta {
     padding: 30px 15px;
   }
-  .titulo-grande {
-    font-size: 38px;
+  .encabezado-tarjeta h3 {
+    font-size: 18px;
+    padding: 0 10px;
   }
+  .titulo-grande {
+    font-size: 42px;
+    letter-spacing: 2px;
+  }
+  .titulo-grande::before, .titulo-grande::after {
+    font-size: 22px;
+    margin: 0 8px;
+  }
+
+  /* DETALLES EN UNA SOLA COLUMNA */
   .detalles-evento {
-    padding: 30px 20px;
+    grid-template-columns: 1fr !important;
+    padding: 25px 20px;
     gap: 25px;
   }
   .detalle-item h4 {
-    font-size: 17px;
+    font-size: 18px;
   }
   .info-evento {
-    font-size: 19px;
+    font-size: 22px;
   }
   .detalle-lugar {
-    font-size: 16px;
+    font-size: 17px;
   }
 
-  /* 10. BOTONES DE ACCIÓN (RSVP, MAPA, APORTE) */
+  /* BOTONES DE ACCIÓN EN UNA COLUMNA */
   .botones-accion {
+    grid-template-columns: 1fr !important;
     padding: 0 20px 30px 20px;
     gap: 15px;
   }
   .boton-accion {
-    padding: 18px 10px;
-    font-size: 16px;
+    padding: 20px 15px;
+    font-size: 18px;
     border-radius: 12px;
   }
 
-  /* 11. FORMULARIO Y CUADROS DE TEXTO */
+  /* FORMULARIOS */
   .formulario-rsvp, .contenedor-mapa, .contenedor-musica {
     padding: 30px 20px;
   }
@@ -1348,36 +1381,32 @@ background-color: #001845;
   }
   .grupo-formulario input {
     padding: 16px;
-    font-size: 16px; /* Clave: evita que iOS haga zoom automático al escribir */
+    font-size: 16px !important;
+    width: 100%;
+    box-sizing: border-box;
   }
   .boton-enviar {
     padding: 18px;
     font-size: 18px;
     margin-top: 25px;
+    width: 100%;
+  }
+  .lista-musica {
+    padding: 20px;
   }
   .lista-musica p {
-    font-size: 16px;
-    padding: 14px 0;
+    font-size: 17px;
+    padding: 12px 0;
   }
 
-  /* 12. PIE DE PÁGINA */
+  /* PIE DE PÁGINA */
   .pie-invitacion {
     padding: 25px 15px;
   }
   .mensaje-final {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
-
-  /* 12. PIE DE PÁGINA */
-  .pie-invitacion {
-    padding: 25px 15px;
-  }
-  .mensaje-final {
-    font-size: 20px;
-  }
-}
-
 /* ===== NUEVO SOBRE INTERACTIVO + VIDEO DE FONDO (A PRUEBA DE FALLAS) ===== */
 .sobre-inicial {
   position: fixed;
