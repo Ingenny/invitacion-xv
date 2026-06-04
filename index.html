@@ -3,51 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>XV Años - Elisabet Romero</title>
     <meta name="description" content="Estás invitado a los XV Años de Elisabet Romero. 04 de Julio, 2026. ¡Acompáñame!">
-<meta property="og:title" content="XV Años de Elisabet Romero 👑">
-<meta property="og:description" content="Comparte conmigo este día especial. 04 de Julio, 2026 - 8:00 PM. ¡Te espero!">
-<!-- NOTA: Cambia esta URL por la dirección real de tu imagen cuando subas la web -->
-<meta property="og:image" content="https://tudominio.com/imagenes/vista-previa.jpg"> 
-<meta property="og:type" content="website">
+    <meta property="og:title" content="XV Años de Elisabet Romero 👑">
+    <meta property="og:description"
+        content="Comparte conmigo este día especial. 04 de Julio, 2026 - 8:00 PM. ¡Te espero!">
+    <!-- NOTA: Cambia esta URL por la dirección real de tu imagen cuando subas la web -->
+    <meta property="og:image" content="https://tudominio.com/imagenes/vista-previa.jpg">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-   <!-- ========== NUEVO SOBRE INTERACTIVO CON VIDEO DE FONDO ========== -->
-<div class="sobre-inicial" id="sobreInicial">
-    <!-- VIDEO DE FONDO -->
-    <video autoplay muted loop playsinline class="video-fondo-sobre" style="pointer-events: none !important;">
-           <source src="videos/videofondo.mp4" type="video/mp4">
-    </video>
-    
-    <!-- CAPA OSCURA PARA QUE EL SOBRE RESALTE -->
-   <div class="overlay-video" style="pointer-events: none !important;"></div>
-    
-    <!-- SOBRE INTERACTIVO -->
-    <div class="envelope-wrapper">
-        <div id="envelope" class="close">
-            <div class="front flap"></div>
-            <div class="front pocket"></div>
-            <div class="letter">
-                <div class="words line1"></div>
-                <div class="words line2"></div>
-                <div class="words line3"></div>
-                <div class="words line4"></div>
+    <!-- ========== NUEVO SOBRE INTERACTIVO CON VIDEO DE FONDO ========== -->
+    <div class="sobre-inicial" id="sobreInicial">
+        <!-- VIDEO DE FONDO -->
+        <video autoplay muted loop playsinline class="video-fondo-sobre" style="pointer-events: none !important;">
+            <source src="videos/videofondo.mp4" type="video/mp4">
+        </video>
+
+        <!-- CAPA OSCURA PARA QUE EL SOBRE RESALTE -->
+        <div class="overlay-video" style="pointer-events: none !important;"></div>
+
+        <!-- SOBRE INTERACTIVO -->
+        <div class="envelope-wrapper">
+            <div id="envelope" class="close">
+                <div class="front flap"></div>
+                <div class="front pocket"></div>
+                <div class="letter">
+                    <div class="words line1"></div>
+                    <div class="words line2"></div>
+                    <div class="words line3"></div>
+                    <div class="words line4"></div>
+                </div>
+                <div class="hearts">
+                    <div class="heart a1"></div>
+                    <div class="heart a2"></div>
+                    <div class="heart a3"></div>
+                </div>
             </div>
-            <div class="hearts">
-                <div class="heart a1"></div>
-                <div class="heart a2"></div>
-                <div class="heart a3"></div>
-            </div>
+            <div class="mensaje-sobre">Toca el sobre para abrir</div>
         </div>
-        <div class="mensaje-sobre">Toca el sobre para abrir</div>
     </div>
-</div>
 
     <!-- ========== PORTADA PRINCIPAL ========== -->
     <section class="portada" id="portada" style="display: none;">
@@ -240,27 +241,29 @@
             </div>
 
             <div class="contenedor-mapa" id="contenedorMapa" style="display: none;">
-    <h3><i class="fas fa-map-marked-alt"></i> UBICACIÓN</h3>
-    
-    <div style="background: #f9f9f9; padding: 25px 20px; border-radius: 15px; border-left: 5px solid #d4af37; color: #0a2463; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-        <p style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #d4af37;">📍 Nuestra Dirección</p>
-        
-        <p style="font-size: 16px; margin-bottom: 5px;"><strong>KM 19, Sector La Carbonera</strong></p>
-        <p style="font-size: 15px; margin-bottom: 5px;">Parroquia Carrizal, Municipio Carrizal</p>
-        <p style="font-size: 15px; margin-bottom: 15px;">Estado Miranda</p>
-        
-        <p style="font-size: 14px; color: #555; margin-bottom: 25px; font-style: italic; border-top: 1px solid #eee; padding-top: 15px;">
-            (Subiendo vía San Antonio, mano derecha, Entrada Lámparas Murialdo)
-        </p>
-        
-        <!-- Botón con TU link de Google Maps -->
-        <a href="https://maps.app.goo.gl/1NGT2XAwueNz1aUy8" 
-           target="_blank" 
-           style="display: inline-block; padding: 14px 25px; background: linear-gradient(45deg, #2a5f6e, #1e3e48); color: white; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-            <i class="fas fa-route"></i> VER UBICACIÓN EN MAPS
-        </a>
-    </div>
-</div>
+                <h3><i class="fas fa-map-marked-alt"></i> UBICACIÓN</h3>
+
+                <div
+                    style="background: #f9f9f9; padding: 25px 20px; border-radius: 15px; border-left: 5px solid #d4af37; color: #0a2463; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <p style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #d4af37;">📍 Nuestra
+                        Dirección</p>
+
+                    <p style="font-size: 16px; margin-bottom: 5px;"><strong>KM 19, Sector La Carbonera</strong></p>
+                    <p style="font-size: 15px; margin-bottom: 5px;">Parroquia Carrizal, Municipio Carrizal</p>
+                    <p style="font-size: 15px; margin-bottom: 15px;">Estado Miranda</p>
+
+                    <p
+                        style="font-size: 14px; color: #555; margin-bottom: 25px; font-style: italic; border-top: 1px solid #eee; padding-top: 15px;">
+                        (Subiendo vía San Antonio, mano derecha, Entrada Lámparas Murialdo)
+                    </p>
+
+                    <!-- Botón con TU link de Google Maps -->
+                    <a href="https://maps.app.goo.gl/1NGT2XAwueNz1aUy8" target="_blank"
+                        style="display: inline-block; padding: 14px 25px; background: linear-gradient(45deg, #2a5f6e, #1e3e48); color: white; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <i class="fas fa-route"></i> VER UBICACIÓN EN MAPS
+                    </a>
+                </div>
+            </div>
 
             <div class="contenedor-musica" id="contenedorMusica" style="display: none;">
                 <h3><i class="fas fa-heart"></i> REGALO ESPECIAL</h3>
@@ -279,15 +282,14 @@
     </section>
 
     <!-- ========== PIE DE PÁGINA ========== -->
-    <footer class="pie-invitacion">
+    <footer class="pie-invitacion" id="pieInvitacion">
         <p class="mensaje-final">Con amor, Elisabet Romero y Familia ❤️</p>
     </footer>
-<!-- Botón de música flotante -->
-<button id="botonMusicaFlotante" class="musica-flotante" aria-label="Activar o pausar música">
-  🎵
-</button>
+    <!-- Botón de música flotante -->
+    <button id="botonMusicaFlotante" class="musica-flotante" aria-label="Activar o pausar música">
+        🎵
+    </button>
     <script src="codigo.js"></script>
 </body>
 
 </html>
-
