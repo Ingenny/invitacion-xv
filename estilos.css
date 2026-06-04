@@ -1673,7 +1673,7 @@ background-color: #001845;
     width: 60% !important;          /* Un poco más ancho */
     max-width: 220px !important;    /* Aumentado de 200 a 220px */
     padding: 12px 20px !important;
-    font-size: 14px !important;     /* ← REDUCIDO de 15 a 14px */
+    font-size: 11px !important;     /* ← REDUCIDO de 15 a 14px */
     white-space: nowrap !important; /* Evita que el texto se parta en dos líneas */
     margin: 30px auto 15px auto !important;
     z-index: 20 !important;
