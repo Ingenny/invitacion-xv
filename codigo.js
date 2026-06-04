@@ -146,18 +146,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // 6. BOTÓN ABRIR INVITACIÓN (Página 2 → Página 3)
   // ============================================
 
-    if (btnSiguientePagina) {
-    btnSiguientePagina.addEventListener('click', function () {
-      console.log('➡️ Siguiente página')
-
-      if (paginaDos) {
-        paginaDos.style.display = 'none'
-        paginaDos.classList.remove('visible')
+  if (botonAbrir) {
+    botonAbrir.addEventListener('click', function (event) {
+      console.log('🎉 Clic en ABRIR INVITACIÓN')
+      
+      // Ocultar portada
+      if (portada) {
+        portada.style.display = 'none'
       }
       
-      if (invitacionDetallada) {
-        invitacionDetallada.classList.add('visible')  // ← Usamos clase en vez de display directo
-        invitacionDetallada.style.animation = 'abrirCarta 0.6s ease-out forwards'
+      // Mostrar página 3 (mensaje + muñeca)
+      if (paginaDos) {
+        paginaDos.style.display = 'flex'
+        paginaDos.style.animation = 'abrirCarta 0.8s ease-out forwards'
       }
       
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -170,13 +171,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (btnSiguientePagina) {
     btnSiguientePagina.addEventListener('click', function () {
-      console.log('➡️ Siguiente página')
+      console.log('➡️ Clic en SIGUIENTE')
 
-      if (paginaDos) paginaDos.style.display = 'none'
+      // Ocultar página 3 (mensaje)
+      if (paginaDos) {
+        paginaDos.style.display = 'none'
+      }
+      
+      // Mostrar página 4 (invitación detallada)
       if (invitacionDetallada) {
         invitacionDetallada.style.display = 'block'
         invitacionDetallada.style.animation = 'abrirCarta 0.6s ease-out forwards'
       }
+      
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
   }
