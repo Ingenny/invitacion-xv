@@ -1516,7 +1516,7 @@ background-color: #001845;
   }
 
   .nombre-quinceanera {
-    font-size: 44px !important;
+    font-size: 32px !important;
     margin: 5px 0 !important;
     color: #ffffff !important;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
@@ -1535,30 +1535,30 @@ background-color: #001845;
     margin: 10px 0 !important;
   }
   .tiempo {
-    min-width: 65px !important;
-    padding: 10px 5px !important;
+    min-width: 50px !important;
+    padding: 8px 4px !important;
     background: rgba(0, 0, 0, 0.6) !important;
     border-radius: 8px !important;
     border: 1px solid rgba(212, 175, 55, 0.5) !important;
   }
   .tiempo .numero {
-    font-size: 28px !important;
+    font-size: 20px !important;
     color: #ffd700 !important;
     font-weight: bold !important;
   }
   .tiempo .texto {
-    font-size: 11px !important;
+    font-size: 9px !important;
     color: #f4e4a6 !important;
-    margin-top: 3px !important;
+    margin-top: 2px !important;
   }
 
   .boton-real {
-    padding: 14px 28px !important;
-    font-size: 18px !important;
-    margin-top: 12px !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    margin-top: 10px !important;
     margin-bottom: 5px !important;
-    width: 85% !important;
-    max-width: 300px !important;
+    width: 80% !important;
+    max-width: 260px !important;
     z-index: 100 !important;
   }
 
