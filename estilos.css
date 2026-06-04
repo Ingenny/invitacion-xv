@@ -1492,10 +1492,10 @@ background-color: #001845;
     z-index: -1 !important;
   }
 
-  .portada {
+    .portada {
     min-height: 100vh !important;
     height: 100vh !important;
-    padding: 0 15px 70px 15px !important; /* Espacio abajo para el footer fijo */
+    padding: 0 15px 100px 15px !important;  /* ← CAMBIADO a 100px */
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -1556,7 +1556,7 @@ background-color: #001845;
     padding: 12px 24px !important;
     font-size: 16px !important;
     margin-top: 10px !important;
-    margin-bottom: 5px !important;
+    margin-bottom: 20px !important;
     width: 80% !important;
     max-width: 260px !important;
     z-index: 10000 !important;
