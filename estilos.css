@@ -1667,17 +1667,17 @@ background-color: #001845;
     width: 60px !important;
   }
 
-  .btn-siguiente-pagina {
-    position: absolute !important;
-    bottom: 20px !important;
-    width: 80% !important;
-    max-width: 280px !important;
-    padding: 16px !important;
-    font-size: 17px !important;
-    margin: 0 !important;
+    .btn-siguiente-pagina {
+    position: relative !important; /* Quitamos el absolute para que fluya normal */
+    bottom: auto !important;       /* Ya no lo pegamos abajo */
+    width: 50% !important;         /* Más estrecho (antes 80%) */
+    max-width: 200px !important;   /* Tamaño máximo más pequeño */
+    padding: 12px 20px !important; /* Más compacto */
+    font-size: 15px !important;    /* Letra más pequeña */
+    margin: 30px auto 15px auto !important; /* Centrado horizontal */
     z-index: 20 !important;
+    display: block !important;     /* Para que funcione el margin auto */
   }
-
   /* ============================================
      PÁGINA 4: INVITACIÓN DETALLADA
      ============================================ */
