@@ -214,16 +214,14 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('✅ Sobre ocultado');
       }
       
-      if (portada) {
+           if (portada) {
         console.log('📄 Mostrando portada...');
+        // Aplicamos la animación ANTES de mostrar, para que no parpadee
+        portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
         portada.style.display = 'flex';
         portada.style.opacity = '1';
         portada.style.visibility = 'visible';
-        
-        setTimeout(() => {
-          portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
-          console.log('✅ Portada visible con animación');
-        }, 100);
+        console.log('✅ Portada visible con animación');
       }
     }, 2500); 
   }
