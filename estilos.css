@@ -1626,6 +1626,10 @@ background-color: #001845;
     position: relative !important;
     overflow: hidden !important;
   }
+    /* Solo mostrar cuando tenga la clase 'visible' */
+  .pagina-dos.visible {
+    display: flex !important;
+  }
 
   .mensaje-container {
     width: 95% !important;
@@ -1684,7 +1688,10 @@ background-color: #001845;
     padding: 0 !important;
     overflow-y: auto !important;
   }
-
+  /* Solo mostrar cuando tenga la clase 'visible' */
+  .invitacion-detallada.visible {
+    display: block !important;
+  }
   .tarjeta-invitacion { 
     border-radius: 0 !important; 
     width: 100% !important;
