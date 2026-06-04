@@ -1646,17 +1646,18 @@ background-color: #001845;
     font-size: 20px !important; 
   }
 
-  .muneca-container {
-    position: absolute !important;
-    bottom: 85px !important;
-    right: 10px !important;
-    margin: 0 !important;
-    text-align: right !important;
+    .muneca-container {
+    position: relative !important;  /* Ya no absoluta, para centrarla */
+    bottom: auto !important;
+    right: auto !important;
+    margin: 20px auto !important;   /* Centrada */
+    text-align: center !important;
     z-index: 10 !important;
   }
   .muneca-img { 
-    width: 140px !important;
-    border-radius: 10px !important;
+    width: 200px !important;        /* Aumentado de 140px a 200px */
+    border-radius: 15px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
   }
 
   .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 { 
