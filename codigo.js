@@ -328,26 +328,35 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
-  // 9. BOTÓN SIGUIENTE (Página 3 → Página 4)
+  // 9. BOTÓN SIGUIENTE (Página 3 → Página 4) CON EFECTO MÁGICO
   // ============================================
 
   if (btnSiguientePagina) {
     btnSiguientePagina.addEventListener('click', function () {
-      console.log('➡️ Clic en SIGUIENTE')
-
-      if (paginaDos) {
-        paginaDos.style.display = 'none'
-      }
+      console.log('➡️ Clic en SIGUIENTE - Efecto Mágico')
       
-      if (invitacionDetallada) {
-        invitacionDetallada.style.display = 'block'
-        invitacionDetallada.style.animation = 'abrirCarta 0.6s ease-out forwards'
-      }
+      const centroX = window.innerWidth / 2
+      const centroY = window.innerHeight / 2
       
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // Ejecutar efectos mágicos (varita + espiral)
+      crearEfectoVaritaMagica()
+      crearEfectoEspiral(centroX, centroY)
+      
+      // Esperar a que termine el efecto y mostrar la invitación detallada
+      setTimeout(() => {
+        if (paginaDos) {
+          paginaDos.style.display = 'none'
+        }
+        
+        if (invitacionDetallada) {
+          invitacionDetallada.style.display = 'block'
+          invitacionDetallada.style.animation = 'abrirCarta 1s ease-out forwards'
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 1500) // Espera 1.5 segundos para el efecto
     })
   }
-
   // ============================================
   // 10. SOBRE INTERACTIVO (Página 1 → Página 2)
   // ============================================
