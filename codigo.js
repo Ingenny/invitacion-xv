@@ -146,22 +146,37 @@ document.addEventListener('DOMContentLoaded', function () {
   // 6. BOTÓN ABRIR INVITACIÓN (Página 2 → Página 3)
   // ============================================
 
+   // ============================================
+  // 6. BOTÓN ABRIR INVITACIÓN CON EFECTO VARITA MÁGICA
+  // ============================================
+
   if (botonAbrir) {
     botonAbrir.addEventListener('click', function (event) {
-      console.log('🎉 Clic en ABRIR INVITACIÓN')
+      console.log('🎉 Clic en ABRIR INVITACIÓN - Efecto Mágico')
       
-      // Ocultar portada
-      if (portada) {
-        portada.style.display = 'none'
-      }
+      // 1. Obtener posición del centro de la pantalla
+      const centroX = window.innerWidth / 2
+      const centroY = window.innerHeight / 2
       
-      // Mostrar página 3 (mensaje + muñeca)
-      if (paginaDos) {
-        paginaDos.style.display = 'flex'
-        paginaDos.style.animation = 'abrirCarta 0.8s ease-out forwards'
-      }
+      // 2. Ejecutar efecto varita mágica
+      crearEfectoVaritaMagica()
       
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // 3. Ejecutar efecto espiral de destellos
+      crearEfectoEspiral(centroX, centroY)
+      
+      // 4. Esperar a que termine el efecto y mostrar la página del mensaje
+      setTimeout(() => {
+        if (portada) {
+          portada.style.display = 'none'
+        }
+        
+        if (paginaDos) {
+          paginaDos.style.display = 'flex'
+          paginaDos.style.animation = 'abrirCarta 1s ease-out forwards'
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 1500) // Espera 1.5 segundos para que se vea el efecto completo
     })
   }
 
