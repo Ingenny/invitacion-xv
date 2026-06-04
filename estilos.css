@@ -1671,14 +1671,15 @@ background-color: #001845;
   }
 
    .btn-siguiente-pagina {
-    position: relative !important;
-    bottom: auto !important;
-    width: 60% !important;          /* Un poco más ancho */
-    max-width: 220px !important;    /* Aumentado de 200 a 220px */
-    padding: 12px 20px !important;
-    font-size: 9px !important;     /* ← REDUCIDO de 15 a 14px */
-    white-space: nowrap !important; /* Evita que el texto se parta en dos líneas */
-    margin: 30px auto 15px auto !important;
+    position: absolute !important;  /* Ahora absoluta */
+    bottom: 30px !important;        /* Pegado abajo */
+    right: 15px !important;         /* Esquina derecha */
+    width: auto !important;
+    max-width: 140px !important;    /* Más pequeño */
+    padding: 10px 15px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
     z-index: 20 !important;
     display: inline-block !important;
     text-align: center !important;
