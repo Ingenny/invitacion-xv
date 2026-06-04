@@ -1442,8 +1442,11 @@ background-color: #001845;
     font-size: 16px;
   }
 
+  /* ===== MÓVIL: CÓDIGO COMPLETO E INTEGRADO ===== */
+@media only screen and (max-width: 768px) {
+  
   /* ============================================
-     PÁGINA 1: SOBRE GRANDE CENTRADO
+     PÁGINA 1: SOBRE
      ============================================ */
   .sobre-inicial { 
     height: 100vh;
@@ -1475,12 +1478,10 @@ background-color: #001845;
     border-bottom-width: 75px; 
     border-top-width: 75px; 
   }
- /* ============================================
-   PÁGINA 2: PORTADA - FONDO ADAPTADO Y LETRAS GRANDES
-   ============================================ */
-@media only screen and (max-width: 768px) {
-  
-  /* Fondo adaptado a la pantalla (igual que el video de la Página 1) */
+
+  /* ============================================
+     PÁGINA 2: PORTADA CON FOOTER FIJO
+     ============================================ */
   .portada::before {
     content: '' !important;
     position: fixed !important;
@@ -1496,22 +1497,20 @@ background-color: #001845;
 
   .portada {
     min-height: 100vh !important;
-    height: 100vh !important; /* Altura fija de la pantalla */
-    padding: 0 15px !important;
+    height: 100vh !important;
+    padding: 0 15px 70px 15px !important; /* Espacio abajo para el footer fijo */
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Centrado vertical perfecto */
+    justify-content: center !important;
     align-items: center !important;
     gap: 8px !important;
     position: relative !important;
     overflow: hidden !important;
   }
 
-  /* CORONA */
   .corona-animada { margin: 0 0 5px 0 !important; }
   .corona-animada img { width: 110px !important; }
 
-  /* TÍTULO MIS XV AÑOS */
   .titulo-elegante {
     font-size: 38px !important;
     margin: 0 !important;
@@ -1519,24 +1518,21 @@ background-color: #001845;
     line-height: 1.1 !important;
   }
 
-  /* NOMBRE ELISABET ROMERO (AUMENTADO) */
   .nombre-quinceanera {
-    font-size: 44px !important; /* AUMENTADO */
+    font-size: 44px !important;
     margin: 5px 0 !important;
     color: #ffffff !important;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
   }
 
-  /* SUBTÍTULO "Comparte conmigo..." (AUMENTADO) */
   .subtitulo {
-    font-size: 20px !important; /* AUMENTADO */
+    font-size: 20px !important;
     padding: 6px 18px !important;
     margin: 5px 0 10px 0 !important;
     color: #f0e6c5 !important;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
   }
 
-  /* CONTADOR (AUMENTADO) */
   .contador-simple {
     gap: 8px !important;
     margin: 10px 0 !important;
@@ -1549,17 +1545,16 @@ background-color: #001845;
     border: 1px solid rgba(212, 175, 55, 0.5) !important;
   }
   .tiempo .numero {
-    font-size: 28px !important; /* AUMENTADO */
+    font-size: 28px !important;
     color: #ffd700 !important;
     font-weight: bold !important;
   }
   .tiempo .texto {
-    font-size: 11px !important; /* AUMENTADO */
+    font-size: 11px !important;
     color: #f4e4a6 !important;
     margin-top: 3px !important;
   }
 
-  /* BOTÓN ABRIR INVITACIÓN */
   .boton-real {
     padding: 14px 28px !important;
     font-size: 18px !important;
@@ -1570,22 +1565,6 @@ background-color: #001845;
     z-index: 100 !important;
   }
 
-  /* FRASE FINAL "Con amor..." (AUMENTADO) */
-  .pie-invitacion {
-    margin-top: 5px !important;
-    padding: 10px 15px !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    border-radius: 8px !important;
-    width: 90% !important;
-    max-width: 320px !important;
-  }
-  .mensaje-final {
-    font-size: 22px !important; /* AUMENTADO */
-    color: #f4e4a6 !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
-  }
-
-  /* RELOJ DERRETIDO */
   .reloj-derretido {
     transform: scale(1.1) !important;
     top: 10px !important;
@@ -1596,7 +1575,6 @@ background-color: #001845;
     height: 75px !important;
   }
 
-  /* JOYAS/DIAMANTES */
   .joya {
     font-size: 24px !important;
     opacity: 0.8 !important;
@@ -1607,58 +1585,77 @@ background-color: #001845;
     font-size: 28px !important;
   }
 
-  /* Naipes de abajo */
   .portada > div[style*="bottom: 20px"] {
     font-size: 32px !important;
     opacity: 0.9 !important;
     bottom: 5px !important;
   }
-}
-    /* ============================================
-     PÁGINA 3: MENSAJE ARRIBA, MUÑECA A LA ESQUINA
-     ============================================ */
-  .pagina-dos {
-    min-height: 100vh;
-    height: auto;
-    padding: 30px 15px 100px 15px !important; /* Espacio abajo para el botón */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start !important; /* Empuja todo hacia arriba */
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+
+  /* FOOTER FIJO SOLO EN LA PORTADA */
+  .portada ~ .pie-invitacion,
+  body > .pie-invitacion {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 12px 15px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-top: 2px solid #d4af37 !important;
+    z-index: 9999 !important;
+    text-align: center !important;
+  }
+  
+  .mensaje-final {
+    font-size: 20px !important;
+    color: #f4e4a6 !important;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
+    margin: 0 !important;
+    font-family: 'Great Vibes', cursive !important;
   }
 
-  /* MENSAJE GRANDE Y ARRIBA */
+  /* ============================================
+     PÁGINA 3: MENSAJE + MUÑECA
+     ============================================ */
+  .pagina-dos {
+    min-height: 100vh !important;
+    height: auto !important;
+    padding: 30px 15px 100px 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
   .mensaje-container {
-    width: 95%;
-    max-width: 480px;
+    width: 95% !important;
+    max-width: 480px !important;
     margin: 0 auto 20px auto !important;
     padding: 25px 20px !important;
   }
   .mensaje-emotivo { 
-    font-size: 20px !important; /* Grande y legible */
+    font-size: 20px !important;
     line-height: 1.5 !important; 
   }
   .mensaje-emotivo .linea::first-letter { 
     font-size: 28px !important; 
   }
 
-  /* MUÑECA A LA ESQUINA INFERIOR DERECHA */
   .muneca-container {
-    position: absolute;
-    bottom: 85px;
-    right: 10px;
+    position: absolute !important;
+    bottom: 85px !important;
+    right: 10px !important;
     margin: 0 !important;
-    text-align: right;
-    z-index: 10;
+    text-align: right !important;
+    z-index: 10 !important;
   }
   .muneca-img { 
-    width: 140px !important; /* Tamaño equilibrado */
+    width: 140px !important;
     border-radius: 10px !important;
   }
 
-  /* DECORACIONES VISIBLES */
   .deco-1, .deco-2, .deco-3, .deco-4, .deco-5 { 
     width: 60px !important;
   }
@@ -1669,159 +1666,72 @@ background-color: #001845;
     width: 60px !important;
   }
 
-  /* BOTÓN SIGUIENTE FIJO ABAJO */
   .btn-siguiente-pagina {
-    position: absolute;
-    bottom: 20px;
-    width: 80%;
-    max-width: 280px;
+    position: absolute !important;
+    bottom: 20px !important;
+    width: 80% !important;
+    max-width: 280px !important;
     padding: 16px !important;
     font-size: 17px !important;
     margin: 0 !important;
-    z-index: 20;
-  }
-    /* ============================================
-     PÁGINA 4: INVITACIÓN DETALLADA (COMPACTA Y LEGIBLE)
-     ============================================ */
-  .invitacion-detallada {
-    min-height: 100vh;
-    height: auto;
-    padding: 0 !important; /* Sin padding para que ocupe todo */
-    overflow-y: auto;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('fondos/fondo3.jpg') no-repeat center center fixed;
-    background-size: cover;
+    z-index: 20 !important;
   }
 
-  /* TARJETA SIN BORDES REDONDEADOS PARA OCUPAR TODO EL ANCHO */
+  /* ============================================
+     PÁGINA 4: INVITACIÓN DETALLADA
+     ============================================ */
+  .invitacion-detallada {
+    min-height: 100vh !important;
+    height: auto !important;
+    padding: 0 !important;
+    overflow-y: auto !important;
+  }
+
   .tarjeta-invitacion { 
     border-radius: 0 !important; 
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    box-shadow: none !important;
   }
 
-  /* ENCABEZADO */
-  .encabezado-tarjeta { 
-    padding: 25px 15px !important; 
-  }
-  .encabezado-tarjeta h3 { 
-    font-size: 16px !important; 
-    line-height: 1.4 !important;
-    margin-bottom: 8px !important;
-  }
-  .titulo-grande { 
-    font-size: 40px !important; 
-    margin: 5px 0 !important;
-    letter-spacing: 2px !important;
-  }
-  .titulo-grande::before, .titulo-grande::after { 
-    font-size: 22px !important; 
-    margin: 0 8px !important;
-  }
+  .encabezado-tarjeta { padding: 25px 15px !important; }
+  .encabezado-tarjeta h3 { font-size: 16px !important; }
+  .titulo-grande { font-size: 40px !important; }
 
-  /* DETALLES EN UNA SOLA COLUMNA (MÁS LEÍBLE) */
   .detalles-evento { 
-    grid-template-columns: 1fr !important; /* UNA SOLA COLUMNA */
+    grid-template-columns: 1fr !important;
     padding: 20px 15px !important; 
     gap: 18px !important; 
   }
-  .detalle-item { 
-    gap: 12px !important; 
-    align-items: flex-start !important;
-    padding: 10px 0 !important;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
-  }
-  .detalle-item:last-child {
-    border-bottom: none !important;
-  }
-  .detalle-item i { 
-    font-size: 24px !important;
-    min-width: 30px !important;
-    margin-top: 3px !important;
-  }
-  .detalle-item h4 { 
-    font-size: 15px !important; 
-    margin-bottom: 3px !important;
-    letter-spacing: 1px !important;
-  }
-  .info-evento { 
-    font-size: 19px !important; 
-    line-height: 1.3 !important;
-  }
-  .detalle-lugar { 
-    font-size: 14px !important; 
-    margin-top: 3px !important;
-    color: #888 !important;
-  }
+  .detalle-item h4 { font-size: 15px !important; }
+  .info-evento { font-size: 19px !important; }
 
-  /* BOTONES DE ACCIÓN EN UNA COLUMNA (FÁCILES DE TOCAR) */
   .botones-accion { 
-    grid-template-columns: 1fr !important; /* UNA SOLA COLUMNA */
+    grid-template-columns: 1fr !important;
     padding: 0 15px 20px 15px !important; 
     gap: 12px !important; 
   }
   .boton-accion { 
     padding: 16px 12px !important; 
     font-size: 16px !important; 
-    border-radius: 10px !important;
-    justify-content: center !important;
   }
 
-  /* FORMULARIOS Y CONTENEDORES */
   .formulario-rsvp, .contenedor-mapa, .contenedor-musica { 
     padding: 25px 20px !important; 
   }
   .formulario-rsvp h3, .contenedor-mapa h3, .contenedor-musica h3 { 
     font-size: 22px !important; 
-    margin-bottom: 20px !important; 
-    text-align: center !important;
-  }
-  .grupo-formulario label { 
-    font-size: 16px !important; 
-    margin-bottom: 8px !important; 
-    display: block !important;
   }
   .grupo-formulario input { 
-    font-size: 16px !important; /* Evita zoom en iPhone */
+    font-size: 16px !important;
     padding: 16px !important; 
-    border-radius: 10px !important; 
-    width: 100% !important; 
-    box-sizing: border-box !important;
-    border: 2px solid #ddd !important;
-  }
-  .grupo-formulario input:focus {
-    border-color: #d4af37 !important;
-    outline: none !important;
   }
   .boton-enviar { 
     padding: 18px !important; 
     font-size: 18px !important; 
-    margin-top: 20px !important; 
-    width: 100% !important; 
-    border-radius: 10px !important; 
   }
   
-  /* LISTA DE REGALOS/APORTES */
-  .lista-musica { 
-    padding: 20px !important; 
-    border-radius: 12px !important;
-    margin-top: 10px !important;
-  }
   .lista-musica p { 
     font-size: 16px !important; 
-    padding: 10px 0 !important;
-    line-height: 1.5 !important;
-  }
-
-  /* PIE DE PÁGINA */
-  .pie-invitacion { 
-    padding: 20px 15px !important; 
-    margin-top: 0 !important;
-    width: 100% !important;
-  }
-  .mensaje-final { 
-    font-size: 18px !important; 
   }
 }
