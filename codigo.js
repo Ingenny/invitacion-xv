@@ -143,28 +143,175 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
-  // 6. BOTÓN ABRIR INVITACIÓN (Página 2 → Página 3)
+  // 6. EFECTO ESPIRAL DE DESTELLOS
   // ============================================
 
-   // ============================================
-  // 6. BOTÓN ABRIR INVITACIÓN CON EFECTO VARITA MÁGICA
+  function crearEfectoEspiral(x, y) {
+    const esMovil = window.innerWidth <= 768
+    const radioGrande = esMovil ? 70 : 110
+    const radioMediano = esMovil ? 50 : 75
+    const radioPequeno = esMovil ? 30 : 45
+
+    const onda = document.createElement('div')
+    onda.style.position = 'fixed'
+    onda.style.left = x + 'px'
+    onda.style.top = y + 'px'
+    onda.style.width = '0'
+    onda.style.height = '0'
+    onda.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0))'
+    onda.style.borderRadius = '50%'
+    onda.style.transform = 'translate(-50%, -50%)'
+    onda.style.pointerEvents = 'none'
+    onda.style.zIndex = '9997'
+    onda.style.animation = 'onda 0.8s ease-out forwards'
+    document.body.appendChild(onda)
+
+    const formas = ['✦', '✧', '✵', '✶', '·', '•']
+    const colores = ['#ffd700', '#fff8dc', '#f5e6b8', '#ffe4b5', '#daa520']
+
+    const numGrande = esMovil ? 12 : 18
+    for (let i = 0; i < numGrande; i++) {
+      setTimeout(function () {
+        const particula = document.createElement('div')
+        particula.style.position = 'fixed'
+        particula.style.pointerEvents = 'none'
+        particula.style.zIndex = '9999'
+        particula.style.animation = 'brilloEspiral 0.8s ease-out forwards'
+        particula.innerHTML = formas[Math.floor(Math.random() * formas.length)]
+        particula.style.color = colores[Math.floor(Math.random() * colores.length)]
+
+        const angulo = (i / numGrande) * Math.PI * 2
+        particula.style.left = x + Math.cos(angulo) * radioGrande + 'px'
+        particula.style.top = y + Math.sin(angulo) * radioGrande + 'px'
+        particula.style.fontSize = (esMovil ? 12 : 16) + Math.random() * 8 + 'px'
+        particula.style.textShadow = '0 0 5px gold'
+
+        document.body.appendChild(particula)
+        setTimeout(function () { particula.remove() }, 800)
+      }, i * 25)
+    }
+
+    const numMediano = esMovil ? 10 : 16
+    for (let i = 0; i < numMediano; i++) {
+      setTimeout(function () {
+        const particula = document.createElement('div')
+        particula.style.position = 'fixed'
+        particula.style.pointerEvents = 'none'
+        particula.style.zIndex = '9999'
+        particula.style.animation = 'brilloEspiral 0.7s ease-out forwards'
+        particula.innerHTML = formas[Math.floor(Math.random() * formas.length)]
+        particula.style.color = colores[Math.floor(Math.random() * colores.length)]
+
+        const angulo = (i / numMediano) * Math.PI * 2
+        particula.style.left = x + Math.cos(angulo) * radioMediano + 'px'
+        particula.style.top = y + Math.sin(angulo) * radioMediano + 'px'
+        particula.style.fontSize = (esMovil ? 10 : 14) + Math.random() * 6 + 'px'
+        particula.style.textShadow = '0 0 4px gold'
+
+        document.body.appendChild(particula)
+        setTimeout(function () { particula.remove() }, 700)
+      }, i * 20)
+    }
+
+    const numPequeno = esMovil ? 8 : 14
+    for (let i = 0; i < numPequeno; i++) {
+      setTimeout(function () {
+        const particula = document.createElement('div')
+        particula.style.position = 'fixed'
+        particula.style.pointerEvents = 'none'
+        particula.style.zIndex = '9999'
+        particula.style.animation = 'brilloEspiral 0.6s ease-out forwards'
+        particula.innerHTML = formas[Math.floor(Math.random() * formas.length)]
+        particula.style.color = colores[Math.floor(Math.random() * colores.length)]
+
+        const angulo = (i / numPequeno) * Math.PI * 2
+        particula.style.left = x + Math.cos(angulo) * radioPequeno + 'px'
+        particula.style.top = y + Math.sin(angulo) * radioPequeno + 'px'
+        particula.style.fontSize = (esMovil ? 8 : 12) + Math.random() * 6 + 'px'
+        particula.style.textShadow = '0 0 3px gold'
+
+        document.body.appendChild(particula)
+        setTimeout(function () { particula.remove() }, 600)
+      }, i * 15)
+    }
+
+    setTimeout(function () { onda.remove() }, 800)
+  }
+
+  // ============================================
+  // 7. EFECTO VARITA MÁGICA
+  // ============================================
+
+  function crearEfectoVaritaMagica() {
+    const fondo = document.createElement('div')
+    fondo.className = 'fondo-magico'
+    document.body.appendChild(fondo)
+
+    const onda = document.createElement('div')
+    onda.className = 'onda-varita'
+    document.body.appendChild(onda)
+
+    const varita = document.createElement('div')
+    varita.className = 'varita-movimiento'
+    varita.innerHTML = '🪄'
+    document.body.appendChild(varita)
+
+    const glitterItems = ['✦', '✧', '·', '•', '✵', '✶']
+    for (let i = 0; i < 60; i++) {
+      setTimeout(() => {
+        const particula = document.createElement('div')
+        particula.className = 'destello-varita'
+        particula.innerHTML = glitterItems[Math.floor(Math.random() * glitterItems.length)]
+        const x = Math.random() * window.innerWidth
+        const y = Math.random() * window.innerHeight
+        particula.style.left = x + 'px'
+        particula.style.top = y + 'px'
+        particula.style.fontSize = 12 + Math.random() * 18 + 'px'
+        particula.style.color = '#ffd700'
+        particula.style.textShadow = '0 0 5px gold, 0 0 10px #ffaa00'
+        document.body.appendChild(particula)
+        setTimeout(() => particula.remove(), 800)
+      }, i * 40)
+    }
+
+    for (let i = 0; i < 80; i++) {
+      setTimeout(() => {
+        const particula = document.createElement('div')
+        particula.className = 'destello-varita'
+        particula.innerHTML = '·'
+        particula.style.left = Math.random() * window.innerWidth + 'px'
+        particula.style.top = Math.random() * window.innerHeight + 'px'
+        particula.style.fontSize = 6 + Math.random() * 8 + 'px'
+        particula.style.color = '#ffd700'
+        particula.style.opacity = '0.7'
+        document.body.appendChild(particula)
+        setTimeout(() => particula.remove(), 600)
+      }, i * 25)
+    }
+
+    setTimeout(() => {
+      fondo.remove()
+      onda.remove()
+      varita.remove()
+    }, 2800)
+  }
+
+  // ============================================
+  // 8. BOTÓN ABRIR INVITACIÓN (Página 2 → Página 3) CON EFECTO MÁGICO
   // ============================================
 
   if (botonAbrir) {
     botonAbrir.addEventListener('click', function (event) {
-      console.log('🎉 Clic en ABRIR INVITACIÓN - Efecto Mágico')
+      console.log(' Clic en ABRIR INVITACIÓN - Efecto Mágico')
       
-      // 1. Obtener posición del centro de la pantalla
       const centroX = window.innerWidth / 2
       const centroY = window.innerHeight / 2
       
-      // 2. Ejecutar efecto varita mágica
+      // Ejecutar efectos mágicos
       crearEfectoVaritaMagica()
-      
-      // 3. Ejecutar efecto espiral de destellos
       crearEfectoEspiral(centroX, centroY)
       
-      // 4. Esperar a que termine el efecto y mostrar la página del mensaje
+      // Esperar a que termine el efecto y mostrar la página del mensaje
       setTimeout(() => {
         if (portada) {
           portada.style.display = 'none'
@@ -176,24 +323,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         
         window.scrollTo({ top: 0, behavior: 'smooth' })
-      }, 1500) // Espera 1.5 segundos para que se vea el efecto completo
+      }, 1500)
     })
   }
 
   // ============================================
-  // 7. BOTÓN SIGUIENTE (Página 3 → Página 4)
+  // 9. BOTÓN SIGUIENTE (Página 3 → Página 4)
   // ============================================
 
   if (btnSiguientePagina) {
     btnSiguientePagina.addEventListener('click', function () {
       console.log('➡️ Clic en SIGUIENTE')
 
-      // Ocultar página 3 (mensaje)
       if (paginaDos) {
         paginaDos.style.display = 'none'
       }
       
-      // Mostrar página 4 (invitación detallada)
       if (invitacionDetallada) {
         invitacionDetallada.style.display = 'block'
         invitacionDetallada.style.animation = 'abrirCarta 0.6s ease-out forwards'
@@ -204,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
-  // 8. SOBRE INTERACTIVO (Página 1 → Página 2)
+  // 10. SOBRE INTERACTIVO (Página 1 → Página 2)
   // ============================================
   const sobreInicial = document.getElementById('sobreInicial');
   const envelope = document.getElementById('envelope');
@@ -229,9 +374,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('✅ Sobre ocultado');
       }
       
-           if (portada) {
+      if (portada) {
         console.log('📄 Mostrando portada...');
-        // Aplicamos la animación ANTES de mostrar, para que no parpadee
         portada.style.animation = 'abrirCarta 0.8s ease-out forwards';
         portada.style.display = 'flex';
         portada.style.opacity = '1';
