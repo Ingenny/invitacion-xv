@@ -1615,10 +1615,10 @@ background-color: #001845;
   /* ============================================
      PÁGINA 3: MENSAJE + MUÑECA
      ============================================ */
-  .pagina-dos {
+   .pagina-dos {
     min-height: 100vh !important;
     height: auto !important;
-    padding: 30px 15px 100px 15px !important;
+    padding: 30px 15px 40px 15px !important; /* Menos espacio abajo */
     flex-direction: column !important;
     justify-content: flex-start !important;
     align-items: center !important;
