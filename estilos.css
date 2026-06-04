@@ -936,7 +936,9 @@ background-color: #001845;
 .mensaje-emotivo .line7 {
   animation-delay: 4.2s;
 }
-
+.mensaje-emotivo .line8 {
+  animation-delay: 4.7s;
+}
 @keyframes aparecerLineaMagica {
   0% {
     opacity: 0;
